@@ -1,3 +1,4 @@
+Week 1 25/3-2022
 
 what do I want to learn or understand better?
 I want to learn more about scrum, how to efficiently work in a team.
@@ -11,3 +12,19 @@ Attend the group meatings. Do my assignment for the sprints as good as possible.
 
 what is my contribution towards the team’s deliveries?
 Attending the friday meating where we drafted the social contract and created github repositroy.
+
+Week 2 1/4 - 2022
+
+What do I want to learn or understand better?
+I want to become better in React and TypeScript beacuse we chose to do the project in them languages.
+
+How can I help someone else, or the entire team, to learn something new?
+I think i have a decent understanding in React and TypeScript so i can help the team members who haven't done anyting in React and TypeScript before.
+But this week we havent done any coding so i think creating a mockup to help sara who made a mockup see my perspective of the website too.
+
+What is my contribution towards the team’s use of Scrum?
+Not much haven't really started doing anything in scrum at this momment.
+
+What is my contribution towards the team’s deliveries?
+I created a mockup of how i thought the website/app should look. We all created a business model and
+ project description together on the friday meeting we had.
