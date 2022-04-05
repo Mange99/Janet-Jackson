@@ -1,15 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import ButtonOne from './buttonOne' ;
+import { Flex } from "@chakra-ui/react";
+import ButtonOne from "./components/deaBtn/buttonOne";
+import MagnusBtn from "./components/MagnusBtn";
 
 function App() {
   return (
-    <div className="App">
-      <ButtonOne/>
-    <button></button>
-    </div>
- 
+    <Flex justify={"center"} gap={4} mt="4">
+      <ButtonOne />
+      <MagnusBtn />
+      {/* Lägg in en egen knapp me ert namn här under*/}
+    </Flex>
   );
 }
 
