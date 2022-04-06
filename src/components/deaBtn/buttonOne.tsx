@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import "../deaBtn/buttonOneCss.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function onClickOne() {
   alert("Deaa");
