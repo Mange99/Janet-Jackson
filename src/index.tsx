@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {HeaderComponent} from "../src/components/header/headerComponent";
 import {ExerciseCard} from "../src/components/exerciseCard/exerciseCard";
 import {ExerciseCardGrid} from "../src/components/exerciseCardGrid/exerciseCardGrid";
+import {ExercisePage} from "../src/components/exercisePage/exercisePage";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,7 +16,7 @@ ReactDOM.render(
       <BrowserRouter>
       <Routes>
       <Route path ="/" element={<HeaderComponent/>}>
-        <Route path="exercise" element={<ExerciseCardGrid/>}/>
+        <Route path="exercise" element={<ExercisePage/>}/>
         </Route>
       </Routes>
       </BrowserRouter>
