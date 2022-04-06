@@ -8,11 +8,11 @@ export function HeaderComponent(){
 
   <Navbar bg="primary" variant="dark" expand="md" sticky="top">
     <Container>
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Navbar.Brand href="#home">Fitness</Navbar.Brand>
     <Nav className="me-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
+      <Nav.Link href="#home">Exersices</Nav.Link>
+      <Nav.Link href="#features">Food and Health</Nav.Link>
+      <Nav.Link href="#pricing">Tips</Nav.Link>
     </Nav>
     </Container>
   </Navbar>
