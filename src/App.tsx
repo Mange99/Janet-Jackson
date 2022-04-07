@@ -3,6 +3,7 @@ import ButtonOne from "./components/deaBtn/buttonOne";
 import MagnusBtn from "./components/MagnusBtn";
 import TbButton from "./components/TorbjornBtn";
 import HeddaBtn from "./components/HeddaBtn";
+import SaraBtn from "./components/SaraBtn";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <MagnusBtn />
       <TbButton />
       <HeddaBtn />
+      <SaraBtn />
       {/* Lägg in en egen knapp me ert namn här under*/}
     </Flex>
   );
