@@ -4,6 +4,8 @@ import MagnusBtn from "./components/MagnusBtn";
 import TbButton from "./components/TorbjornBtn";
 import HeddaBtn from "./components/HeddaBtn";
 import SaraBtn from "./components/SaraBtn";
+import Bilalbtn from "./components/Bilalbtn";
+
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <TbButton />
       <HeddaBtn />
       <SaraBtn />
+      
+      <Bilalbtn />
       {/* Lägg in en egen knapp me ert namn här under*/}
     </Flex>
   );
