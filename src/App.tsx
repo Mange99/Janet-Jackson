@@ -5,6 +5,7 @@ import TbButton from "./components/TorbjornBtn";
 import HeddaBtn from "./components/HeddaBtn";
 import SaraBtn from "./components/SaraBtn";
 import Bilalbtn from "./components/Bilalbtn";
+import AliBtn from "./components/AliBtn";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <TbButton />
       <HeddaBtn />
       <SaraBtn />
+      <AliBtn />
       
       <Bilalbtn />
       {/* Lägg in en egen knapp me ert namn här under*/}
