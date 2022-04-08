@@ -2,25 +2,20 @@ import { Flex } from "@chakra-ui/react";
 import ButtonOne from "./components/deaBtn/buttonOne";
 import MagnusBtn from "./components/MagnusBtn";
 import TbButton from "./components/TorbjornBtn";
-import HeddaBtn from "./components/HeddaBtn";
-import SaraBtn from "./components/SaraBtn";
-import Bilalbtn from "./components/Bilalbtn";
-import AliBtn from "./components/AliBtn";
-
+import {HeaderComponent} from "./components/header/headerComponent";
+import { Container } from "react-bootstrap";
+ 
+//import { Container } from "@chakra-ui/react";
 
 function App() {
   return (
-    <Flex justify={"center"} gap={4} mt="4">
+      <div>
+      <HeaderComponent/>
       <ButtonOne />
       <MagnusBtn />
       <TbButton />
-      <HeddaBtn />
-      <SaraBtn />
-      <AliBtn />
-      
-      <Bilalbtn />
       {/* Lägg in en egen knapp me ert namn här under*/}
-    </Flex>
+      </div>
   );
 }
 
