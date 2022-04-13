@@ -6,6 +6,7 @@ import {HeaderComponent} from "./components/header/headerComponent";
 import { Container } from "react-bootstrap";
  
 //import { Container } from "@chakra-ui/react";
+// a lot of changes
 
 function App() {
   return (
