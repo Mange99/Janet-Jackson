@@ -28,3 +28,19 @@ Not much haven't really started doing anything in scrum at this momment.
 What is my contribution towards the team’s deliveries?
 I created a mockup of how i thought the website/app should look. We all created a business model and
  project description together on the friday meeting we had.
+
+
+Week 3 8/4 - 2022
+
+What do I want to learn or understand better?
+I want to be better at writing good user storys and not too large as i often realize i write too big user storys almost epics.
+
+How can I help someone else, or the entire team, to learn something new?
+Help people with React and understanding the component library Chakra UI. 
+
+What is my contribution towards the team’s use of Scrum?
+Wrote user storys and defenition of done and code style document. 
+
+What is my contribution towards the team’s deliveries?
+Did my user story and split our initial document where we had everything documented into smaller.
+One DOD, group meating notes, code style document. 
