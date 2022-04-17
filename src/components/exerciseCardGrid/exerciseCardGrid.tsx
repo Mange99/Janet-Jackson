@@ -4,7 +4,7 @@ import { ExerciseCard } from "../exerciseCard/exerciseCard";
 
 const exercises = [
   {
-    name: "Exercise1",
+    name: "<h1>hej</h1>",
     describtion:
       "lerom pesos bla bla blabla bla lbblbal bla bla bla bla blabla",
   },
@@ -27,7 +27,6 @@ export function ExerciseCardGrid() {
         <Col>
           <ExerciseCard
             name={exercise.name}
-            describtion={exercise.describtion}
           />
         </Col>
       ))}
