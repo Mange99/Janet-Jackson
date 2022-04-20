@@ -1,21 +1,21 @@
-import { Flex } from "@chakra-ui/react";
-import ButtonOne from "./components/deaBtn/buttonOne";
-import MagnusBtn from "./components/MagnusBtn";
-import TbButton from "./components/TorbjornBtn";
 import {HeaderComponent} from "./components/header/headerComponent";
 import { Container } from "react-bootstrap";
- 
+ import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {ExerciseCard} from "../src/components/exerciseCard/exerciseCard";
+import {ExerciseCardGrid} from "../src/components/exerciseCardGrid/exerciseCardGrid";
+import {ExercisePage} from "../src/components/exercisePage/exercisePage";
+
 //import { Container } from "@chakra-ui/react";
 
 function App() {
   return (
-      <div>
-      <HeaderComponent/>
-      <ButtonOne />
-      <MagnusBtn />
-      <TbButton />
-      {/* Lägg in en egen knapp me ert namn här under*/}
-      </div>
+    <BrowserRouter>
+      <Routes>
+      <Route path ="/" element={<HeaderComponent/>}>
+        <Route path="exercise" element={<ExercisePage/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
