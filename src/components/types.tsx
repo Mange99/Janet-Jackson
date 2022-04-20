@@ -8,18 +8,23 @@
  * equipment is body weight, band etc...
  */
 
+
+export interface ExerciseCardGridProps {
+  exercises: ExerciseProps[];
+}
 export interface ExerciseProps {
     name: string,
-    bodyPart?: string,
-    equipment?: string,
-    gifUrl?: string,
-    id?: string;
-    target?: string;
-    bodyPartImg?: string;
-}
+    bodyPart: string,
+    equipment: string,
+    gifUrl: string,
+    id: string;
+    target: string;
+    bodyPartImg: string;
+};
 
 export interface InfoPanelProps {
+
     show: boolean;
     onHide: () => void;
     exercise: ExerciseProps;
-}
+};
