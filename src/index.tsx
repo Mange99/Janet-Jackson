@@ -2,27 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { ChakraProvider } from "@chakra-ui/react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {HeaderComponent} from "../src/components/header/headerComponent";
-import {ExerciseCard} from "../src/components/exerciseCard/exerciseCard";
-import {ExerciseCardGrid} from "../src/components/exerciseCardGrid/exerciseCardGrid";
-import {ExercisePage} from "../src/components/exercisePage/exercisePage";
-import {CalculatorPage} from "../src/components/calculatorPage/calculatorPage";
+import reportWebVitals from "./reportWebVitals
 
 ReactDOM.render(
   <React.StrictMode>
-
-      <BrowserRouter>
-      <Routes>
-      <Route path ="/" element={<HeaderComponent/>}>
-        <Route path="exercise" element={<ExercisePage/>}/>
-        <Route path="calculators" element= {<CalculatorPage/>}/>
-        </Route>
-      </Routes>
-      </BrowserRouter>
-  
+    <App/>
   </React.StrictMode>,
   document.getElementById("root")
 );

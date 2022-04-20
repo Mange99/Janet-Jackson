@@ -1,33 +1,18 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { ExerciseCard } from "../exerciseCard/exerciseCard";
+import { ExerciseCardGridProps } from "../types";
 
-const exercises = [
-  {
-    name: "Exercise1",
-    describtion:
-      "lerom pesos bla bla blabla bla lbblbal bla bla bla bla blabla",
-  },
-  {
-    name: "Exercise2",
-    describtion:
-      "lerom pesos bla bla blabla bla lbblbal bla bla bla bla blabla",
-  },
-  {
-    name: "Exercise3",
-    describtion:
-      "lerom pesos bla bla blabla bla lbblbal bla bla bla bla blabla",
-  },
-];
 
-export function ExerciseCardGrid() {
+export function ExerciseCardGrid(array: ExerciseCardGridProps) {
   return (
     <Row xs={1} md={2} lg={3} className="g-3">
-      {exercises.map((exercise) => (
+      {array.exercises.map((exercise) => (
         <Col>
-          <ExerciseCard
-            name={exercise.name}
-            describtion={exercise.describtion}
+            {console.log(exercise)}
+
+        <ExerciseCard
+            exercise={exercise}
           />
         </Col>
       ))}
