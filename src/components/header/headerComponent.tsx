@@ -15,6 +15,7 @@ export function HeaderComponent(){
       <Nav.Link href="exercise">Exercises</Nav.Link>
       <Nav.Link href="food-and-helth">Food and Health</Nav.Link>
       <Nav.Link href="tips">Tips</Nav.Link>
+      <Nav.Link href="calculators">Calculators</Nav.Link>
     </Nav>
     </Container>
   </Navbar>
