@@ -1,21 +1,17 @@
+import { Grid, GridItem } from "@chakra-ui/react";
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { ExerciseCard } from "../exerciseCard/exerciseCard";
 import { ExerciseCardGridProps } from "../types";
 
-
 export function ExerciseCardGrid(array: ExerciseCardGridProps) {
   return (
-    <Row xs={1} md={2} lg={3} className="g-3">
+    <Grid templateColumns="repeat(3, 1fr)" rowGap={8} columnGap={8}>
       {array.exercises.map((exercise) => (
-        <Col>
-            {console.log(exercise)}
-
-        <ExerciseCard
-            exercise={exercise}
-          />
-        </Col>
+        <GridItem w="100%">
+          <ExerciseCard exercise={exercise} />
+        </GridItem>
       ))}
-    </Row>
+    </Grid>
   );
 }

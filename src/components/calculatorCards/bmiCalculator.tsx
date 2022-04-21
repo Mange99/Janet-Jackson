@@ -1,17 +1,15 @@
 import { Props } from "framer-motion/types/types";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import ReactDOM from "react-dom";
 import internal from "stream";
 
+let height: number = 0;
+let weight: number = 0;
 
-let height:number=0;
-let weight:number=0;
-
-function bmiCalculate(){
-  const heightMeter: number = height/100;
-  return weight/(heightMeter*heightMeter); 
-
+function bmiCalculate() {
+  const heightMeter: number = height / 100;
+  return weight / (heightMeter * heightMeter);
 }
 
 export function BmiCalculator() {
@@ -25,32 +23,39 @@ export function BmiCalculator() {
 
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-
               <Form>
                 <Row>
                   <Col>
-                  <Form.Group controlId="height">
-                    <Form.Control onChange={(e)=>(height=Number(e.target.value))}  min="0" max="220" type="number" placeholder="Height" />
+                    <Form.Group controlId="height">
+                      <Form.Control
+                        onChange={(e) => (height = Number(e.target.value))}
+                        min="0"
+                        max="220"
+                        type="number"
+                        placeholder="Height"
+                      />
                     </Form.Group>
                   </Col>
                   <Col>
-                  <Form.Group  controlId="weight">
-                    <Form.Control onChange={(e)=>(weight=Number(e.target.value))}  min="0" max ="160" type="number" placeholder="Weight" />
+                    <Form.Group controlId="weight">
+                      <Form.Control
+                        onChange={(e) => (weight = Number(e.target.value))}
+                        min="0"
+                        max="160"
+                        type="number"
+                        placeholder="Weight"
+                      />
                     </Form.Group>
                   </Col>
                 </Row>
-                
               </Form>
-
-
             </Form.Group>
-
           </Form>
 
-          <Button onClick={() => setBmi(bmiCalculate)} variant="primary">Calculate</Button>
-          <Form.Control type="text" placeholder={bmi+""} readOnly />
-         
-        
+          <Button onClick={() => setBmi(bmiCalculate)} variant="primary">
+            Calculate
+          </Button>
+          <Form.Control type="text" placeholder={bmi + ""} readOnly />
         </Card.Body>
       </Card>
     </>

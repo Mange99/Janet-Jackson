@@ -1,4 +1,3 @@
-
 /**
  * interface for the JsonObject received for an exercise, gifUrl is a url to a gif
  * bodyPartImg is an img of which bodypart the exercise targets, does not have to exist
@@ -8,23 +7,21 @@
  * equipment is body weight, band etc...
  */
 
-
 export interface ExerciseCardGridProps {
   exercises: ExerciseProps[];
 }
 export interface ExerciseProps {
-    name: string,
-    bodyPart: string,
-    equipment: string,
-    gifUrl: string,
-    id: string;
-    target: string;
-    bodyPartImg: string;
-};
+  name: string;
+  bodyPart: string;
+  equipment: string;
+  gifUrl: string;
+  id: string;
+  target: string;
+  bodyPartImg: string;
+}
 
 export interface InfoPanelProps {
-
-    show: boolean;
-    onHide: () => void;
-    exercise: ExerciseProps;
-};
+  show: boolean;
+  onHide: () => void;
+  exercise: ExerciseProps;
+}
