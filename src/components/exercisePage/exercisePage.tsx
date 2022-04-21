@@ -1,6 +1,5 @@
 import { Box, Button, Grid, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import { Col, Row } from "react-bootstrap";
 import { ExerciseCardGrid } from "../exerciseCardGrid/exerciseCardGrid";
 import { ExerciseProps } from "../types";
 
@@ -68,11 +67,11 @@ const specific = (bodyPart: string) => {
 };
 
 export const ExercisePage = () => {
-  const [test, setTest] = useState(exercises);
+  const [excercises, setExcercises] = useState(exercises);
   const [title, setTitle] = useState("All excercises");
 
   const showSpecific = (exercises: ExerciseProps[], title: string) => {
-    setTest(exercises);
+    setExcercises(exercises);
     setTitle(title);
   };
 
@@ -115,7 +114,7 @@ export const ExercisePage = () => {
         <Text as="h2" fontSize={"2xl"} fontWeight="bold" mb="8px">
           {title}
         </Text>
-        <ExerciseCardGrid exercises={test} />
+        <ExerciseCardGrid exercises={excercises} />
       </Box>
     </Box>
   );
