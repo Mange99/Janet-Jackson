@@ -1,12 +1,5 @@
- 
-import { BmiCalculator } from "../calculatorCards/bmiCalculator"
+import { BmiCalculator } from "../calculatorCards/bmiCalculator";
 
- export function CalculatorPage(){ 
-     return (
-        <BmiCalculator/>
-     )
-
-
-
-
- }
+export function CalculatorPage() {
+  return <BmiCalculator />;
+}
