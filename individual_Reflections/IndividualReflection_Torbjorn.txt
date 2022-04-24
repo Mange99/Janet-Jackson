@@ -40,3 +40,34 @@ We have not yet done many SCRUM related activites except for the lessons. We hav
 What is my contribution towards the team’s deliveries?
 I was part of a meeting where we together created the business model canvas and the project description. Some of the others had created some mockups and we gave them 
 some input on what we thought of that. I also helped with finding apis and data we could use in our project,
+
+Week 3 8/4 - 2022
+What do I want to learn or understand better?
+I want to learn how to use SCRUM efficiently. I also want to become more proficient in our chosen framework and languages.
+
+
+How can I help someone else, or the entire team, to learn something new?
+We've talked about doing some pair programming to help members that feel unsure.
+
+What is my contribution towards the team’s use of Scrum?
+I wrote a majority of the user stories. Me and Magnus also wrote the DoD and codestyle document. 
+
+What is my contribution towards the team’s deliveries?
+I did my part in the userstories. I also helped with the team reflection although there was some misconception as to
+when the meeting was supposed to be.
+
+Week 4 22/4 - 2022
+What do I want to learn or understand better?
+I still want to become better in React and Typescript. And I want us as a team to work better in the sprints.
+To achieve this we need to work more and not be afraid of taking on stuff we don't know much about.
+
+How can I help someone else, or the entire team, to learn something new?
+Keep doing the pair programming if necessary. And always be there for questions if anything is unclear.
+Next week I am going to be the scrummaster, so I should take on extra responsibility to make everything 
+as clear and smooth as possible. 
+
+What is my contribution towards the team’s use of Scrum?
+Being a part of the meetings and asking questions about things to make it clear. 
+
+What is my contribution towards the team’s deliveries?
+I did my allotted userstory and I helped writing the team reflection.
