@@ -1,9 +1,10 @@
 import { Box, Button, Grid, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import { Console } from "console";
+import { useState, useEffect } from "react";
 import { ExerciseCardGrid } from "../exerciseCardGrid/exerciseCardGrid";
 import { ExerciseProps } from "../types";
-
-const exercises: ExerciseProps[] = [
+/*
+var exercises: ExerciseProps[] = [
   {
     name: "Abs",
     bodyPart: "Abs",
@@ -50,9 +51,21 @@ const exercises: ExerciseProps[] = [
     bodyPartImg: "he",
   },
 ];
+*/
 
+
+export const ExercisePage = () => {
+  const [exercises, setAllExcercises] = useState<ExerciseProps[]>([]);
+  const [excercises, setExcercises] = useState(exercises);
+  const [title, setTitle] = useState("All excercises");
+
+  const showSpecific = (Specificexercises: ExerciseProps[], title: string) => {
+    setExcercises(Specificexercises);
+    setTitle(title);
+  };
+  
 const allExcersices = () => {
-  let bodyParts: string[] = [exercises[0].bodyPart];
+  let bodyParts: string[] = [];
 
   exercises.map((e) => {
     if (!bodyParts.includes(e.bodyPart)) {
@@ -66,16 +79,28 @@ const specific = (bodyPart: string) => {
   return exercises.filter((e) => e.bodyPart == bodyPart);
 };
 
-export const ExercisePage = () => {
-  const [excercises, setExcercises] = useState(exercises);
-  const [title, setTitle] = useState("All excercises");
 
-  const showSpecific = (exercises: ExerciseProps[], title: string) => {
-    setExcercises(exercises);
-    setTitle(title);
+  useEffect(() => {
+    const options = {
+      method: 'GET',
+      headers: {
+          'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
+          'X-RapidAPI-Key': '9ba136ae5dmsh149a878f4d9bc65p1cdcf8jsnbbef50b194fa'
+      }
   };
+  
+  fetch('https://exercisedb.p.rapidapi.com/exercises', options)
+      .then(response => response.json())
+      .then(response => {
+        setAllExcercises(response);
+        setExcercises(response);
+      })
+      .catch(err => console.error(err));
+  }, []);
 
   return (
+    <div>
+      { exercises &&
     <Box position={"relative"}>
       <Grid gridGap={2} p={4} position="absolute">
         <Text fontSize="lg" fontWeight="bold" align="center">
@@ -114,8 +139,10 @@ export const ExercisePage = () => {
         <Text as="h2" fontSize={"2xl"} fontWeight="bold" mb="8px">
           {title}
         </Text>
-        <ExerciseCardGrid exercises={excercises} />
+        {<ExerciseCardGrid exercises={excercises} />}
       </Box>
     </Box>
+}
+    </div>
   );
 };
