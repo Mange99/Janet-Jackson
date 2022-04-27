@@ -46,7 +46,7 @@ const Hero = ({ scrollToNext }: HeroProps) => {
         border="2px"
         textColor="white"
         _focus={{ boxShadow: 0 }}
-        _hover={{ textColor: "black" }}
+        _hover={{ bgColor: "#21D0B1" }}
         borderColor="#21D0B1"
         top="85%"
         right={0}

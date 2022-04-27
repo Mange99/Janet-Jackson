@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { MutableRefObject, useRef } from "react";
 import Hero from "./Hero";
-import Excercise from "../res/images/excercise.png";
+import Exercise from "../res/images/excercise.png";
 import Food from "../res/images/exampleFood.png";
 import Filter from "../res/images/filter.png";
 
@@ -50,23 +50,23 @@ const LandingPage = () => {
         <Grid templateColumns="repeat(3, 1fr)" gap={6} mt={8}>
           <GridItem w="80%" margin="auto" height="100%">
             <SummarizeCard
-              image={Excercise}
-              title="Choose from 1000+ excercises"
-              description="With Fitness you can find ower 1000 different workouts and star the excersices you like the most."
+              image={Exercise}
+              title="Choose from 1000+ exercises"
+              description="With Fitness you can find over 1000 different workouts and star the exercises you like the most."
             />
           </GridItem>
           <GridItem w="80%" margin="auto" height="100%">
             <SummarizeCard
               image={Filter}
               title="Filter"
-              description="You can filter excercises for different body parts or equipment you have access to and much more!"
+              description="You can filter exercises for different body parts or equipment you have access to and much more!"
             />
           </GridItem>
           <GridItem w="80%" margin="auto" height="100%">
             <SummarizeCard
-              image={Excercise}
+              image={Exercise}
               title="Create your own sessions"
-              description="You can create your own workout passes with different workouts to help you thorugh your journey"
+              description="You can create your own workout sessions with different workouts to help you thorugh your journey"
             />
           </GridItem>
         </Grid>
