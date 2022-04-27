@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button, Card, Col, Form, Row, DropdownButton, Dropdown } from "react-bootstrap";
 import "./calculatorStyles.css"
 
@@ -27,14 +27,7 @@ enum activityLevel {
 }
 
 function bmrCalculate(gender: boolean, activity: activityLevel) {
-  let s: number = 0;
-  if(gender) {
-      s = 5;
-  } else {
-      s = -161
-  }
-  console.log(activity);
-  return Math.round((10 * weight + 6.25 * height - 5 * age + s) * activity);
+  return gender ? Math.round((10 * weight + 6.25 * height - 5 * age + 5) * activity) : Math.round((10 * weight + 6.25 * height - 5 * age - 168) * activity);
 }
 
 export function BmrCalculator() {
@@ -65,7 +58,8 @@ export function BmrCalculator() {
                     name="group1"
                     type={"radio"}
                     id={`inline-radio-3`}
-                    onChange={(e) => (setCalorieIntake(false))}
+                    checked={true}
+                    onChange={() => (setCalorieIntake(false))}
                 />
                 <Form.Check
                     inline
@@ -73,7 +67,7 @@ export function BmrCalculator() {
                     name="group1"
                     type={"radio"}
                     id={`inline-radio-4`}
-                    onChange={(e) => (setCalorieIntake(true))}
+                    onChange={() => (setCalorieIntake(true))}
                 />
             </Form.Group>    
           </Form>  
@@ -99,7 +93,7 @@ export function BmrCalculator() {
                             name="group2"
                             type={"radio"}
                             id={`inline-radio-1`}
-                            onChange={(e) => (setGender(true))}
+                            onChange={() => (setGender(true))}
                             />
                         <Form.Check
                             inline
@@ -107,7 +101,7 @@ export function BmrCalculator() {
                             name="group2"
                             type={"radio"}
                             id={`inline-radio-2`}
-                            onChange={(e) => (setGender(false))}
+                            onChange={() => (setGender(false))}
                             />
                     </Form.Group>
                   <Col>
@@ -115,7 +109,7 @@ export function BmrCalculator() {
                       <Form.Control
                         onChange={(e) => (height = Number(e.target.value))}
                         min="0"
-                        max="100"
+                        max="250"
                         type="number"
                         placeholder="Height"
                       />
@@ -126,7 +120,7 @@ export function BmrCalculator() {
                       <Form.Control
                         onChange={(e) => (weight = Number(e.target.value))}
                         min="0"
-                        max="160"
+                        max="220"
                         type="number"
                         placeholder="Weight"
                       />
@@ -142,12 +136,12 @@ export function BmrCalculator() {
                 id="dropdown-activity-level" 
                 title={activityTitle}
                 >
-                <Dropdown.Item onClick={(e) => (handleSelectActivity(activityLevel.None, "None"))}>None (little or no exercise)</Dropdown.Item>
-                <Dropdown.Item onClick={(e) => (handleSelectActivity(activityLevel.Lightly, "Sedentary"))}>Sedentary (little or no exercise)</Dropdown.Item>
-                <Dropdown.Item onClick={(e) => (handleSelectActivity(activityLevel.Lightly, "Lightly active"))}>Lightly active (exercise 1–3 days/week)</Dropdown.Item>
-                <Dropdown.Item onClick={(e) => (handleSelectActivity(activityLevel.Moderately, "Moderately active"))}>Moderately active (exercise 3–5 days/week)</Dropdown.Item>
-                <Dropdown.Item onClick={(e) => (handleSelectActivity(activityLevel.Active, "Active"))}>Active (exercise 6–7 days/week)</Dropdown.Item>
-                <Dropdown.Item onClick={(e) => (handleSelectActivity(activityLevel.VeryActive, "Very active"))}>Very active (hard exercise 6–7 days/week)</Dropdown.Item>
+                <Dropdown.Item onClick={() => (handleSelectActivity(activityLevel.None, "None"))}>None (little or no exercise)</Dropdown.Item>
+                <Dropdown.Item onClick={() => (handleSelectActivity(activityLevel.Lightly, "Sedentary"))}>Sedentary (little or no exercise)</Dropdown.Item>
+                <Dropdown.Item onClick={() => (handleSelectActivity(activityLevel.Lightly, "Lightly active"))}>Lightly active (exercise 1–3 days/week)</Dropdown.Item>
+                <Dropdown.Item onClick={() => (handleSelectActivity(activityLevel.Moderately, "Moderately active"))}>Moderately active (exercise 3–5 days/week)</Dropdown.Item>
+                <Dropdown.Item onClick={() => (handleSelectActivity(activityLevel.Active, "Active"))}>Active (exercise 6–7 days/week)</Dropdown.Item>
+                <Dropdown.Item onClick={() => (handleSelectActivity(activityLevel.VeryActive, "Very active"))}>Very active (hard exercise 6–7 days/week)</Dropdown.Item>
             </DropdownButton>
         )}
 

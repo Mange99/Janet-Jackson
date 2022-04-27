@@ -1,8 +1,5 @@
-import { Props } from "framer-motion/types/types";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
-import ReactDOM from "react-dom";
-import internal from "stream";
 
 let height: number = 0;
 let weight: number = 0;

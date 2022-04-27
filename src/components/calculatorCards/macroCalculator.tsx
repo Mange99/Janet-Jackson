@@ -1,5 +1,5 @@
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
-import {useEffect, useState} from "react";
+import { useState, useReducer} from "react";
 
 const carbPercentageLow: number = 0.45;
 const carbPercentageHigh: number = 0.65;
@@ -18,6 +18,16 @@ export const MacroCalculator = () => {
     const [fatLow, setFatLow] = useState(0);
     const [fatHigh, setFatHigh] = useState(0);
     const [showMacros, setShowMacros] = useState(false);
+    const [macroArray, setMacroArray] = useState([]);
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    const action = {
+        type: "Calculate"
+    };
+
+    const reducer = (state, action) => {
+
+    }
 
     const macroCalc = () => {
         setCarbsLow(Math.round(calorieIntake*carbPercentageLow));
@@ -44,7 +54,7 @@ export const MacroCalculator = () => {
                           <Form.Control
                             onChange={(e) => (setCalorieIntake(Number(e.target.value)))}
                             min="0"
-                            max="10000"
+                            max="30000"
                             type="number"
                             placeholder="Enter your daily calorie intake"
                           />
