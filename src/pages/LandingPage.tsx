@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Container,
-  Flex,
   Grid,
   GridItem,
   Heading,
@@ -24,6 +23,7 @@ const LandingPage = () => {
   const scrollToNext = () => {
     workoutsRef.current.scrollIntoView({ behavior: "smooth" });
   };
+
   const workoutsRef =
     useRef<HTMLDivElement>() as MutableRefObject<HTMLDivElement>;
 
@@ -32,37 +32,37 @@ const LandingPage = () => {
       <Hero scrollToNext={scrollToNext} />
       <Container maxW="70%" ref={workoutsRef}>
         <Box w="fit-content" margin="auto">
-          <Link to={"/tips"}>
+          <Link to="/tips">
             <Heading
-              pt="24"
-              pb="4"
-              size={"2xl"}
+              pt={24}
+              pb={4}
+              size="2xl"
               bgGradient="linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(33,208,177,1) 49%, rgba(1,25,29,1) 100%)"
-              bgClip={"text"}
+              bgClip="text"
             >
               Be stronger than your excuses+
             </Heading>
           </Link>{" "}
         </Box>
-        <Heading pt="24" fontWeight={"bold"} textAlign="center" size={"xl"}>
+        <Heading pt={24} fontWeight="bold" textAlign="center" size="xl">
           Workouts
         </Heading>
-        <Grid templateColumns="repeat(3, 1fr)" gap={6} mt="8">
-          <GridItem w="80%" margin="auto" height={"100%"}>
+        <Grid templateColumns="repeat(3, 1fr)" gap={6} mt={8}>
+          <GridItem w="80%" margin="auto" height="100%">
             <SummarizeCard
               image={Excercise}
               title="Choose from 1000+ excercises"
               description="With Fitness you can find ower 1000 different workouts and star the excersices you like the most."
             />
           </GridItem>
-          <GridItem w="80%" margin="auto" height={"100%"}>
+          <GridItem w="80%" margin="auto" height="100%">
             <SummarizeCard
               image={Filter}
               title="Filter"
               description="You can filter excercises for different body parts or equipment you have access to and much more!"
             />
           </GridItem>
-          <GridItem w="80%" margin="auto" height={"100%"}>
+          <GridItem w="80%" margin="auto" height="100%">
             <SummarizeCard
               image={Excercise}
               title="Create your own sessions"
@@ -70,83 +70,83 @@ const LandingPage = () => {
             />
           </GridItem>
         </Grid>
-        <Box margin="auto" textAlign={"center"}>
+        <Box margin="auto" textAlign="center">
           <Link to={"/exercise"}>
             <Button
-              backgroundColor={"#21D0B1"}
+              backgroundColor="#21D0B1"
               textColor="white"
-              textDecoration={"underline"}
-              mt="8"
+              textDecoration="underline"
+              mt={8}
             >
               Learn more
-              <Icon as={MdArrowRightAlt} boxSize={4} mt="1" />
+              <Icon as={MdArrowRightAlt} boxSize={4} mt={1} />
             </Button>
           </Link>
         </Box>
-        <Heading pt="24" fontWeight={"bold"} textAlign="center" size={"xl"}>
+        <Heading pt={24} fontWeight="bold" textAlign="center" size="xl">
           Food and Health
         </Heading>
-        <Grid templateColumns="repeat(3, 1fr)" gap={6} mt="8">
-          <GridItem w="80%" margin={"auto"} height="100%">
+        <Grid templateColumns="repeat(3, 1fr)" gap={6} mt={8}>
+          <GridItem w="80%" margin="auto" height="100%">
             <SummarizeCard
               image={Food}
               title="Daily calories"
               description="Set your daily calorie intake and get auto generated meal plans to reach your goals"
             />
           </GridItem>
-          <GridItem w="80%" margin={"auto"} height="100%">
+          <GridItem w="80%" margin="auto" height="100%">
             <SummarizeCard
               image={Food}
               title="Nutrition facts"
               description="Find the nutrition facts of the food you are about to eat"
             />
           </GridItem>
-          <GridItem w="80%" margin={"auto"} height="100%">
+          <GridItem w="80%" margin="auto" height="100%">
             <SummarizeCard
               image={Food}
               title="Create a meal plan"
-              description="Create your own meal "
+              description="Create your own meal plan through out the day"
             />
           </GridItem>
         </Grid>
-        <Box margin="auto" textAlign={"center"}>
-          <Link to={"/food-and-health"}>
+        <Box margin="auto" textAlign="center">
+          <Link to="/food-and-health">
             <Button
-              backgroundColor={"#21D0B1"}
+              backgroundColor="#21D0B1"
               textColor="white"
-              textDecoration={"underline"}
-              mt="8"
+              textDecoration="underline"
+              mt={8}
             >
               Learn more
-              <Icon as={MdArrowRightAlt} boxSize={4} mt="1" />
+              <Icon as={MdArrowRightAlt} boxSize={4} mt={1} />
             </Button>
           </Link>
         </Box>
         <Box
-          position={"relative"}
+          position="relative"
           textAlign="center"
-          backgroundColor={"white"}
+          backgroundColor="white"
           w="fit-content"
-          margin={"auto"}
-          pt="8"
+          margin="auto"
+          pt={8}
         >
           <Heading size="xl">Calculate your stats</Heading>
-          <Text pt="2" pb="4">
+          <Text pt={2} pb={4}>
             You can calculate different something blah blah
           </Text>
-          <Box w="fit-content" margin={"auto"}>
+          <Box w="fit-content" margin="auto">
             <BmiCalculator />
           </Box>
-          <Link to={"/calculators"}>
+          <Link to="/calculators">
             <Button
-              backgroundColor={"#21D0B1"}
+              backgroundColor="#21D0B1"
               textColor="white"
-              textDecoration={"underline"}
-              mt="8"
-              left="0"
+              textDecoration="underline"
+              mt={8}
+              left={0}
             >
               Learn more
-              <Icon as={MdArrowRightAlt} boxSize={4} mt="1" />
+              <Icon as={MdArrowRightAlt} boxSize={4} mt={1} />
             </Button>
           </Link>
         </Box>

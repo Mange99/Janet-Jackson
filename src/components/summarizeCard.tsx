@@ -8,12 +8,12 @@ interface SummarizeCardProps {
 
 const summarizeCard = ({ image, title, description }: SummarizeCardProps) => {
   return (
-    <Box textAlign={"center"} boxShadow="md" borderRadius={8} p="2" minH="100%">
+    <Box textAlign="center" boxShadow="md" borderRadius={8} p={2} minH="100%">
       <Image src={image} w="full" h="300px" alt="excercise" />
-      <Heading mt="8" size="lg">
+      <Heading mt={8} size="lg">
         {title}
       </Heading>
-      <Text mt="4">{description}</Text>
+      <Text mt={4}>{description}</Text>
     </Box>
   );
 };
