@@ -1,5 +1,11 @@
 import { BmiCalculator } from "../calculatorCards/bmiCalculator";
+import { BmrCalculator } from "../calculatorCards/bmrCalculator";
 
 export function CalculatorPage() {
-  return <BmiCalculator />;
+  return (
+    <div>
+      <BmiCalculator />
+      <BmrCalculator/>
+    </div>
+  );
 }
