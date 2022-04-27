@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import InfoPanel from "../modalInfoPanel/infoPanel";
-import ReactDOM from "react-dom";
 import { ExerciseProps } from "../types";
 
 interface ExerciseCardProps {

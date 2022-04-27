@@ -3,8 +3,8 @@
   background: rgb(20, 20, 20);
   background: linear-gradient(
     90deg,
-    rgb(18, 18, 18) 39%,
-    rgba(37, 39, 77, 1) 68%,
+    rgb(18, 18, 18) 60%,
+    rgba(37, 39, 77, 1) 80%,
     rgba(20, 86, 129, 1) 100%
   );
 }

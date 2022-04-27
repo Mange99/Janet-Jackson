@@ -1,5 +1,4 @@
 import { Grid, GridItem } from "@chakra-ui/react";
-import React from "react";
 import { ExerciseCard } from "../exerciseCard/exerciseCard";
 import { ExerciseCardGridProps } from "../types";
 
