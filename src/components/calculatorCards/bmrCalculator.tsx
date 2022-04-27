@@ -111,7 +111,7 @@ export function BmrCalculator() {
                             />
                     </Form.Group>
                   <Col>
-                    <Form.Group controlId="height" className="mb-3">
+                    <Form.Group controlId="height">
                       <Form.Control
                         onChange={(e) => (height = Number(e.target.value))}
                         min="0"
@@ -122,7 +122,7 @@ export function BmrCalculator() {
                     </Form.Group>
                   </Col>
                   <Col>
-                    <Form.Group controlId="weight" className="mb-3">
+                    <Form.Group controlId="weight">
                       <Form.Control
                         onChange={(e) => (weight = Number(e.target.value))}
                         min="0"
@@ -141,7 +141,6 @@ export function BmrCalculator() {
             <DropdownButton 
                 id="dropdown-activity-level" 
                 title={activityTitle}
-                className="mt-3"
                 >
                 <Dropdown.Item onClick={(e) => (handleSelectActivity(activityLevel.None, "None"))}>None (little or no exercise)</Dropdown.Item>
                 <Dropdown.Item onClick={(e) => (handleSelectActivity(activityLevel.Lightly, "Sedentary"))}>Sedentary (little or no exercise)</Dropdown.Item>
@@ -153,7 +152,7 @@ export function BmrCalculator() {
         )}
 
         </Card.Body>
-        <Button style={{width: "10rem"}} className="ms-3" onClick={() => setBmr(bmrCalculate(gender, activity))} variant="primary">
+        <Button style={{width: "5.7rem"}} className="ms-3" onClick={() => setBmr(bmrCalculate(gender, activity))} variant="primary">
             Calculate
           </Button>
         <Card.Body className="mt-2 mb-3">

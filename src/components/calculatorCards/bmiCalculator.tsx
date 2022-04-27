@@ -17,7 +17,7 @@ export function BmiCalculator() {
 
   return (
     <>
-      <Card style={{ width: "18rem" }}>
+      <Card style={{ width: "18rem", height: "15rem" }}>
         <Card.Body>
           <Card.Title>BMI Calculator</Card.Title>
 
@@ -52,7 +52,7 @@ export function BmiCalculator() {
             </Form.Group>
           </Form>
 
-          <Button onClick={() => setBmi(bmiCalculate)} variant="primary">
+          <Button className="mb-3" onClick={() => setBmi(bmiCalculate)} variant="primary">
             Calculate
           </Button>
           <Form.Control type="text" placeholder={bmi + ""} readOnly />
