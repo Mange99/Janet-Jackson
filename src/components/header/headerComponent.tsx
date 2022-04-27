@@ -1,5 +1,4 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
-import react from "react";
 import "./headerCss.css";
 import { Outlet } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";

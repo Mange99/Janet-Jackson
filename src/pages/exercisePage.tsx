@@ -1,7 +1,7 @@
 import { Box, Button, Grid, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import { ExerciseCardGrid } from "../exerciseCardGrid/exerciseCardGrid";
-import { ExerciseProps } from "../types";
+import { ExerciseCardGrid } from "../components/exerciseCardGrid/exerciseCardGrid";
+import { ExerciseProps } from "../components/types";
 
 const exercises: ExerciseProps[] = [
   {
