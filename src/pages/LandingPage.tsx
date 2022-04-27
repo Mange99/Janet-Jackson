@@ -31,17 +31,17 @@ const LandingPage = () => {
     <Box position="relative">
       <Hero scrollToNext={scrollToNext} />
       <Container maxW="70%" ref={workoutsRef}>
-        <Box textAlign={"center"}>
-          <Heading pt="24" size={"2xl"}>
-            Be stronger than your excuses+
-          </Heading>
+        <Box w="fit-content" margin="auto">
           <Link to={"/tips"}>
-            <Button backgroundColor={"#0d6efd"} textColor="white" mt="8">
-              <Text as="h2" fontSize={"larger"}>
-                For more inspiration and tips
-                <Icon as={MdArrowRightAlt} boxSize={6} />
-              </Text>
-            </Button>
+            <Heading
+              pt="24"
+              pb="4"
+              size={"2xl"}
+              bgGradient="linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(33,208,177,1) 49%, rgba(1,25,29,1) 100%)"
+              bgClip={"text"}
+            >
+              Be stronger than your excuses+
+            </Heading>
           </Link>{" "}
         </Box>
         <Heading pt="24" fontWeight={"bold"} textAlign="center" size={"xl"}>
@@ -73,7 +73,7 @@ const LandingPage = () => {
         <Box margin="auto" textAlign={"center"}>
           <Link to={"/exercise"}>
             <Button
-              backgroundColor={"#0d6efd"}
+              backgroundColor={"#21D0B1"}
               textColor="white"
               textDecoration={"underline"}
               mt="8"
@@ -98,23 +98,21 @@ const LandingPage = () => {
             <SummarizeCard
               image={Food}
               title="Nutrition facts"
-              description=""
+              description="Find the nutrition facts of the food you are about to eat"
             />
           </GridItem>
           <GridItem w="80%" margin={"auto"} height="100%">
             <SummarizeCard
               image={Food}
-              title="Choose from 1000+ excercises"
-              description="With ___ you can create your own workout sessions and star your
-              favourite workouts. With guides showing you how to perform the
-              excercises"
+              title="Create a meal plan"
+              description="Create your own meal "
             />
           </GridItem>
         </Grid>
         <Box margin="auto" textAlign={"center"}>
           <Link to={"/food-and-health"}>
             <Button
-              backgroundColor={"#0d6efd"}
+              backgroundColor={"#21D0B1"}
               textColor="white"
               textDecoration={"underline"}
               mt="8"
@@ -125,41 +123,32 @@ const LandingPage = () => {
           </Link>
         </Box>
         <Box
-          textAlign="center"
-          mt="24"
-          p="8"
           position={"relative"}
-          backgroundColor="#21c0B1"
-          borderRadius={"lg"}
+          textAlign="center"
+          backgroundColor={"white"}
+          w="fit-content"
+          margin={"auto"}
+          pt="8"
         >
-          <Box
-            backgroundColor={"white"}
-            w="fit-content"
-            margin={"auto"}
-            boxShadow="sm"
-            borderRadius={"lg"}
-            p="2"
-          >
-            <Heading size="xl">Calculate your stats</Heading>
-            <Text pt="2" pb="4">
-              You can calculate different something blah blah
-            </Text>
-            <Box w="fit-content" margin={"auto"}>
-              <BmiCalculator />
-            </Box>
-            <Link to={"/calculators"}>
-              <Button
-                backgroundColor={"#0d6efd"}
-                textColor="white"
-                textDecoration={"underline"}
-                mt="4"
-                left="0"
-              >
-                Learn more
-                <Icon as={MdArrowRightAlt} boxSize={4} mt="1" />
-              </Button>
-            </Link>
+          <Heading size="xl">Calculate your stats</Heading>
+          <Text pt="2" pb="4">
+            You can calculate different something blah blah
+          </Text>
+          <Box w="fit-content" margin={"auto"}>
+            <BmiCalculator />
           </Box>
+          <Link to={"/calculators"}>
+            <Button
+              backgroundColor={"#21D0B1"}
+              textColor="white"
+              textDecoration={"underline"}
+              mt="8"
+              left="0"
+            >
+              Learn more
+              <Icon as={MdArrowRightAlt} boxSize={4} mt="1" />
+            </Button>
+          </Link>
         </Box>
       </Container>
     </Box>
