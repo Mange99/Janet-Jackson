@@ -7,7 +7,8 @@ let height: number = 0;
 let weight: number = 0;
 
  // BMR (kcal / day) = 10 * weight (kg) + 6.25 * height (cm) – 5 * age (y) + s (kcal / day)
- //where s is +5 for males and -161 for female
+ // where s is +5 for males and -161 for female
+ // formula taken from https://www.omnicalculator.com/health/bmr#what-is-bmr-bmr-definition
 
 function bmrCalculate(gender: boolean) {
   let s: number = 0;
@@ -94,10 +95,8 @@ export function BmrCalculator() {
             Calculate
           </Button>
         </Card.Body>
-        <Card.Body className="mb-3">
-             <div className="bmr-container">
-                {bmr > 100 && <h4>You need {bmr} calories a day</h4>}
-            </div>
+        <Card.Body className="mt-2 mb-3">
+                {bmr > 100 && <h3>You need {bmr} calories a day</h3>}
         </Card.Body>
       </Card>
     </>
