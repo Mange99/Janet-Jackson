@@ -3,7 +3,7 @@ import { ExercisePage } from "./pages/exercisePage";
 import { CalculatorPage } from "./pages/calculatorPage";
 import LandingPage from "./pages/LandingPage";
 import { HeaderComponent } from "./components/header/headerComponent";
-import { Box, Container } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import Footer from "./components/Footer";
 
 function App() {

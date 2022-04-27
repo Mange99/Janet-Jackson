@@ -12,7 +12,7 @@ const Footer = () => {
     >
       <Box w="full" h="3px" backgroundColor="white"></Box>
       <Heading textColor="white" pt={4}>
-        inspirational quote
+        Sī vīs pācem, parā bellum
       </Heading>
     </Box>
   );
