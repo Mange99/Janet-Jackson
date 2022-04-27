@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export function HeaderComponent() {
   return (
     <div>
-      <Navbar bg="primary" variant="dark" expand="md" sticky="top">
+      <Navbar bg="primary" variant="dark" expand="md" fixed="top">
         <Container>
           <Navbar.Brand href="/">Fitness</Navbar.Brand>
           <Nav className="me-auto">
