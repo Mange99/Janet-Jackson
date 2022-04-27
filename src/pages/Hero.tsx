@@ -12,7 +12,7 @@ const Hero = ({ scrollToNext }: HeroProps) => {
       position="relative"
       backgroundImage={bg}
       w="full"
-      h="96vh"
+      h="100vh"
       backgroundPosition="center"
       backgroundSize="cover"
     >
