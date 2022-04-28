@@ -10,21 +10,11 @@ const fatPercentageHigh: number = 0.35
 
 export const MacroCalculator = () => {
 
-    //const [calorieIntake, setCalorieIntake] = useState(0);
     const [showMacros, setShowMacros] = useState(false);
-    const [oldCalorieIntake, setOldCalorieIntake] = useState(0);
-    /*
-    const [carbsLow, setCarbsLow] = useState(0);
-    const [carbsHigh, setCarbsHigh] = useState(0);
-    const [proteinLow, setProteinLow] = useState(0);
-    const [proteinHigh, setProteinHigh] = useState(0);
-    const [fatLow, setFatLow] = useState(0);
-    const [fatHigh, setFatHigh] = useState(0);
-    */
+
     type Action = 
         | {type: "Calculate"}
         | {type: "Calories", calories: number};
-
 
     type State =  {
       calorieIntake: number,
@@ -69,16 +59,6 @@ export const MacroCalculator = () => {
 
     const [state, dispatch] = useReducer(reducer, initialState);
 
-    /*
-    const macroCalc = () => {
-        setCarbsLow(Math.round(calorieIntake*carbPercentageLow));
-        setCarbsHigh(Math.round(calorieIntake*carbPercentageHigh));
-        setProteinLow(Math.round(calorieIntake*proteinPercentageLow));
-        setProteinHigh(Math.round(calorieIntake*proteinPercentageHigh));
-        setFatLow(Math.round(calorieIntake*fatPercentageLow));
-        setFatHigh(Math.round(calorieIntake*fatPercentageHigh));
-    }
-*/
     return (
         <>
           <Card style={{ width: "20rem", height: "18rem" }}>
