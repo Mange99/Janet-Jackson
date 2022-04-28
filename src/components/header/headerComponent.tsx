@@ -15,7 +15,7 @@ export function HeaderComponent() {
             <Nav.Link as={Link} to="/exercise">
               Exercises
             </Nav.Link>
-            <Nav.Link as={Link} to="/food-and-helth">
+            <Nav.Link as={Link} to="/food-and-health">
               Food and Health
             </Nav.Link>
             <Nav.Link as={Link} to="/tips">
