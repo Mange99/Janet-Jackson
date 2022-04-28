@@ -37,7 +37,7 @@ const LandingPage = () => {
               pt={24}
               pb={4}
               size="2xl"
-              bgGradient="linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(33,208,177,1) 49%, rgba(1,25,29,1) 100%)"
+              bgGradient="linear-gradient(90deg, rgba(124,163,149,1) 0%, rgba(38,208,178,1) 11%, rgba(33,208,177,1) 49%, rgba(30,185,164,1) 77%, rgba(25,171,148,1) 100%)"
               bgClip="text"
             >
               Be stronger than your excuses+
