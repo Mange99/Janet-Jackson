@@ -1,6 +1,6 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import "./headerCss.css";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export function HeaderComponent() {
@@ -8,12 +8,22 @@ export function HeaderComponent() {
     <div>
       <Navbar bg="primary" variant="dark" expand="md" fixed="top">
         <Container>
-          <Navbar.Brand href="/">Fitness</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">
+            Fitness
+          </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="exercise">Exercises</Nav.Link>
-            <Nav.Link href="food-and-helth">Food and Health</Nav.Link>
-            <Nav.Link href="tips">Tips</Nav.Link>
-            <Nav.Link href="calculators">Calculators</Nav.Link>
+            <Nav.Link as={Link} to="/exercise">
+              Exercises
+            </Nav.Link>
+            <Nav.Link as={Link} to="/food-and-helth">
+              Food and Health
+            </Nav.Link>
+            <Nav.Link as={Link} to="/tips">
+              Tips
+            </Nav.Link>
+            <Nav.Link as={Link} to="/calculators">
+              Calculators
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>

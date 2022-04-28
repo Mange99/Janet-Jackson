@@ -8,17 +8,15 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <Box position={"relative"}>
+    <BrowserRouter>
       <HeaderComponent />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/exercise" element={<ExercisePage />} />
-          <Route path="/calculators" element={<CalculatorPage />} />
-          <Route path="/" element={<LandingPage />}></Route>
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/exercise" element={<ExercisePage />} />
+        <Route path="/calculators" element={<CalculatorPage />} />
+        <Route path="/" element={<LandingPage />}></Route>
+      </Routes>
       <Footer />
-    </Box>
+    </BrowserRouter>
   );
 }
 
