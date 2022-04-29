@@ -30,7 +30,7 @@ export function RecipeCardGrid() {
     <div>
       <Row xs={1} md={3} lg={5}>
         {recipes.map((e) => {
-          console.log(e);
+           return <p>{Math.round(e.recipe.calories)}</p>
         })}
       </Row>
     </div>

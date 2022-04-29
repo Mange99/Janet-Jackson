@@ -1,13 +1,8 @@
 export interface recipes {
-  from: number;
-  to: number;
-  count: number;
-  _links: [];
-  hits: [];
+  recipes: recipe[],
 }
 export interface recipe {
-  calories: number;
-  image: string;
-  label: string;
-  totalTime: number;
+  recipe: {
+    calories: number
+  }
 }
