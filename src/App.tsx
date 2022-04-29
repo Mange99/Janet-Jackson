@@ -11,11 +11,10 @@ function App() {
     <BrowserRouter>
       <HeaderComponent />
       <Routes>
-        <Route path="/" element={<HeaderComponent />}>
-          <Route path="exercise" element={<ExercisePage />} />
-          <Route path="calculators" element={<CalculatorPage />} />
-          <Route path="tips" element={<TipsPage />} />
-        </Route>
+        <Route path="/exercise" element={<ExercisePage />} />
+        <Route path="/calculators" element={<CalculatorPage />} />
+        <Route path="/tips" element={<TipsPage />} />
+        <Route path="/" element={<LandingPage />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
