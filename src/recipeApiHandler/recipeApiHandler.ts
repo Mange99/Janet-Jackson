@@ -9,5 +9,5 @@ export async function sendApiRequest() {
   );
   let data = await response.json();
   let recipes: recipe = data.hits;
-  return data;
+  return recipes;
 }

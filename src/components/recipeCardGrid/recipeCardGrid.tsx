@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 //import { sendApiRequest } from "../../recipeApiHandler/recipeApiHandler";
-import { recipe, recipes } from "../recipeInterfaces";
+import { recipe } from "../recipeInterfaces";
 
 export function RecipeCardGrid() {
-  const [recipes, setRecipes] = useState<recipes[]>([]);
+  const [recipes, setRecipes] = useState<recipe[]>([]);
 
   useEffect(() => {
     const options = {
@@ -21,19 +21,18 @@ export function RecipeCardGrid() {
     )
       .then((response) => response.json())
       .then((response) => {
-        setRecipes(response);
+        setRecipes(response.hits);
       })
       .catch((err) => console.error(err));
   }, []);
 
-  console.log(recipes);
-  Object.values(recipes).map((recepie: recipes) => {
-    console.log(recepie.count);
-  });
-
   return (
     <div>
-      <Row xs={1} md={3} lg={5}></Row>
+      <Row xs={1} md={3} lg={5}>
+        {recipes.map((e) => {
+          console.log(e);
+        })}
+      </Row>
     </div>
   );
 }
