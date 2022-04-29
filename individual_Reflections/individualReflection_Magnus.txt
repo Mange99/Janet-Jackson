@@ -44,3 +44,20 @@ Wrote user storys and defenition of done and code style document.
 What is my contribution towards the team’s deliveries?
 Did my user story and split our initial document where we had everything documented into smaller.
 One DOD, group meating notes, code style document. 
+
+
+Week 4 22/4 - 2022
+What do I want to learn or understand better?
+Starting to understand react and typescript better and better. I want to put more work into scrum next week.
+So i can help the team more in the sprints so we dont take too little or to much work upon our selfs in each sprint.
+
+How can I help someone else, or the entire team, to learn something new?
+We did pair programming on this weeks user story to filter exercises with bilal and hedda. 
+I helped them understand some react and typescript.
+Next week i can push the team by trying to take on more work so we can make the product as good as possible.
+
+What is my contribution towards the team’s use of Scrum?
+Being part of the meetings and trying to clear things up with the team, so we all have the same vision for the product.
+
+What is my contribution towards the team’s deliveries?
+Did my user story and the team reflection
