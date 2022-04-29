@@ -7,7 +7,7 @@ const exercises: ExerciseProps[] = [
   {
     name: "Abs",
     bodyPart: "Abs",
-    equipment: "body weight",
+    equipment: "Body weight",
     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0001.gif",
     id: "0001",
     target: "Abs",
@@ -16,7 +16,7 @@ const exercises: ExerciseProps[] = [
   {
     name: "Abs",
     bodyPart: "Abs",
-    equipment: "body weight",
+    equipment: "Body weight",
     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0001.gif",
     id: "0001",
     target: "Abs",
@@ -25,7 +25,7 @@ const exercises: ExerciseProps[] = [
   {
     name: "Abs",
     bodyPart: "Abs",
-    equipment: "body weight",
+    equipment: "Kettlebell",
     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0001.gif",
     id: "0001",
     target: "abs",
@@ -34,7 +34,7 @@ const exercises: ExerciseProps[] = [
   {
     name: "Legs",
     bodyPart: "Legs",
-    equipment: "body weight",
+    equipment: "Body weight",
     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0001.gif",
     id: "0001",
     target: "abs",
@@ -43,7 +43,17 @@ const exercises: ExerciseProps[] = [
   {
     name: "Arms",
     bodyPart: "Arms",
-    equipment: "body weight",
+    equipment: "Kettlebell",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0001.gif",
+    id: "0001",
+    target: "abs",
+    bodyPartImg: "he",
+  },
+
+  {
+    name: "Back Squat",
+    bodyPart: "Legs",
+    equipment: "Barebell",
     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0001.gif",
     id: "0001",
     target: "abs",
@@ -59,11 +69,27 @@ const allExcersices = () => {
       bodyParts.push(e.bodyPart);
     }
   });
-  return bodyParts;
+return bodyParts;
 };
+
+const allEquipments = () => {
+  let equipments: string [] = [exercises[0].equipment];
+
+  exercises.map((eq) => {
+    if (!equipments.includes(eq.equipment)) {
+      equipments.push(eq.equipment);
+    }
+  });
+    return equipments;
+  };
+  
 
 const specific = (bodyPart: string) => {
   return exercises.filter((e) => e.bodyPart == bodyPart);
+};
+
+const specificEquipment = (equipment: string) => {
+  return exercises.filter((eq) => eq.equipment == equipment);
 };
 
 export const ExercisePage = () => {
@@ -109,6 +135,23 @@ export const ExercisePage = () => {
             </Button>
           );
         })}
+
+        {allEquipments().map((eq) => {
+          return (
+            <Button 
+            w="100%"
+            backgroundColor="white"
+            _focus={{
+              boxShadow: 0,
+            }}
+            onClick={() => {
+              showSpecific(specificEquipment(eq), eq);
+            }}
+            > {eq}
+            </Button>
+          );
+        })}
+
       </Grid>
       <Box p="4" w="60%" margin="auto">
         <Text as="h2" fontSize={"2xl"} fontWeight="bold" mb="8px">
