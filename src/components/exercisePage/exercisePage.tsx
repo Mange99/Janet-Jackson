@@ -3,55 +3,7 @@ import { Console } from "console";
 import { useState, useEffect } from "react";
 import { ExerciseCardGrid } from "../exerciseCardGrid/exerciseCardGrid";
 import { ExerciseProps } from "../types";
-/*
-var exercises: ExerciseProps[] = [
-  {
-    name: "Abs",
-    bodyPart: "Abs",
-    equipment: "body weight",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0001.gif",
-    id: "0001",
-    target: "Abs",
-    bodyPartImg: "he",
-  },
-  {
-    name: "Abs",
-    bodyPart: "Abs",
-    equipment: "body weight",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0001.gif",
-    id: "0001",
-    target: "Abs",
-    bodyPartImg: "he",
-  },
-  {
-    name: "Abs",
-    bodyPart: "Abs",
-    equipment: "body weight",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0001.gif",
-    id: "0001",
-    target: "abs",
-    bodyPartImg: "he",
-  },
-  {
-    name: "Legs",
-    bodyPart: "Legs",
-    equipment: "body weight",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0001.gif",
-    id: "0001",
-    target: "abs",
-    bodyPartImg: "he",
-  },
-  {
-    name: "Arms",
-    bodyPart: "Arms",
-    equipment: "body weight",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0001.gif",
-    id: "0001",
-    target: "abs",
-    bodyPartImg: "he",
-  },
-];
-*/
+
 
 
 export const ExercisePage = () => {
