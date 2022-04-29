@@ -1,12 +1,15 @@
-import { HeaderComponent } from "./components/header/headerComponent";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ExercisePage } from "../src/components/exercisePage/exercisePage";
-import { CalculatorPage } from "../src/components/calculatorPage/calculatorPage";
+import { ExercisePage } from "./pages/exercisePage";
+import { CalculatorPage } from "./pages/calculatorPage";
 import { TipsPage } from "../src/components/tipsPage/tipsPage";
+import LandingPage from "./pages/LandingPage";
+import { HeaderComponent } from "./components/header/headerComponent";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <BrowserRouter>
+      <HeaderComponent />
       <Routes>
         <Route path="/" element={<HeaderComponent />}>
           <Route path="exercise" element={<ExercisePage />} />
@@ -14,6 +17,7 @@ function App() {
           <Route path="tips" element={<TipsPage />} />
         </Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -1,8 +1,5 @@
-import { Props } from "framer-motion/types/types";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
-import ReactDOM from "react-dom";
-import internal from "stream";
 
 let height: number = 0;
 let weight: number = 0;
@@ -17,7 +14,7 @@ export function BmiCalculator() {
 
   return (
     <>
-      <Card style={{ width: "18rem" }}>
+      <Card style={{ width: "18rem", height: "15rem" }}>
         <Card.Body>
           <Card.Title>BMI Calculator</Card.Title>
 
@@ -52,7 +49,7 @@ export function BmiCalculator() {
             </Form.Group>
           </Form>
 
-          <Button onClick={() => setBmi(bmiCalculate)} variant="primary">
+          <Button className="mb-3" onClick={() => setBmi(bmiCalculate)} variant="primary">
             Calculate
           </Button>
           <Form.Control type="text" placeholder={bmi + ""} readOnly />
