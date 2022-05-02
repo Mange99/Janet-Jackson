@@ -1,11 +1,17 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+
+import express from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
+import {exerciseRouter} from "../src/routes/favoriteExercises.router"
+import { connectToDatabase } from "./database.service";
+
 const app = express();
 
 var corsOptions = {
   origin: "http://localhost:8081"
 };
+
+app.use(exerciseRouter);
 
 app.use(cors(corsOptions));
 // parse requests of content-type - application/json
@@ -13,18 +19,14 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 // simple route
-app.get("/", (req, res) => {
-  res.json({ message: "made by torbjörn livén" });
-});
-// set port, listen for requests
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-  console.log("hello");
-});
 
-app.use('/login', (req, res) => {
-  res.send({
-    token: 'test123'
+connectToDatabase()
+  .then(() => {
+    app.use("exercises", exerciseRouter);
+
+    app.listen(8080, () => {
+      console.log(`Server started at http://localhost:8080`)
+    })
+    
   });
-});
+
