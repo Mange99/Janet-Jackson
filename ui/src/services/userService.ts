@@ -9,7 +9,17 @@ export class UserService {
         
         console.log(JSON.stringify({user: data}));
 
-        const response = await fetch(`http://localhost:3080/api/user`, {
+        const response = await fetch(`http://localhost:3080/api/register/create-user`, {
+            mode: "no-cors",
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({user: data})
+        })
+        return await response.json();
+    }
+
+    public async signIn(data: any): Promise<any> {
+        const response = await fetch(`http://localhost:3080/api/login/signin`, {
             mode: "no-cors",
             method: 'POST',
             headers: {'Content-Type': 'application/json'},

@@ -1,19 +1,20 @@
 import * as bodyParser from "body-parser";
 import * as express from "express";
-import { UserController } from "./controller/userController";
+import { AuthController } from "./controller/auth.controller";
 import { APILogger } from "./logger/api.logger";
+import authJwt from "./middlewares/authJwt";
 
 const path = require('path');
 
 class App {
 
     public express: express.Application;
-    public userController: UserController;
+    public authController: AuthController;
     public logger: APILogger;
 
     constructor() {
         this.express = express();
-        this.userController = new UserController();
+        this.authController = new AuthController();
         this.logger = new APILogger();
         this.middleware();
         this.routes();
@@ -26,17 +27,30 @@ class App {
     }
 
     private routes(): void {
-        this.express.get('/api/users', (req, res) => {
-            this.userController.getUsers().then(data => res.json(data));
+        this.express.get('/api/register/create-user', (req, res) => {
+           // this.authController.getUsers().then(data => res.json(data));
         });
+
+        this.express.get('/api/user', (req, res) => {
+            authJwt.authenticateJWT(req, res);
+         });
         
-        this.express.post('/api/user', (req, res) => {
+        this.express.post('/api/register/create-user', (req, res) => {
+            console.log(req.body.user);
+            console.log("aklsjdkalsjdklasjd")
+            if(req.body.user == undefined) {
+                res.send("error");
+            }
+            this.authController.createUser(req, res).then(data => res.json(data));
+            //.then(data => res.json(data));
+        });
+
+        this.express.post('/api/login/signin', (req, res) => {
             console.log(req.body.user);
             if(req.body.user == undefined) {
                 res.send("error");
             }
-            this.userController.createUser(req.body.user).then(data => res.json(data));
-            //.then(data => res.json(data));
+            this.authController.login(req, res).then(data => res.json(data));
         });
         
         /*
