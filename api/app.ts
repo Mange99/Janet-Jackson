@@ -41,7 +41,12 @@ class App {
             if(req.body.user == undefined) {
                 res.send("error");
             }
-            this.authController.createUser(req, res).then(data => res.json(data));
+            this.authController.createUser(req, res).then(data => {
+                this.logger.info("Data created and returned::", data);
+                res.json(data);
+            }).catch((error) => {
+                this.logger.error("Error::" + error);
+            });
             //.then(data => res.json(data));
         });
 

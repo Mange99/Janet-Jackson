@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express"
 import AuthService from "../service/auth.service";
-import jwt from "jsonwebtoken";
+import {sign} from "jsonwebtoken";
 import  bcrypt from "bcryptjs";
 import { APILogger } from "../logger/api.logger";
 import { UserDocument } from "../model/user.model";
@@ -33,10 +33,9 @@ export class AuthController {
                     this.logger.error("Invalid password");
                     throw new Error("Invalid password")
                 }   else {
-                    const token = jwt.sign(req.body, jwtSecret, {
+                    const token = sign(req.body, jwtSecret, {
                         expiresIn: tokenExpirationInSeconds,
                     });
-
                     return res.status(200).json({
                         success: true,
                         data: user,
@@ -59,24 +58,31 @@ export class AuthController {
           const password = req.body.user.password;
           const user = await AuthService.findUserByName(username);
           this.logger.info("user:: ", user)
-          if (!user) {
+          if (user) {
+
+            //return a 202 if user already exist, with status
               return res.status(202).json({
                   success: false,
-                  data: "User already exists",
+                  status: "User already exists",
               })
-            throw new Error("User Already Exists")
           } else {
             try {
-              const newUser = await AuthService.createUser({
+              await AuthService.createUser({
                 username,
                 password,
               })
-              const token = jwt.sign({ username, password }, jwtSecret, {
+              this.logger.info("User created", "");
+              const token = sign({ username, password }, jwtSecret, {
                 expiresIn: tokenExpirationInSeconds,
               })
+              this.logger.info(JSON.stringify({
+                success: true,
+                data: {username: username, password: password},
+                token: token,
+              }), "");
               return res.status(200).json({
                 success: true,
-                data: newUser,
+                data: {username, password},
                 token,
               })
             } catch (e) {

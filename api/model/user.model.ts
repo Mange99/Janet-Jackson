@@ -1,5 +1,4 @@
 import { model, Schema, Model, Document } from 'mongoose';
-import {connect, disconnect} from "../config/db.config";
 import MongooseService from '../service/MongooseService';
 
 export interface UserDocument extends Document {
@@ -11,13 +10,13 @@ export interface IUser {
     password: string
 }
 
-interface UserModel extends Model<UserModel> {
+export interface UserModel extends Model<UserModel> {
     build(attrs: IUser): UserDocument;
 }
 
 const UserSchema: Schema = new Schema({
     
-    name: { type: String, required: true},
+    username: { type: String, required: true},
     password: { type: String, required: true}
 }, 
 {
