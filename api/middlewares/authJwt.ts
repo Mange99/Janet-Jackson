@@ -27,8 +27,11 @@ class JWT {
                     .status(403)
                     .send({ success: false, message: "Token Expired" })
                 }
-                req.body.user = user;
-                
+                //req.body.user = user;
+                return res.status(200).json({
+                    success: true,
+                    message: "Authorized",
+                })
             })
             } else {
                 res.status(403).json({ success: false, message: "Unauthorized" });
