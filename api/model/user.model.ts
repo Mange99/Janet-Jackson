@@ -36,7 +36,7 @@ UserSchema.statics.build = (attrs: IUser) => {
 }
 
 const User = MongooseService.getInstance().model<UserDocument>(
-    "User",
+    "user",
     UserSchema
 )
 

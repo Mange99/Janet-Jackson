@@ -26,25 +26,38 @@ export class AuthController {
             const user = await AuthService.findUserByName(username);
 
             if(user) {
-                this.logger.info("Comparing passwords:: " + user.password + " " + passwordHash, " end");
-                const isPasswordCorrect = (user.password === passwordHash);
-
+                const isPasswordCorrect = (user.password == passwordHash);
+          
                 if(!isPasswordCorrect) {
-                    this.logger.error("Invalid password");
-                    throw new Error("Invalid password")
+                    const ret =  {
+                      success: false,
+                      data: null,
+                      token: null,
+                      status: "Invalid password",
+                    }
+                    this.logger.info("Error, wrong password: ", null);
+                    return ret;
                 }   else {
                     const token = sign(req.body, jwtSecret, {
                         expiresIn: tokenExpirationInSeconds,
                     });
-                    return res.status(200).json({
-                        success: true,
-                        data: user,
-                        token,
-                    })
+                    const ret = {
+                      success: true,
+                      data: user,
+                      token,
+                    }
+                    this.logger.info("Password accepted for user: ", user.username);
+                    return ret;
                 }
             } else {
                 this.logger.error("User not found");
-                throw new Error("User not found");
+                const ret =  {
+                  success: false,
+                  data: null,
+                  token: null,
+                  status: "User not found",
+                }
+                return ret;
             }
         } catch(e) {
             this.logger.error("Error in auth controller:: " + e);
@@ -57,34 +70,31 @@ export class AuthController {
           const username = req.body.user.username;
           const password = req.body.user.password;
           const user = await AuthService.findUserByName(username);
-          this.logger.info("user:: ", user)
           if (user) {
 
             //return a 202 if user already exist, with status
-              return res.status(202).json({
-                  success: false,
-                  status: "User already exists",
-              })
+            const ret = {
+              success: false,
+              status: "User already exists",
+            }
+              return ret;
           } else {
             try {
               await AuthService.createUser({
                 username,
                 password,
               })
-              this.logger.info("User created", "");
               const token = sign({ username, password }, jwtSecret, {
                 expiresIn: tokenExpirationInSeconds,
               })
-              this.logger.info(JSON.stringify({
+              const ret = {
                 success: true,
                 data: {username: username, password: password},
                 token: token,
-              }), "");
-              return res.status(200).json({
-                success: true,
-                data: {username, password},
-                token,
-              })
+                status: "User created",
+              };
+              this.logger.info("User created successfully: ", username);
+              return ret;
             } catch (e) {
               this.logger.error("Controller capturing error:: " + e)
               throw new Error("Error while register")

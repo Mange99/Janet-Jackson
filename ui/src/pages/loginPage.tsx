@@ -23,13 +23,10 @@ import {
   type props = {
     setToken: (userToken: Token) => void;
   };
-
-  const SALT_ROUNDS = 10;
   
   async function loginUser(credentials: login) {
-    console.log(credentials);
     const userService = new UserService();
-    const hash = await bcrypt.hash(credentials.password, await bcrypt.genSalt(SALT_ROUNDS));
+    const hash = await bcrypt.hash(credentials.password, "$2a$10$xxAWZFt0iyqvNR6KEpeILO");
     credentials.password = hash;
     return userService.signIn(credentials);
   }
@@ -47,7 +44,11 @@ import {
         username,
         password,
       }).then((token) => {
+        if(token != null) {
         setToken(token);
+        } else {
+          //login failed do something, maybe show some error msg
+        }
       });
     };
   

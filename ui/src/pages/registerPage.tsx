@@ -15,9 +15,9 @@ import {
   import bcrypt from "bcryptjs";
 import { UserService } from "../services/userService";
   
+// TODO add email to model in api
   interface Register { 
     username: string;
-    email: string;
     password: string;
 
   }
@@ -29,9 +29,8 @@ import { UserService } from "../services/userService";
   const SALT_ROUNDS = 10;
 
   async function registerUser(credentials: Register) {
-    console.log(credentials);
     const userService = new UserService();
-    const hash = await bcrypt.hash(credentials.password, await bcrypt.genSalt(SALT_ROUNDS));
+    const hash = await bcrypt.hash(credentials.password, "$2a$10$xxAWZFt0iyqvNR6KEpeILO");
     credentials.password = hash;
     return await userService.createUser(credentials);
   }
@@ -46,9 +45,12 @@ import { UserService } from "../services/userService";
       registerUser({
             username,
             password,
-            email,
       }).then((token) => {
+        if(token != null) {
         setToken(token);
+        } else {
+          //creation failed do something, maybe show some error msg
+        }
       });
     };
     return (

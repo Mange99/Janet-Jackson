@@ -11,10 +11,9 @@ class AuthService {
 
     async createUser(data: IUser) {
         try {
-            this.logger.info("data that should be created:: ", data );
             const user = await User.create(data);
-            this.logger.info("Service created user::", user);
             await user.save();
+            return user;
         } catch(e) {
             this.logger.error("Failed to create user due to:: " + e);
             throw new Error(e);
