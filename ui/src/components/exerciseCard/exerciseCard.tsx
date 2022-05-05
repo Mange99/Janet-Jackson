@@ -4,26 +4,34 @@ import InfoPanel from "../modalInfoPanel/infoPanel";
 import { ExerciseProps } from "../types";
 
 interface ExerciseCardProps {
+  onClick: (e: ExerciseProps) => void;
   exercise: ExerciseProps;
 }
 
-export function ExerciseCard(exercises: ExerciseCardProps) {
+export function ExerciseCard({ onClick, exercise }: ExerciseCardProps) {
   const [modalShow, setModalShow] = React.useState(false);
+
+  const handleClick = () => {
+    onClick(exercise);
+  };
 
   return (
     <>
       <Card style={{ width: "18rem" }}>
         <Card.Body>
-          <Card.Title>{exercises.exercise.name}</Card.Title>
-          <Card.Text>{exercises.exercise.name}</Card.Text>
+          <Card.Title>{exercise.name}</Card.Title>
+          <Card.Text>{exercise.name}</Card.Text>
           <Button onClick={() => setModalShow(true)} variant="primary">
             More info
           </Button>
           <InfoPanel
             show={modalShow}
             onHide={() => setModalShow(false)}
-            exercise={exercises.exercise}
+            exercise={exercise}
           />
+          <Button style={{ marginLeft: "4px" }} onClick={handleClick}>
+            Add to session
+          </Button>
         </Card.Body>
       </Card>
     </>
