@@ -11,7 +11,6 @@ import { useToken } from "./components/useToken";
 import LoginPage from "./pages/loginPage";
 
 function App() {
-
   const { token, setToken } = useToken();
 
   return (

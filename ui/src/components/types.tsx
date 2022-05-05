@@ -7,7 +7,17 @@
  * equipment is body weight, band etc...
  */
 
+export interface ExerciseArrProps {
+  exersiceProps: ExerciseProps[];
+}
+
+export interface SessionProps {
+  sessionTitle: string;
+  exersiceProps: ExerciseProps[];
+}
+
 export interface ExerciseCardGridProps {
+  onClick: (e: ExerciseProps) => void;
   exercises: ExerciseProps[];
 }
 export interface ExerciseProps {
