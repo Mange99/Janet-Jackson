@@ -41,7 +41,7 @@ export class SessionController {
   async createSession(req: Request, res: Response) {
     try {
       const sessionTitle = req.body.sessionTitle;
-      const exersiceProps = req.body.ExerciseProps;
+      const exersiceProps = req.body.exersiceProps;
 
       const session = await SessionService.findSessionById(sessionTitle);
       if (session) {
@@ -69,7 +69,7 @@ export class SessionController {
           return ret;
         } catch (e) {
           this.logger.error("Controller capturing error: " + e);
-          throw new Error("Error while register");
+          throw new Error("Error while creating session");
         }
       }
     } catch (e) {

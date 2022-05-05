@@ -11,6 +11,8 @@ class SessionService {
   async createSession(data: ISession) {
     try {
       const session = await Session.create(data);
+      console.log("kuken ");
+
       await session.save();
       return session;
     } catch (e) {

@@ -41,7 +41,17 @@ export const ExercisePage = () => {
       setErrorType("Pliz add some exercises!");
     } else {
       setError(false);
-      console.log(sendSession(session));
+
+      sendSession(session).then((data) => {
+        if (data.data.success == true) {
+          console.log("all good");
+        } else if (
+          data.data.success == false &&
+          data.data.status == "Session already exists"
+        ) {
+          console.log("all bad");
+        }
+      });
     }
   };
 

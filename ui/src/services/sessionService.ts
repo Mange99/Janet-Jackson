@@ -1,3 +1,4 @@
+import axios from "axios";
 import { ExerciseProps, SessionProps } from "../components/types";
 
 export class SessionService {
@@ -6,15 +7,27 @@ export class SessionService {
     return await response.json();
   }
 
-  public async createSession(data: SessionProps): Promise<any> {
-    console.log(JSON.stringify(data));
+  public async createSession(session: SessionProps): Promise<any> {
+    try {
+      const data = JSON.stringify({
+        sessionTitle: session.sessionTitle,
+        exersiceProps: session.exersiceProps,
+      });
 
-    const response = await fetch(`http://localhost:3080/api/session/create`, {
-      mode: "no-cors",
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-    return await response.json();
+      console.log(data);
+
+      const config = {
+        method: "post",
+        url: "http://localhost:3080/api/session/create",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data: data,
+      };
+
+      return await axios(config);
+    } catch (error) {
+      console.log("Error with create session: " + error);
+    }
   }
 }

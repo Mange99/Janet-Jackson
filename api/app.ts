@@ -75,8 +75,9 @@ class App {
     this.express.get("/api/session/create", (req, res) => {
       // this.authController.getUsers().then(data => res.json(data));
     });
-
     this.express.post("/api/session/create", (req, res) => {
+      this.logger.info("session", req.body);
+      this.logger.info("session", req.body.sessionTitle);
       this.sessionController
         .createSession(req, res)
         .then((data) => {
