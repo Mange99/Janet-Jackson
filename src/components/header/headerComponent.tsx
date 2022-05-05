@@ -14,6 +14,7 @@ export function HeaderComponent() {
             <Nav.Link as={Link} to="food-and-helth">Food and Health</Nav.Link>
             <Nav.Link as={Link} to="tips">Tips</Nav.Link>
             <Nav.Link as={Link} to="calculators">Calculators</Nav.Link>
+            <Nav.Link as={Link} to="Profile-Page">My profile</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

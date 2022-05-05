@@ -7,6 +7,7 @@ import LandingPage from "./pages/LandingPage";
 import { HeaderComponent } from "./components/header/headerComponent";
 import Footer from "./components/Footer";
 import { FoodPage} from "../src/components/foodPage/foodPage"
+import {ProfilePage} from "../src/pages/profilePage"
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="calculators" element={<CalculatorPage />} />
           <Route path="food-and-helth" element={<FoodPage/>}/>
           <Route path="/tips" element={<TipsPage />} />
+          <Route path="Profile-Page" element={<ProfilePage/>}  />
      
       </Routes>
       <Footer />
