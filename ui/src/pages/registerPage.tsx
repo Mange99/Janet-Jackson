@@ -10,7 +10,7 @@ import {
     Text,
   } from "@chakra-ui/react";
   import { useState } from "react";
-  import { Link } from "react-router-dom";
+  import { Link, Navigate, useNavigate } from "react-router-dom";
   import { Token } from "../components/useToken";
   import bcrypt from "bcryptjs";
 import { UserService } from "../services/userService";
@@ -30,6 +30,7 @@ import { UserService } from "../services/userService";
 
   async function registerUser(credentials: Register) {
     const userService = new UserService();
+    //Store salt in env or db and get salt for each user or switch it up for each user
     const hash = await bcrypt.hash(credentials.password, "$2a$10$xxAWZFt0iyqvNR6KEpeILO");
     credentials.password = hash;
     return await userService.createUser(credentials);
@@ -39,6 +40,8 @@ import { UserService } from "../services/userService";
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [show, setShow] = useState(false);
+    const [error, setError] = useState(false);
+    const navigate = useNavigate();
   
     const handleSubmit = (event: React.FormEvent) => {
       event.preventDefault();
@@ -46,9 +49,13 @@ import { UserService } from "../services/userService";
             username,
             password,
       }).then((token) => {
+        console.log(token);
         if(token != null) {
         setToken(token);
+        setError(false);
+        navigate("/");
         } else {
+          setError(true);
           //creation failed do something, maybe show some error msg
         }
       });
@@ -56,6 +63,9 @@ import { UserService } from "../services/userService";
     return (
       <Box w="25%" p={8} margin="auto" borderRadius="lg">
         <Heading>Register your account</Heading>
+
+        {error && <Text className="mt-3" textStyle='h3'>Username already taken, try again</Text> }
+
         <form onSubmit={handleSubmit}>
           <FormControl my={4} isRequired>
             <FormLabel htmlFor="username">Username</FormLabel>

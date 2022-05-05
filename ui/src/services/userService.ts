@@ -22,8 +22,6 @@ export class UserService {
                     }
                   });
 
-                  console.log(data);
-
                 const config = {
                     method: 'post',
                     url: 'http://localhost:3080/api/register/create-user',
@@ -33,18 +31,8 @@ export class UserService {
                     data : data
                   };
 
-                  axios(config)
-                    .then(function (response) {
-                    console.log(JSON.stringify(response.data));
-                    if(response.data.success == true) {
-                      return response.data.token;
-                    } else {
-                      return null;
-                    }
-                    })
-                    .catch(function (error) {
-                    console.log(error);
-                    });
+                  const ret = await axios(config);
+                  return ret.data.token;
             } catch (error) {
                 console.log("Error with create-user request: " + error);
             }
@@ -69,19 +57,8 @@ export class UserService {
                 data : data
               };
 
-              axios(config)
-                .then(function (response) {
-                console.log(JSON.stringify(response));
-                console.log(response.data);
-                if(response.data.success == true) {
-                  return response.data.token;
-                } else {
-                  return null;
-                }
-                })
-                .catch(function (error) {
-                console.log(error);
-                });
+              const ret = await axios(config);
+              return ret.data.token;
         } catch (error) {
             console.log("Error with login request: " + error);
         }

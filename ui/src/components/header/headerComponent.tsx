@@ -18,7 +18,7 @@ export function HeaderComponent() {
           </Nav>
           <Nav>
             <Nav.Link as={Link} to="login">Login</Nav.Link>
-            { useToken().token == undefined && <Nav.Link as={Link} to="register">Register</Nav.Link>}
+            { localStorage.getItem("token") == undefined && <Nav.Link as={Link} to="register">Register</Nav.Link>}
           </Nav>
         </Container>
       </Navbar>

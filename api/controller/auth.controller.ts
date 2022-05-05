@@ -75,6 +75,8 @@ export class AuthController {
             //return a 202 if user already exist, with status
             const ret = {
               success: false,
+              data: null,
+              token: null,
               status: "User already exists",
             }
               return ret;
