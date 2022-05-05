@@ -25,7 +25,7 @@ export const ExercisePage = () => {
   };
 
   const allEquipments = () => {
-    let equipments: string [] = [exercises[0].equipment];
+    let equipments: string [] = [];
   
     exercises.map((eq) => {
       if (!equipments.includes(eq.equipment)) {
