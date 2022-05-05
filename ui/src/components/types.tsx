@@ -7,6 +7,10 @@
  * equipment is body weight, band etc...
  */
 
+export interface ExerciseArrProps {
+  exersiceProps: ExerciseProps[];
+}
+
 export interface SessionProps {
   sessionTitle: string;
   exersiceProps: ExerciseProps[];

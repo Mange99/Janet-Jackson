@@ -77,7 +77,6 @@ class App {
     });
 
     this.express.post("/api/session/create", (req, res) => {
-      this.logger.info("request", req);
       this.sessionController
         .createSession(req, res)
         .then((data) => {
