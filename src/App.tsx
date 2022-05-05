@@ -15,13 +15,11 @@ function App() {
       <HeaderComponent />
       <Routes>
 
-        <Route path="/" element={<HeaderComponent />}>
           <Route path="exercise" element={<ExercisePage />} />
           <Route path="calculators" element={<CalculatorPage />} />
           <Route path="food-and-helth" element={<FoodPage/>}/>
           <Route path="/tips" element={<TipsPage />} />
-        </Route>
-
+     
       </Routes>
       <Footer />
     </BrowserRouter>
