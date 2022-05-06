@@ -7,7 +7,7 @@ export const ExercisePage = () => {
   const [exercises, setAllExcercises] = useState<ExerciseProps[]>([]);
   const [excercises, setExcercises] = useState(exercises);
   const [title, setTitle] = useState("All excercises");
-  const [noOfExercises, setnoOfExercises] = useState (10);
+  const [noOfExercises, setnoOfExercises] = useState (20);
   
   const showMoreExercises = () => {
     setnoOfExercises(noOfExercises + noOfExercises);
@@ -128,7 +128,7 @@ export const ExercisePage = () => {
             <Text as="h2" fontSize={"2xl"} fontWeight="bold" mb="8px">
               {title}
             </Text>
-            {<ExerciseCardGrid exercises={excercises} />}
+            {<ExerciseCardGrid exercises={excercises.slice(0,noOfExercises)} />}
             <Button w="50%"
                         backgroundColor="white"
                         _focus={{
