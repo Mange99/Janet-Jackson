@@ -87,3 +87,24 @@ Everyone had something to do and they managed to do it in time. I held the scrum
 
 What is my contribution towards the team’s deliveries?
 I did my share of tasks and reviewed code from teammembers. I took part in the team reflection. 
+
+Week 6 6/5 - 2022
+What do I want to learn or understand better?
+I want to learn and understand MongoDB better, I also want to become more comfortable with promises and asynchronous code. When I use async/await the 
+code does what I expect it to do, but if I don't use it the code becomes unpredictable to me, .then(). I still want to become more proficient in React, i feel like 
+my understanding of React has increased regarding knowledge of the virtual DOM and states but there is still much to learn. 
+I also want to learn more about express servers and how one could set them up with routes and such things. I want to understand and use jwt:s better, right now they exist, but we don't 
+do much with them. 
+
+How can I help someone else, or the entire team, to learn something new?
+Continue with pairprogramming and answer questions people may have in our communication channels. Have meetings with people to explain code and concepts 
+they might not know or understand. Keep technical documentation with guides and where sequences are explained. 
+
+What is my contribution towards the team’s use of Scrum?
+I have taken part in all meetings this week. Sprint planning session, standup meetings, demo, review and retrospective.
+
+What is my contribution towards the team’s deliveries?
+I set up the server and database to allow for login and registration, and also make it easy for others to add functionality.
+, which was my userstory this week, which I completed. I also took part in 
+writing the team reflection. 
+
