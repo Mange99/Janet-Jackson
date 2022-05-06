@@ -42,8 +42,8 @@ Please see the _team_Reflections_ folder for the team reflections. [Link to the 
 
 Please see the _individual_Reflections_ for the individual reflections.
 
-For the **Business Model Canvas**, the **Mockup**, the **social contract**, see file Business Model Canvas.md, Mockup-3_Agile.pdf, SocialContract.txt, respectively.
-They are stored in the _res_ folder, found under _src/res_
+For the **Business Model Canvas**, the **Mockup**, the **social contract**, see file Business Model Canvas.md, Mockup-3*Agile.pdf, SocialContract.txt, respectively.
+They are stored in the \_res* folder, found under _src/res_
 
 ## Project specifications
 
@@ -56,11 +56,14 @@ a macro tracker based on calorie intake and many more.
 
 - Clone the repository to your local machine
 - Please make sure you have node installed. If not you can download it from here https://nodejs.org/en/download/
-- In the project directory, to install all depencies, run
+- It consists of one frontend directory /ui, and one backend directory /api which both need to run separately
+- In the project directory Janet-Jackson/ open two terminals and enter the /ui and /api directories separately.
+- To start and install each of their dependencies, do the following for both directories
   - ##### `npm install`
 - To start the project then run
   - ##### `npm start`
 - The project will then be available on [http://localhost:3000](http://localhost:3000) for view in the browser.
+- The server will run [http://localhost:3080](http://localhost:3080) and will receive requests from the frontend.
 
 ## React instructions
 

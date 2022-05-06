@@ -1,0 +1,33 @@
+Social Contract
+
+- Communication takes place through discord. 
+	- it is important to communicate issues that arises throughout the course.
+- Initially we will aim to meet physically every monday. 
+- initially, Digital meetings once a week
+- during sprints aim to have daily check-in
+	- discord
+	- 15 min voice-meeting
+- it is essential that we maintain a good tone in the group. Our attitudes towards each other should be open and non judgemental. Should strive to help each other out.
+
+- during major decision making. The group should strive to take the decision together after reasoning within the group. if we do not agree, voting. Everyone must vote. majority wins. 
+- all members need to actively contribute to the project and equally in effort.
+	- take responsibility for appointed task
+		- it is important to ask for help. 
+- absence 
+	- the person absent is responsible for being up to date
+	- repeated absence will be discussed within group. 
+
+- the group will focus on the learning process rather than achieve the perfect product. 
+- aim to follow the sprint
+	- when the sprint is revised it is VERY important that the group members are informed. Communication is vital.
+
+This contract is approved by:
+Hedda
+Ali
+Bilal
+Torbjörn
+Sara
+Magnus
+Deaa
+
+Github repository: https://github.com/Mange99/Janet-Jackson
