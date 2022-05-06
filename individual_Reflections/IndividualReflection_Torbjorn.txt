@@ -84,19 +84,26 @@ Attended all the meetings the supervision meeting on monday then the mid week me
 with thire user stories and if someone needed help. 
 
 What is my contribution towards the team’s deliveries?
-Reviewed team members code and did the landing page of the application
+I did my share of tasks and reviewed code from teammembers. I took part in the team reflection. 
 
 Week 6 6/5 - 2022
 What do I want to learn or understand better?
-How to be a scrum master and how to delegate assignments to my group 
+I want to learn and understand MongoDB better, I also want to become more comfortable with promises and asynchronous code. When I use async/await the 
+code does what I expect it to do, but if I don't use it the code becomes unpredictable to me, .then(). I still want to become more proficient in React, i feel like 
+my understanding of React has increased regarding knowledge of the virtual DOM and states but there is still much to learn. 
+I also want to learn more about express servers and how one could set them up with routes and such things. I want to understand and use jwt:s better, right now they exist, but we don't 
+do much with them. 
 
 How can I help someone else, or the entire team, to learn something new?
-Being available for questions when people need help. We continue with pairprogramming and code review 
-so we can help each other if we think they have wrote some wierd code.
+Continue with pairprogramming and answer questions people may have in our communication channels. Have meetings with people to explain code and concepts 
+they might not know or understand. Keep technical documentation with guides and where sequences are explained. 
 
 What is my contribution towards the team’s use of Scrum?
-I was scrummaster so i choose which user stories were most important this week and handed them out to the rest of the team.
-Some user stories overlapped we realized so we had to adapt us a little but we reached our goals for the weak. 
+I have taken part in all meetings this week. Sprint planning session, standup meetings, demo, review and retrospective.
 
 What is my contribution towards the team’s deliveries?
-I did my user story and helped torbjörn a bit with the login. Also did my part of the team reflection.
+I set up the server and database to allow for login and registration, with a bit of help from Magnus. And also make it easy for others to add functionality.
+, which was my userstory this week, which I completed. I also took part in 
+writing the team reflection. 
+
+
