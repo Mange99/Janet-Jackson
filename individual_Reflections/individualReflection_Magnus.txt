@@ -61,3 +61,32 @@ Being part of the meetings and trying to clear things up with the team, so we al
 
 What is my contribution towards the team’s deliveries?
 Did my user story and the team reflection
+
+Week 5 29/4 - 2022
+What do I want to learn or understand better?
+Understanding scrum beacuse next week i am going to be scrum master.
+
+How can I help someone else, or the entire team, to learn something new?
+By continously asking if someone needs help with thier user story.
+
+What is my contribution towards the team’s use of Scrum?
+Attended all the meetings the supervision meeting on monday then the mid week meeting to see how all were doing 
+with thire user stories and if someone needed help. 
+
+What is my contribution towards the team’s deliveries?
+Reviewed team members code and did the landing page of the application
+
+Week 6 6/5 - 2022
+What do I want to learn or understand better?
+How to be a scrum master and how to delegate assignments to my group 
+
+How can I help someone else, or the entire team, to learn something new?
+Being available for questions when people need help. We continue with pairprogramming and code review 
+so we can help each other if we think they have wrote some wierd code.
+
+What is my contribution towards the team’s use of Scrum?
+I was scrummaster so i choose which user stories were most important this week and handed them out to the rest of the team.
+Some user stories overlapped we realized so we had to adapt us a little but we reached our goals for the weak. 
+
+What is my contribution towards the team’s deliveries?
+I did my user story and helped torbjörn a bit with the login. Also did my part of the team reflection.

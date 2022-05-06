@@ -74,16 +74,14 @@ I did my allotted userstory and I helped writing the team reflection.
 
 Week 5 29/4 - 2022
 What do I want to learn or understand better?
-I continously want to get better and use more advanced features of React and TypeScript. To do this I should continue 
-taking on tasks and keep working. 
+Understanding scrum beacuse next week i am going to be scrum master.
 
 How can I help someone else, or the entire team, to learn something new?
-Share my knowledge by being available to anyone that needs it or has any questions. We as a team should also continue with pairprogramming and 
-code review, so that if anyone sees anything that looks weird, we can give instant feedback. 
+By continously asking if someone needs help with thier user story.
 
 What is my contribution towards the team’s use of Scrum?
-This week I've been the scrummaster. I tried to delegate userstories according to everyones experience and I think it went well.
-Everyone had something to do and they managed to do it in time. I held the scrum review/demo with the PO and also the scrum retrospective. 
+Attended all the meetings the supervision meeting on monday then the mid week meeting to see how all were doing 
+with thire user stories and if someone needed help. 
 
 What is my contribution towards the team’s deliveries?
 I did my share of tasks and reviewed code from teammembers. I took part in the team reflection. 
@@ -104,7 +102,8 @@ What is my contribution towards the team’s use of Scrum?
 I have taken part in all meetings this week. Sprint planning session, standup meetings, demo, review and retrospective.
 
 What is my contribution towards the team’s deliveries?
-I set up the server and database to allow for login and registration, and also make it easy for others to add functionality.
+I set up the server and database to allow for login and registration, with a bit of help from Magnus. And also make it easy for others to add functionality.
 , which was my userstory this week, which I completed. I also took part in 
 writing the team reflection. 
+
 
