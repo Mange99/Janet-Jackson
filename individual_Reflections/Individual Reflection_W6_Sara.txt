@@ -1,0 +1,24 @@
+Individual Reflection W6 - Sara
+
+#### What do I want to learn or understand better?
+
+I picked a programming based userstory this week, and some management/other related tasks--this allowed me to work on last weeks goal. I'm still a noob about react design related stuff. I think it could be useful to learn more about how react is used for design, to make the site more polished in its design. I will reach this by making sure I choose a user story next week where that is possible (if available and realistic, I suppose)--otherwise we are also closing in on the end of the project, so wrapping up stuff could also be good!
+
+#### How can I help someone else, or the entire team, to learn something new?
+*this remains from last week as it is still relvant!*
+I have some design experience. I want to share that with the group so we can have a ”pretty” website. I will work on learning how to the design programming for the website, and to help others in making the site ”pretty”. I also shared what I learnt from the relevant literature i read this week.
+
+#### What is my contribution towards the team’s use of Scrum?
+*this remains from last week as it is still relvant!*
+I try and follow scrum to the best of my abilities. I Would like to make scrum work even better. I Will try and reach this by making concious decisions that help my scrum understanding, and take an eager part in the next scrum planning! 
+One specific thing I did this week was read up on scrum through a project-relevant literature paper--Which I used to discuss scrum related things with the group.
+     
+#### What is my contribution towards the team’s deliveries?
+I delivered my user story (which was based on PO feedback) and took an active role in the turn in, additionally I had a few tasks that I also delivered. I want to continue doing what I assagned in time. I will reach that by continuing in the same manner—but possible even better!
+
+------------
+
+*See team reflection w5 for better explanation for how these values are graded (not as simple as "time" might suggest).
+
+Time: (on a scale of 1-10)  — 7. (Could be better in effincency--and I think I actually spent a little less time than last week--mostly because I misscalculated a tasks time.)
+Stress: (on a scale of 1-10)  — 4. (it was ok)
