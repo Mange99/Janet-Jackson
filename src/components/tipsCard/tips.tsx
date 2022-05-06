@@ -1,6 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Row, Col} from "react-bootstrap";
+
+
+
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+
+
+
 
 
 
@@ -51,18 +59,21 @@ const tipss: tipsData[] = [
 ];
 
 export function Tips () {
-    return  (
-        <>
-          {tipss.map(tipss => (
-          <Card style={{ width: "30rem", padding: "3rem"}}>
+  return  (
+    <Row xs={1} sm={2} md={2} lg={3} xl={5} className="rowTest">
+      {tipss.map(tipss => (
+        <Col>
+          <Card>
             <Card.Body>
               <Card.Title>{tipss.title}</Card.Title>
               <Card.Text>{tipss.tipsDescription}</Card.Text>
               <a href = {tipss.sourceTips}> Source </a>
             </Card.Body>
           </Card>
+          </Col>
           ))}
-        </>
-  
-    );
+    </Row>
+  )
+
 }
+
