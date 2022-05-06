@@ -7,10 +7,16 @@ export const ExercisePage = () => {
   const [exercises, setAllExcercises] = useState<ExerciseProps[]>([]);
   const [excercises, setExcercises] = useState(exercises);
   const [title, setTitle] = useState("All excercises");
+  const [noOfExercises, setnoOfExercises] = useState (20);
+  
+  const showMoreExercises = () => {
+    setnoOfExercises(noOfExercises + noOfExercises);
+  };
 
   const showSpecific = (Specificexercises: ExerciseProps[], title: string) => {
     setExcercises(Specificexercises);
     setTitle(title);
+    
   };
 
   const allExcersices = () => {
@@ -49,6 +55,7 @@ export const ExercisePage = () => {
       headers: {
         "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
         "X-RapidAPI-Key": "9ba136ae5dmsh149a878f4d9bc65p1cdcf8jsnbbef50b194fa",
+  
       },
     };
 
@@ -60,6 +67,7 @@ export const ExercisePage = () => {
       })
       .catch((err) => console.error(err));
   }, []);
+ 
 
   return (
     <div>
@@ -95,12 +103,14 @@ export const ExercisePage = () => {
                 >
                   {e}
                 </Button>
+               
               );
+             
             })}
 
             {allEquipments().map((eq) => {
                       return (
-                        <Button 
+                        <Button
                         w="100%"
                         backgroundColor="white"
                         _focus={{
@@ -118,7 +128,16 @@ export const ExercisePage = () => {
             <Text as="h2" fontSize={"2xl"} fontWeight="bold" mb="8px">
               {title}
             </Text>
-            {<ExerciseCardGrid exercises={excercises} />}
+            {<ExerciseCardGrid exercises={excercises.slice(0,noOfExercises)} />}
+            <Button w="50%"
+                        backgroundColor="white"
+                        _focus={{
+                          boxShadow: 0,
+                        }}
+                        onClick= {showMoreExercises}
+              > 
+                Load More
+             </Button>
           </Box>
         </Box>
       )}
