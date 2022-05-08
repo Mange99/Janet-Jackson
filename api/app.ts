@@ -5,6 +5,8 @@ import { AuthController } from "./controller/auth.controller";
 import { APILogger } from "./logger/api.logger";
 import authJwt from "./middlewares/authJwt";
 import { SessionController } from "./controller/session.controller";
+import { FavoriteController } from "./controller/favorite.controller";
+
 
 const path = require("path");
 
@@ -13,11 +15,16 @@ class App {
   public authController: AuthController;
   public logger: APILogger;
   public sessionController: SessionController;
+<<<<<<< Updated upstream
 
+=======
+  public favoriteController: FavoriteController;
+>>>>>>> Stashed changes
   constructor() {
     this.express = express();
     this.authController = new AuthController();
     this.sessionController = new SessionController();
+    this.favoriteController = new FavoriteController();
     this.logger = new APILogger();
     this.middleware();
     this.routes();
@@ -60,6 +67,7 @@ class App {
 
     this.express.post("/api/login/signin", (req, res) => {
       console.log(req.body.user);
+
       if (req.body.user == undefined) {
         res.send("error");
       }
@@ -78,6 +86,19 @@ class App {
       this.logger.info("session", req.body.sessionTitle);
       this.sessionController
         .createSession(req, res)
+        .then((data) => {
+          return res.status(200).json(data);
+        })
+        .catch((error) => {
+          this.logger.error("Error:: " + error);
+        });
+    });
+
+    this.express.post("/api/favorite/create", (req, res) => {
+      this.logger.info("favorite", req.body);
+
+      this.favoriteController
+        .createFavorite(req, res)
         .then((data) => {
           return res.status(200).json(data);
         })

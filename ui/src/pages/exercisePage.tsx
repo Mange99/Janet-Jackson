@@ -24,6 +24,8 @@ export const ExercisePage = () => {
   const [exercises, setAllExcercises] = useState<ExerciseProps[]>([]);
   const [excercises, setExcercises] = useState(exercises);
   const [title, setTitle] = useState("All excercises");
+  const [favoriteButtonText, setFavoriteButtonText] = useState("Show favorite");
+  const [isFavorite, setIsFavorite]  = useState(false);;
 
   const [session, setSession] = useState<SessionProps>({
     sessionTitle: "",
@@ -82,6 +84,18 @@ export const ExercisePage = () => {
     return equipments;
   };
 
+  const showFavorite = () => {
+    if (!isFavorite){
+      showSpecific(exercises.slice(0,10), "Favorites");
+      setFavoriteButtonText('Show all');
+      setIsFavorite(true);
+    }else{
+      showSpecific(exercises, "All excercises");
+      setFavoriteButtonText('Show favorites');
+      setIsFavorite(false);
+    }
+    
+  }
   const specific = (bodyPart: string) => {
     return exercises.filter((e) => e.bodyPart === bodyPart);
   };
@@ -239,6 +253,7 @@ export const ExercisePage = () => {
           </Box>
 
           <Box p="4" w="60%" margin="auto">
+            <Button colorScheme='blue' onClick={showFavorite}>{favoriteButtonText}</Button>
             <Text as="h2" fontSize={"2xl"} fontWeight="bold" mb="8px">
               {title}
             </Text>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, ToggleButton} from "react-bootstrap";
 import InfoPanel from "../modalInfoPanel/infoPanel";
 import { ExerciseProps } from "../types";
 
@@ -10,7 +10,7 @@ interface ExerciseCardProps {
 
 export function ExerciseCard({ onClick, exercise }: ExerciseCardProps) {
   const [modalShow, setModalShow] = React.useState(false);
-
+  const [checked, setChecked] = React.useState(false);
   const handleClick = () => {
     onClick(exercise);
   };
@@ -32,6 +32,20 @@ export function ExerciseCard({ onClick, exercise }: ExerciseCardProps) {
           <Button style={{ marginLeft: "4px" }} onClick={handleClick}>
             Add to session
           </Button>
+          
+          <ToggleButton
+          className="mb-2"
+
+          id={exercise.id}
+          type="checkbox"
+          variant="outline-danger"
+         checked={checked} 
+          value={exercise.name}
+          onChange={() => setChecked(!checked)}
+      >
+        Favorite
+      </ToggleButton>
+      
         </Card.Body>
       </Card>
     </>
