@@ -1,7 +1,7 @@
 import { model, Schema, Model, Document } from "mongoose";
 import MongooseService from "../service/MongooseService";
 
-export type ExerciseProps = {
+export interface ExerciseSession {
   name: string;
   bodyPart: string;
   equipment: string;
@@ -9,15 +9,19 @@ export type ExerciseProps = {
   id: string;
   target: string;
   bodyPartImg: string;
-};
+  sets: number;
+  reps: number;
+}
 
 export interface SessionDocument extends Document {
+  token: string;
   sessionTitle: string;
-  exersiceProps: ExerciseProps[];
+  exersiceProps: ExerciseSession[];
 }
 export interface ISession {
+  token: string;
   sessionTitle: string;
-  exersiceProps: ExerciseProps[];
+  exersiceProps: ExerciseSession[];
 }
 
 export interface SessionModel extends Model<SessionModel> {
@@ -26,6 +30,7 @@ export interface SessionModel extends Model<SessionModel> {
 
 const SessionSchema: Schema = new Schema(
   {
+    token: { type: String, required: true },
     sessionTitle: { type: String, required: true },
     exersiceProps: {
       type: [
@@ -36,6 +41,8 @@ const SessionSchema: Schema = new Schema(
           id: { type: String, required: true },
           name: { type: String, required: true },
           target: { type: String, required: true },
+          sets: { type: Number, required: true },
+          reps: { type: Number, required: true },
         },
       ],
       required: true,

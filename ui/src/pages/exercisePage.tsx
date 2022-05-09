@@ -6,11 +6,20 @@ import {
   Heading,
   IconButton,
   Input,
+  NumberDecrementStepper,
+  NumberIncrementStepper,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
   Text,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { ExerciseCardGrid } from "../components/exerciseCardGrid/exerciseCardGrid";
-import { ExerciseProps, SessionProps } from "../components/types";
+import {
+  ExerciseProps,
+  ExerciseSession,
+  SessionProps,
+} from "../components/types";
 
 import { MdRemove } from "react-icons/md";
 import { SessionService } from "../services/sessionService";
@@ -26,6 +35,7 @@ export const ExercisePage = () => {
   const [title, setTitle] = useState("All excercises");
 
   const [session, setSession] = useState<SessionProps>({
+    token: "",
     sessionTitle: "",
     exersiceProps: [],
   });
@@ -41,6 +51,15 @@ export const ExercisePage = () => {
       setErrorType("Pliz add some exercises!");
     } else {
       setError(false);
+      const token = localStorage.getItem("token");
+
+      if (token != null) {
+        console.log(token);
+        setSession((prev) => ({
+          ...prev,
+          token: token.slice(1, -1),
+        }));
+      }
 
       sendSession(session).then((data) => {
         if (data.data.success === true) {
@@ -99,14 +118,26 @@ export const ExercisePage = () => {
   };
 
   const addExercises = (e: ExerciseProps) => {
-    if (session.exersiceProps.includes(e)) {
+    const temp: ExerciseSession = {
+      bodyPart: e.bodyPart,
+      name: e.name,
+      equipment: e.equipment,
+      gifUrl: e.gifUrl,
+      target: e.target,
+      id: e.id,
+      bodyPartImg: e.bodyPartImg,
+      sets: 3,
+      reps: 10,
+    };
+
+    if (session.exersiceProps.includes(temp)) {
       setErrorType("Already added!");
       setError(true);
     } else {
       setError(false);
       setSession((prev) => ({
         ...prev,
-        exersiceProps: [...prev.exersiceProps, e],
+        exersiceProps: [...prev.exersiceProps, temp],
       }));
     }
   };
@@ -125,7 +156,7 @@ export const ExercisePage = () => {
       method: "GET",
       headers: {
         "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
-        "X-RapidAPI-Key": "9ba136ae5dmsh149a878f4d9bc65p1cdcf8jsnbbef50b194fa",
+        "X-RapidAPI-Key": "8a18f3daebmsh3a2c8185774efc1p1392a6jsn2738db58b874",
       },
     };
 
@@ -195,56 +226,94 @@ export const ExercisePage = () => {
               );
             })}
           </Grid>
-          <Box
-            position={"absolute"}
-            right="0"
-            w="15vw"
-            pl="2"
-            borderLeft={"1px"}
-          >
-            <Heading textAlign={"center"}>Session</Heading>
-            <Flex direction={"column"}>
-              <Text>Name your session</Text>
-              <Input
-                w="80%"
-                mb="4"
-                type="name"
-                placeholder="session name"
-                onChange={(e) => {
-                  e.preventDefault();
-                  setSession({
-                    ...session,
-                    sessionTitle: e.target.value,
-                  });
-                }}
-              />
-              {session.exersiceProps.map((e) => {
-                return (
-                  <Box w="80%" mt="4">
-                    {e.name}
-                    <IconButton
-                      mr="4"
-                      position={"absolute"}
-                      right={0}
-                      aria-label={""}
-                      icon={<MdRemove />}
-                      boxSize={8}
-                      onClick={() => removeExercises(e)}
-                    ></IconButton>
-                  </Box>
-                );
-              })}
+          {localStorage.getItem("token") != undefined && (
+            <Box
+              position={"absolute"}
+              right="0"
+              w="15vw"
+              pl="2"
+              borderLeft={"1px"}
+            >
+              <Heading textAlign={"center"}>Session</Heading>
+              <Flex direction={"column"}>
+                <Text>Name your session</Text>
+                <Input
+                  w="80%"
+                  mb="4"
+                  type="name"
+                  placeholder="session name"
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setSession({
+                      ...session,
+                      sessionTitle: e.target.value,
+                    });
+                  }}
+                />
+                {session.exersiceProps.map((e) => {
+                  return (
+                    <Box w="80%" mt="4">
+                      {e.name}
+                      <IconButton
+                        mr="4"
+                        position={"absolute"}
+                        right={0}
+                        aria-label={""}
+                        icon={<MdRemove />}
+                        boxSize={8}
+                        onClick={() => removeExercises(e)}
+                      ></IconButton>
+                      <Flex align="center" my="2" gap={1}>
+                        <Text>Sets: </Text>
+                        <NumberInput
+                          w="40%"
+                          defaultValue={3}
+                          min={0}
+                          max={99}
+                          size={"sm"}
+                          onChange={(value) => {
+                            e.sets = Number(value);
+                          }}
+                        >
+                          <NumberInputField />
+                          <NumberInputStepper>
+                            <NumberIncrementStepper />
+                            <NumberDecrementStepper />
+                          </NumberInputStepper>
+                        </NumberInput>
+                        <Text>Reps: </Text>
+                        <NumberInput
+                          w="40%"
+                          defaultValue={10}
+                          min={0}
+                          max={99}
+                          size={"sm"}
+                          onChange={(value) => {
+                            e.reps = Number(value);
+                          }}
+                        >
+                          <NumberInputField />
+                          <NumberInputStepper>
+                            <NumberIncrementStepper />
+                            <NumberDecrementStepper />
+                          </NumberInputStepper>
+                        </NumberInput>
+                      </Flex>
+                    </Box>
+                  );
+                })}
 
-              <Button onClick={handleClick} w="80%" margin="auto" mt="8">
-                Save Session
-              </Button>
-              {error ? (
-                <Text color="red" m="auto">
-                  {errorType}
-                </Text>
-              ) : null}
-            </Flex>
-          </Box>
+                <Button onClick={handleClick} w="80%" margin="auto" mt="8">
+                  Save Session
+                </Button>
+                {error ? (
+                  <Text color="red" m="auto">
+                    {errorType}
+                  </Text>
+                ) : null}
+              </Flex>
+            </Box>
+          )}
 
           <Box p="4" w="60%" margin="auto">
             <Text as="h2" fontSize={"2xl"} fontWeight="bold" mb="8px">

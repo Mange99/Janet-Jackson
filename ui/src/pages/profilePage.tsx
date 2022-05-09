@@ -1,8 +1,29 @@
 import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form, Row, Col } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { SessionProps } from "../components/types";
+import { SessionService } from "../services/sessionService";
+import { Box, Flex, Heading } from "@chakra-ui/react";
+
+async function getSession(token: string) {
+  const sessionService = new SessionService();
+  return await sessionService.getSaved(token);
+}
 
 export const ProfilePage = () => {
+  const [session, setSession] = useState<SessionProps[]>([]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token != null) {
+      getSession(token)
+        .then((response) => setSession(response))
+        .catch((err) => console.error(err));
+    }
+  }, []);
+
   return (
     <>
       <Row>
@@ -36,6 +57,21 @@ export const ProfilePage = () => {
           <Form.Label className="mt-3"> Exercises session </Form.Label>
         </Col>
       </Row>
+      <Box>
+        {/* session != [] &&
+          session.map((e) => {
+            return (
+              <Box>
+                <Heading>{e.sessionTitle}</Heading>
+                <Flex>
+                  {e.exersiceProps.map((e) => {
+                    e.name;
+                  })}
+                </Flex>
+              </Box>
+            );
+          }) */}
+      </Box>
     </>
   );
 };

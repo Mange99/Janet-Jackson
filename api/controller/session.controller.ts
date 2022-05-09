@@ -40,6 +40,7 @@ export class SessionController {
 
   async createSession(req: Request, res: Response) {
     try {
+      const token = req.body.token;
       const sessionTitle = req.body.sessionTitle;
       const exersiceProps = req.body.exersiceProps;
 
@@ -54,12 +55,14 @@ export class SessionController {
       } else {
         try {
           await SessionService.createSession({
+            token,
             sessionTitle,
             exersiceProps,
           });
           const ret = {
             success: true,
             data: {
+              token: token,
               sessionTitle: sessionTitle,
               exersiceProps: exersiceProps,
             },

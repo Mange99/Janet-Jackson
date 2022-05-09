@@ -12,8 +12,21 @@ export interface ExerciseArrProps {
 }
 
 export interface SessionProps {
+  token: string;
   sessionTitle: string;
-  exersiceProps: ExerciseProps[];
+  exersiceProps: ExerciseSession[];
+}
+
+export interface ExerciseSession {
+  name: string;
+  bodyPart: string;
+  equipment: string;
+  gifUrl: string;
+  id: string;
+  target: string;
+  bodyPartImg: string;
+  sets: number;
+  reps: number;
 }
 
 export interface ExerciseCardGridProps {

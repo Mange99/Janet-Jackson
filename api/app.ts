@@ -72,10 +72,14 @@ class App {
           this.logger.error("Error:: " + error);
         });
     });
+    this.express.get("/api/session/saved", (req, res) => {
+      this.logger.info("Get saved", req.body);
+    });
 
     this.express.post("/api/session/create", (req, res) => {
       this.logger.info("session", req.body);
       this.logger.info("session", req.body.sessionTitle);
+      this.logger.info("REEEEEEEEEEEEE", req.body.token);
       this.sessionController
         .createSession(req, res)
         .then((data) => {
