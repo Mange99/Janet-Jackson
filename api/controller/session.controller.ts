@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import SessionService from "../service/session.service";
 import { APILogger } from "../logger/api.logger";
-import { SessionDocument } from "../model/session.model";
+import { ExerciseProps, SessionDocument } from "../model/session.model";
 
 export class SessionController {
   private logger: APILogger;
@@ -12,8 +12,7 @@ export class SessionController {
 
   async session(req: Request, res: Response) {
     try {
-      const sessionTitle = req.body.sessionTitle;
-
+      const sessionTitle: string = req.body.sessionTitle;
       const session = await SessionService.findSessionById(sessionTitle);
 
       if (session) {
@@ -40,8 +39,8 @@ export class SessionController {
 
   async createSession(req: Request, res: Response) {
     try {
-      const sessionTitle = req.body.sessionTitle;
-      const exersiceProps = req.body.exersiceProps;
+      const sessionTitle: string = req.body.sessionTitle;
+      const exersiceProps: ExerciseProps[] = req.body.exersiceProps;
 
       const session = await SessionService.findSessionById(sessionTitle);
       if (session) {

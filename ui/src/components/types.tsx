@@ -35,3 +35,14 @@ export interface InfoPanelProps {
   onHide: () => void;
   exercise: ExerciseProps;
 }
+
+
+export type Token = {
+  token: string;
+};
+
+export type TokenContextType = {
+  token: Token;
+  saveToken: (token: Token) => void;
+  updateToken: (token: Token) => void;
+}  
