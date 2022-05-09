@@ -58,7 +58,6 @@ export function BmrCalculator() {
                     name="group1"
                     type={"radio"}
                     id={`inline-radio-3`}
-                    checked={true}
                     onChange={() => (setCalorieIntake(false))}
                 />
                 <Form.Check
