@@ -38,7 +38,6 @@ function App() {
         )}
         <Route path="/" element={<LandingPage />}></Route>
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }

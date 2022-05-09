@@ -55,9 +55,17 @@ export const ExercisePage = () => {
     }
   };
 
+  const searchExercises = (exercise: string) => {
+    return exercises.filter((e) => e.name.startsWith(exercise));
+  };
+
   const showSpecific = (Specificexercises: ExerciseProps[], title: string) => {
+    if (title.length == 0) {
+      setTitle("All exercises");
+    } else {
+      setTitle(title);
+    }
     setExcercises(Specificexercises);
-    setTitle(title);
   };
 
   const allExcersices = () => {
@@ -242,6 +250,16 @@ export const ExercisePage = () => {
             <Text as="h2" fontSize={"2xl"} fontWeight="bold" mb="8px">
               {title}
             </Text>
+            <Input
+              variant={"flushed"}
+              placeholder="Search exercises"
+              mb="8"
+              w="40%"
+              onChange={(e) => {
+                showSpecific(searchExercises(e.target.value), e.target.value);
+              }}
+            />
+
             {<ExerciseCardGrid onClick={addExercises} exercises={excercises} />}
           </Box>
         </Box>
