@@ -10,18 +10,28 @@ export class SessionController {
     this.logger = new APILogger();
   }
 
-  async session(req: Request, res: Response) {
+  async getSessions(req: Request, res: Response) {
     try {
-      const sessionTitle = req.body.sessionTitle;
+      const token = req.body.token;
 
-      const session = await SessionService.findSessionById(sessionTitle);
+      const session = await SessionService.findAllSessions(token);
+      const temp = token.slice(1, -1);
+      let returnArr = [];
 
-      if (session) {
+      session.map((session) => {
+        if (temp == session.token) {
+          returnArr.push({
+            sessionTitle: session.sessionTitle,
+            exersiceProps: session.exersiceProps,
+          });
+        }
+      });
+
+      if (returnArr) {
         const ret = {
           success: true,
-          data: session,
+          data: returnArr,
         };
-        this.logger.info("Session found: ", sessionTitle);
         return ret;
       } else {
         this.logger.error("Session not found");

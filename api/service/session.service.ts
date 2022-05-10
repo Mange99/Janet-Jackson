@@ -20,6 +20,10 @@ class SessionService {
     }
   }
 
+  async findAllSessions(token: string) {
+    return Session.find({});
+  }
+
   async findSessionById(sessionTitle: string) {
     return Session.findOne({
       sessionTitle: sessionTitle,

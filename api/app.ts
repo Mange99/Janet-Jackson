@@ -72,8 +72,17 @@ class App {
           this.logger.error("Error:: " + error);
         });
     });
-    this.express.get("/api/session/saved", (req, res) => {
-      this.logger.info("Get saved", req.body);
+
+    this.express.post("/api/session/saved", (req, res) => {
+      this.logger.info("session", req.body.token);
+      this.sessionController
+        .getSessions(req, res)
+        .then((data) => {
+          res.status(200).json(data);
+        })
+        .catch((error) => {
+          this.logger.error("Error: " + error);
+        });
     });
 
     this.express.post("/api/session/create", (req, res) => {

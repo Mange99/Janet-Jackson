@@ -7,6 +7,7 @@ export class SessionService {
       const data = JSON.stringify({
         token: token,
       });
+      console.log(data);
 
       const config = {
         method: "post",
@@ -18,6 +19,7 @@ export class SessionService {
       };
 
       const ret = await axios(config);
+      console.log(ret.data);
       return ret.data;
     } catch (error) {
       console.log("Error with login request: " + error);

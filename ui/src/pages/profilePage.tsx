@@ -4,7 +4,7 @@ import { Button, Form, Row, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { SessionProps } from "../components/types";
 import { SessionService } from "../services/sessionService";
-import { Box, Flex, Heading } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 
 async function getSession(token: string) {
   const sessionService = new SessionService();
@@ -19,9 +19,10 @@ export const ProfilePage = () => {
 
     if (token != null) {
       getSession(token)
-        .then((response) => setSession(response))
+        .then((response) => setSession(response.data))
         .catch((err) => console.error(err));
     }
+    console.log(session);
   }, []);
 
   return (
@@ -55,23 +56,23 @@ export const ProfilePage = () => {
 
         <Col>
           <Form.Label className="mt-3"> Exercises session </Form.Label>
+          <Box>
+            {session != [] &&
+              session.map((e) => {
+                return (
+                  <Box>
+                    <Heading>{e.sessionTitle}</Heading>
+                    <Text>
+                      {e.exersiceProps.map((e) => {
+                        return e.bodyPart;
+                      })}
+                    </Text>
+                  </Box>
+                );
+              })}
+          </Box>
         </Col>
       </Row>
-      <Box>
-        {/* session != [] &&
-          session.map((e) => {
-            return (
-              <Box>
-                <Heading>{e.sessionTitle}</Heading>
-                <Flex>
-                  {e.exersiceProps.map((e) => {
-                    e.name;
-                  })}
-                </Flex>
-              </Box>
-            );
-          }) */}
-      </Box>
     </>
   );
 };

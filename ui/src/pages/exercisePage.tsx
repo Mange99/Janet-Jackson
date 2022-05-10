@@ -51,15 +51,6 @@ export const ExercisePage = () => {
       setErrorType("Pliz add some exercises!");
     } else {
       setError(false);
-      const token = localStorage.getItem("token");
-
-      if (token != null) {
-        console.log(token);
-        setSession((prev) => ({
-          ...prev,
-          token: token.slice(1, -1),
-        }));
-      }
 
       sendSession(session).then((data) => {
         if (data.data.success === true) {
@@ -130,15 +121,19 @@ export const ExercisePage = () => {
       reps: 10,
     };
 
-    if (session.exersiceProps.includes(temp)) {
-      setErrorType("Already added!");
-      setError(true);
-    } else {
-      setError(false);
-      setSession((prev) => ({
-        ...prev,
-        exersiceProps: [...prev.exersiceProps, temp],
-      }));
+    const token = localStorage.getItem("token");
+    if (token != null) {
+      if (session.exersiceProps.includes(temp)) {
+        setErrorType("Already added!");
+        setError(true);
+      } else {
+        setError(false);
+        setSession((prev) => ({
+          ...prev,
+          token: token.slice(1, -1),
+          exersiceProps: [...prev.exersiceProps, temp],
+        }));
+      }
     }
   };
 
