@@ -4,6 +4,12 @@ export type Token = {
   token: string;
 };
 
+export type TokenContextType = {
+  token: Token;
+  saveToken: (token: Token) => void;
+  updateToken: (token: Token) => void;
+}
+
 export const useToken = () => {
   const getToken = () => {
     const tokenString = localStorage.getItem("token");

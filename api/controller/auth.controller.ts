@@ -20,8 +20,8 @@ export class AuthController {
         
         try {
 
-            const username = req.body.user.username;
-            const passwordHash = req.body.user.password;
+            const username: string = req.body.user.username;
+            const passwordHash: string = req.body.user.password;
 
             const user = await AuthService.findUserByName(username);
 
@@ -67,11 +67,10 @@ export class AuthController {
 
     async createUser(req: Request, res: Response) {
         try {
-          const username = req.body.user.username;
-          const password = req.body.user.password;
+          const username: string = req.body.user.username;
+          const password: string = req.body.user.password;
           const user = await AuthService.findUserByName(username);
           if (user) {
-
             //return a 202 if user already exist, with status
             const ret = {
               success: false,

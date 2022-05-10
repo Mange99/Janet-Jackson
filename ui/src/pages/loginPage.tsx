@@ -14,6 +14,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { Token } from "../components/useToken";
 import { UserService } from "../services/userService";
 import bcrypt from "bcryptjs";
+import { TokenContext } from "../context/tokenContext";
+import { TokenContextType } from "../components/types";
+import * as React from "react";
 
 interface login {
   username: string;
@@ -40,6 +43,7 @@ const LoginPage = ({ setToken }: props) => {
   const [show, setShow] = useState(false);
   const [success, setSuccess] = useState(false);
   const [failedLogin, setFailedLogin] = useState(false);
+  const {saveToken} = React.useContext(TokenContext) as TokenContextType;
   const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -52,6 +56,7 @@ const LoginPage = ({ setToken }: props) => {
       if (token != null) {
         setSuccess(true);
         setToken(token);
+        saveToken(token);
         setFailedLogin(false);
         navigate("/");
       } else {
