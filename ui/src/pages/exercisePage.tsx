@@ -50,7 +50,7 @@ export const ExercisePage = () => {
       setErrorType("Enter session name!");
       setError(true);
     } else if (session.exersiceProps.length === 0) {
-      setErrorType("Pliz add some exercises!");
+      setErrorType("You need to add exercises!");
     } else {
       setError(false);
       sendSession(session).then((data) => {
@@ -237,7 +237,7 @@ export const ExercisePage = () => {
           {localStorage.getItem("token") != undefined && (
             <Box
               position={"absolute"}
-              right="0"
+              right={0}
               w="15vw"
               mt={4}
               ml={2}
@@ -249,7 +249,7 @@ export const ExercisePage = () => {
                 <Text>Name your session</Text>
                 <Input
                   w="80%"
-                  mb="4"
+                  mb={4}
                   type="name"
                   value={session.sessionTitle}
                   placeholder="session name"
@@ -263,10 +263,10 @@ export const ExercisePage = () => {
                 />
                 {session.exersiceProps.map((e) => {
                   return (
-                    <Box w="80%" mt="4">
+                    <Box w="80%" mt={4}>
                       {e.name}
                       <IconButton
-                        mr="4"
+                        mr={4}
                         position={"absolute"}
                         right={0}
                         aria-label={""}
@@ -314,7 +314,7 @@ export const ExercisePage = () => {
                   );
                 })}
 
-                <Button onClick={handleClick} w="80%" margin="auto" mt="8">
+                <Button onClick={handleClick} w="80%" margin="auto" mt={8}>
                   Save Session
                 </Button>
 
@@ -327,14 +327,14 @@ export const ExercisePage = () => {
             </Box>
           )}
 
-          <Box p="4" w="60%" margin="auto">
-            <Text as="h2" fontSize={"2xl"} fontWeight="bold" mb="8px">
+          <Box p={4} w="60%" margin="auto">
+            <Text as="h2" fontSize={"2xl"} fontWeight="bold" mb={4}>
               {title}
             </Text>
             <Input
               variant={"flushed"}
               placeholder="Search exercises"
-              mb="8"
+              mb={8}
               w="40%"
               onChange={(e) => {
                 showSpecific(searchExercises(e.target.value), e.target.value);
