@@ -25,20 +25,22 @@ export function HeaderComponent() {
             <Nav.Link as={Link} to="calculators">
               Calculators
             </Nav.Link>
-            <Nav.Link as={Link} to="Profile-Page">
-              My profile
-            </Nav.Link>
           </Nav>
-          <Nav>
-            <Nav.Link as={Link} to="login">
-              Login
-            </Nav.Link>
-            {localStorage.getItem("token") == undefined && (
+
+          {localStorage.getItem("token") == undefined ? (
+            <Nav>
+              <Nav.Link as={Link} to="login">
+                Login
+              </Nav.Link>
               <Nav.Link as={Link} to="register">
                 Register
               </Nav.Link>
-            )}
-          </Nav>
+            </Nav>
+          ) : (
+            <Nav.Link as={Link} to="Profile-Page">
+              My profile
+            </Nav.Link>
+          )}
         </Container>
       </Navbar>
       <Outlet />

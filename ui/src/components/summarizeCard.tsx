@@ -9,7 +9,7 @@ interface SummarizeCardProps {
 const summarizeCard = ({ image, title, description }: SummarizeCardProps) => {
   return (
     <Box textAlign="center" boxShadow="md" borderRadius={8} p={2} minH="100%">
-      <Image src={image} w="full" h="10%" alt="excercise" />
+      <Image src={image} w="full" h="30vh" alt="excercise" />
       <Heading mt={8} size="lg">
         {title}
       </Heading>

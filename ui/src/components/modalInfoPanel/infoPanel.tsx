@@ -1,4 +1,4 @@
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button, CloseButton } from "react-bootstrap";
 import { InfoPanelProps } from "../types";
 import Image from "react-bootstrap/Image";
 
@@ -9,11 +9,15 @@ const InfoPanel: React.FC<InfoPanelProps> = ({ show, onHide, exercise }) => {
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      onEscapeKeyDown={onHide}
+      backdrop={true}
+      onBackdropClick={onHide}
     >
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">
           {exercise.name}
         </Modal.Title>
+        <CloseButton onClick={onHide} />
       </Modal.Header>
       <Modal.Title></Modal.Title>
       <Modal.Body>

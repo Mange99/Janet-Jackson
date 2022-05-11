@@ -2,14 +2,34 @@ import axios from "axios";
 import { ExerciseProps, SessionProps } from "../components/types";
 
 export class SessionService {
-  public async getAllSessions(): Promise<any> {
-    const response = await fetch("http://localhost:3080/api/sessions");
-    return await response.json();
+  public async getSavedSessions(token: string): Promise<any> {
+    try {
+      const data = JSON.stringify({
+        token: token,
+      });
+      console.log(data);
+
+      const config = {
+        method: "post",
+        url: "http://localhost:3080/api/session/saved",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data: data,
+      };
+
+      const ret = await axios(config);
+      console.log(ret.data);
+      return ret.data;
+    } catch (error) {
+      console.log("Error with login request: " + error);
+    }
   }
 
   public async createSession(session: SessionProps): Promise<any> {
     try {
       const data = JSON.stringify({
+        token: session.token,
         sessionTitle: session.sessionTitle,
         exersiceProps: session.exersiceProps,
       });

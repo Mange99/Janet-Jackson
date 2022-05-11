@@ -13,6 +13,7 @@ import Hero from "./Hero";
 import Exercise from "../res/images/excercise.png";
 import Food from "../res/images/exampleFood.png";
 import Filter from "../res/images/filter.png";
+import Session from "../res/images/session.png";
 
 import { MdArrowRightAlt } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -64,7 +65,7 @@ const LandingPage = () => {
           </GridItem>
           <GridItem w="80%" margin="auto" height="100%">
             <SummarizeCard
-              image={Exercise}
+              image={Session}
               title="Create your own sessions"
               description="You can create your own workout sessions with different workouts to help you thorugh your journey"
             />
@@ -132,7 +133,7 @@ const LandingPage = () => {
         >
           <Heading size="xl">Calculate your stats</Heading>
           <Text pt={2} pb={4}>
-            You can calculate different something blah blah
+            We provide multiple calculators for various purposes.
           </Text>
           <Box w="fit-content" margin="auto">
             <BmiCalculator />
@@ -142,7 +143,7 @@ const LandingPage = () => {
               backgroundColor="#21D0B1"
               textColor="white"
               textDecoration="underline"
-              mt={8}
+              m={8}
               left={0}
             >
               Learn more

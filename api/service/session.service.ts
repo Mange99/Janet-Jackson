@@ -11,7 +11,6 @@ class SessionService {
   async createSession(data: ISession) {
     try {
       const session = await Session.create(data);
-      console.log("kuken ");
 
       await session.save();
       return session;
@@ -19,6 +18,10 @@ class SessionService {
       this.logger.error("Failed to create session due to: " + e);
       throw new Error(e);
     }
+  }
+
+  async findAllSessions(token: string) {
+    return Session.find({});
   }
 
   async findSessionById(sessionTitle: string) {

@@ -73,9 +73,22 @@ class App {
         });
     });
 
+    this.express.post("/api/session/saved", (req, res) => {
+      this.logger.info("session", req.body.token);
+      this.sessionController
+        .getSessions(req, res)
+        .then((data) => {
+          res.status(200).json(data);
+        })
+        .catch((error) => {
+          this.logger.error("Error: " + error);
+        });
+    });
+
     this.express.post("/api/session/create", (req, res) => {
       this.logger.info("session", req.body);
       this.logger.info("session", req.body.sessionTitle);
+      this.logger.info("REEEEEEEEEEEEE", req.body.token);
       this.sessionController
         .createSession(req, res)
         .then((data) => {
