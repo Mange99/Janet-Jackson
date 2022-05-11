@@ -58,7 +58,7 @@ export const ProfilePage = () => {
         <Col>
           <Heading size="lg">Saved Sessions</Heading>
 
-          <Grid mt={4} templateColumns="repeat(2, 1fr)" gap={4} rowGap={8}>
+          <Grid mt={4} templateColumns="repeat(2, 1fr)" rowGap={8} mb={8}>
             {session != [] &&
               session.map((session) => {
                 return (
