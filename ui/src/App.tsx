@@ -22,13 +22,17 @@ function App() {
         <Route path="/calculators" element={<CalculatorPage />} />
         <Route path="/tips" element={<TipsPage />} />
         <Route path="food-and-health" element={<FoodPage />} />
-        <Route path="Profile-Page" element={<ProfilePage />} />
-        <Route path="/login" element={<LoginPage setToken={setToken} />} />
-        {!token && (
-          <Route
-            path="/register"
-            element={<RegisterPage setToken={setToken} />}
-          />
+
+        {token ? (
+          <Route>
+            <Route path="/login" element={<LoginPage setToken={setToken} />} />
+            <Route
+              path="/register"
+              element={<RegisterPage setToken={setToken} />}
+            />
+          </Route>
+        ) : (
+          <Route path="Profile-Page" element={<ProfilePage />} />
         )}
         <Route path="/" element={<LandingPage />}></Route>
       </Routes>

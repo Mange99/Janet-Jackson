@@ -4,7 +4,9 @@ import { Button, Form, Row, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { SessionProps } from "../components/types";
 import { SessionService } from "../services/sessionService";
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid, Heading, Text, VStack } from "@chakra-ui/react";
+import { ExerciseCardGrid } from "../components/exerciseCardGrid/exerciseCardGrid";
+import { ExerciseCard } from "../components/exerciseCard/exerciseCard";
 
 async function getSession(token: string) {
   const sessionService = new SessionService();
@@ -22,7 +24,6 @@ export const ProfilePage = () => {
         .then((response) => setSession(response.data))
         .catch((err) => console.error(err));
     }
-    console.log(session);
   }, []);
 
   return (
@@ -55,22 +56,45 @@ export const ProfilePage = () => {
         </Col>
 
         <Col>
-          <Form.Label className="mt-3"> Exercises session </Form.Label>
-          <Box>
+          <Heading size="lg">Saved Sessions</Heading>
+
+          <Grid mt={4} templateColumns="repeat(2, 1fr)" gap={4} rowGap={8}>
             {session != [] &&
-              session.map((e) => {
+              session.map((session) => {
                 return (
-                  <Box>
-                    <Heading>{e.sessionTitle}</Heading>
-                    <Text>
-                      {e.exersiceProps.map((e) => {
-                        return e.bodyPart;
-                      })}
-                    </Text>
+                  <Box
+                    margin="auto"
+                    p={4}
+                    borderRadius="2xl"
+                    boxShadow={"base"}
+                  >
+                    <Heading size="md" fontWeight={"medium"}>
+                      {session.sessionTitle}
+                    </Heading>
+                    {session.exersiceProps.map((e) => {
+                      return (
+                        <Box my={2}>
+                          <ExerciseCard
+                            exercise={{
+                              name: e.name,
+                              bodyPart: e.bodyPart,
+                              equipment: e.equipment,
+                              gifUrl: e.gifUrl,
+                              target: e.target,
+                              bodyPartImg: e.bodyPartImg,
+                              id: e.id,
+                            }}
+                          />
+                          <Text>
+                            Sets: {e.sets} Reps: {e.reps}
+                          </Text>
+                        </Box>
+                      );
+                    })}
                   </Box>
                 );
               })}
-          </Box>
+          </Grid>
         </Col>
       </Row>
     </>

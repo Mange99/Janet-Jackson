@@ -12,6 +12,7 @@ import {
   NumberInputField,
   NumberInputStepper,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { ExerciseCardGrid } from "../components/exerciseCardGrid/exerciseCardGrid";
@@ -42,6 +43,7 @@ export const ExercisePage = () => {
 
   const [error, setError] = useState(false);
   const [errorType, setErrorType] = useState("");
+  const toast = useToast();
 
   const handleClick = () => {
     if (session.sessionTitle.length === 0) {
@@ -51,15 +53,26 @@ export const ExercisePage = () => {
       setErrorType("Pliz add some exercises!");
     } else {
       setError(false);
-
       sendSession(session).then((data) => {
         if (data.data.success === true) {
-          console.log("all good");
+          toast({
+            title: "Session created.",
+            description: "Your session is added to your profile page",
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+          });
+          setSession((prev) => ({
+            ...prev,
+            sessionTitle: "",
+            exersiceProps: [],
+          }));
         } else if (
           data.data.success === false &&
           data.data.status === "Session already exists"
         ) {
-          console.log("all bad");
+          setError(true);
+          setErrorType("Session already exists");
         }
       });
     }
@@ -226,7 +239,9 @@ export const ExercisePage = () => {
               position={"absolute"}
               right="0"
               w="15vw"
-              pl="2"
+              mt={4}
+              ml={2}
+              pl={2}
               borderLeft={"1px"}
             >
               <Heading textAlign={"center"}>Session</Heading>
@@ -236,6 +251,7 @@ export const ExercisePage = () => {
                   w="80%"
                   mb="4"
                   type="name"
+                  value={session.sessionTitle}
                   placeholder="session name"
                   onChange={(e) => {
                     e.preventDefault();
@@ -301,6 +317,7 @@ export const ExercisePage = () => {
                 <Button onClick={handleClick} w="80%" margin="auto" mt="8">
                   Save Session
                 </Button>
+
                 {error ? (
                   <Text color="red" m="auto">
                     {errorType}

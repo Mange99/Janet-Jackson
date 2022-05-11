@@ -4,7 +4,7 @@ import InfoPanel from "../modalInfoPanel/infoPanel";
 import { ExerciseProps } from "../types";
 
 interface ExerciseCardProps {
-  onClick: (e: ExerciseProps) => void;
+  onClick?: (e: ExerciseProps) => void;
   exercise: ExerciseProps;
 }
 
@@ -12,7 +12,7 @@ export function ExerciseCard({ onClick, exercise }: ExerciseCardProps) {
   const [modalShow, setModalShow] = React.useState(false);
 
   const handleClick = () => {
-    onClick(exercise);
+    if (onClick != undefined) onClick(exercise);
   };
 
   return (
@@ -29,9 +29,11 @@ export function ExerciseCard({ onClick, exercise }: ExerciseCardProps) {
             onHide={() => setModalShow(false)}
             exercise={exercise}
           />
-          <Button style={{ marginLeft: "4px" }} onClick={handleClick}>
-            Add to session
-          </Button>
+          {onClick != undefined && (
+            <Button style={{ marginLeft: "4px" }} onClick={handleClick}>
+              Add to session
+            </Button>
+          )}
         </Card.Body>
       </Card>
     </>
