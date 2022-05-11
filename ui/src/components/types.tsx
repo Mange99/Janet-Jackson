@@ -33,6 +33,7 @@ export interface ExerciseCardGridProps {
   onClick: (e: ExerciseProps) => void;
   exercises: ExerciseProps[];
 }
+
 export interface ExerciseProps {
   name: string;
   bodyPart: string;

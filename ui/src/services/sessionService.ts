@@ -2,7 +2,7 @@ import axios from "axios";
 import { ExerciseProps, SessionProps } from "../components/types";
 
 export class SessionService {
-  public async getSaved(token: string): Promise<any> {
+  public async getSavedSessions(token: string): Promise<any> {
     try {
       const data = JSON.stringify({
         token: token,

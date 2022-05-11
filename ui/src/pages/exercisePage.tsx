@@ -24,6 +24,7 @@ import {
 
 import { MdRemove } from "react-icons/md";
 import { SessionService } from "../services/sessionService";
+import FilterButton from "../components/filterButton";
 
 async function sendSession(data: SessionProps) {
   const sessionService = new SessionService();
@@ -158,7 +159,6 @@ export const ExercisePage = () => {
       }),
     }));
   };
-
   useEffect(() => {
     const options = {
       method: "GET",
@@ -185,32 +185,21 @@ export const ExercisePage = () => {
             <Text fontSize="lg" fontWeight="bold" align="center">
               Filter specific bodypart
             </Text>
-            <Button
-              w="100%"
-              backgroundColor="white"
-              _focus={{
-                boxShadow: 0,
-              }}
+
+            <FilterButton
+              buttonName="Show all"
               onClick={() => {
                 showSpecific(exercises, "All exercises");
               }}
-            >
-              Show all
-            </Button>
+            />
             {allExcersices().map((e) => {
               return (
-                <Button
-                  w="100%"
-                  backgroundColor="white"
-                  _focus={{
-                    boxShadow: 0,
-                  }}
+                <FilterButton
+                  buttonName={e}
                   onClick={() => {
                     showSpecific(specific(e), e);
                   }}
-                >
-                  {e}
-                </Button>
+                />
               );
             })}
             <Text fontSize="lg" fontWeight="bold" align="center">
@@ -218,19 +207,12 @@ export const ExercisePage = () => {
             </Text>
             {allEquipments().map((eq) => {
               return (
-                <Button
-                  w="100%"
-                  backgroundColor="white"
-                  _focus={{
-                    boxShadow: 0,
-                  }}
+                <FilterButton
+                  buttonName={eq}
                   onClick={() => {
                     showSpecific(specificEquipment(eq), eq);
                   }}
-                >
-                  {" "}
-                  {eq}
-                </Button>
+                />
               );
             })}
           </Grid>

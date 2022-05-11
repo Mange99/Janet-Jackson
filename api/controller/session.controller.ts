@@ -13,7 +13,6 @@ export class SessionController {
   async getSessions(req: Request, res: Response) {
     try {
       const token = req.body.token;
-
       const session = await SessionService.findAllSessions(token);
       const temp = token.slice(1, -1);
       let returnArr = [];

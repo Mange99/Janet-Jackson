@@ -10,7 +10,7 @@ import { ExerciseCard } from "../components/exerciseCard/exerciseCard";
 
 async function getSession(token: string) {
   const sessionService = new SessionService();
-  return await sessionService.getSaved(token);
+  return await sessionService.getSavedSessions(token);
 }
 
 export const ProfilePage = () => {
