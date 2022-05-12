@@ -24,6 +24,8 @@ function App() {
         <Route path="food-and-health" element={<FoodPage />} />
 
         {token ? (
+          <Route path="Profile-Page" element={<ProfilePage />} />
+        ) : (
           <Route>
             <Route path="/login" element={<LoginPage setToken={setToken} />} />
             <Route
@@ -31,8 +33,6 @@ function App() {
               element={<RegisterPage setToken={setToken} />}
             />
           </Route>
-        ) : (
-          <Route path="Profile-Page" element={<ProfilePage />} />
         )}
         <Route path="/" element={<LandingPage />}></Route>
       </Routes>
