@@ -1,19 +1,67 @@
 import React from "react";
 import { Button, Card, ToggleButton} from "react-bootstrap";
 import InfoPanel from "../modalInfoPanel/infoPanel";
-import { ExerciseProps } from "../types";
+import { ExerciseProps ,FavoriteProps} from "../types";
+import { FavoriteService } from "../../services/favoriteService";
 
 interface ExerciseCardProps {
   onClick: (e: ExerciseProps) => void;
   exercise: ExerciseProps;
+  checkIfFavorite: boolean;
 }
 
-export function ExerciseCard({ onClick, exercise }: ExerciseCardProps) {
+async function sendFavorite(data: FavoriteProps) {
+  const favoriteService = new FavoriteService();
+  return await favoriteService.createFavorite(data);
+}
+
+async function deleteFavorite(data: FavoriteProps) {
+  const favoriteService = new FavoriteService();
+  return await favoriteService.deleteFavorite(data);
+}
+
+export function ExerciseCard({ onClick, exercise, checkIfFavorite }: ExerciseCardProps) {
   const [modalShow, setModalShow] = React.useState(false);
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = React.useState(checkIfFavorite);
+  const [favorite, setFavorite] = React.useState<FavoriteProps>({
+    userId: '123',
+    exersiceId: exercise.id,
+    exersiceProps: exercise
+  });
+
+  
   const handleClick = () => {
     onClick(exercise);
   };
+
+  const handleFavorite = () => {
+
+    if(!checked){
+    sendFavorite(favorite).then((data) => {
+      if (data.data.success === true) {
+        console.log("all good");
+      } else if (
+        data.data.success === false &&
+        data.data.status === "Session already exists"
+      ) {
+        console.log("all bad");
+      }
+    });
+  }else{
+    deleteFavorite(favorite).then((data) => {
+      if (data.data.success === true) {
+        console.log("all good");
+      } else if (
+        data.data.success === false
+      ) {
+        console.log("all bad");
+      }
+    });
+  }
+
+    setChecked(!checked);
+  }
+console.log(checked);
 
   return (
     <>
@@ -39,9 +87,10 @@ export function ExerciseCard({ onClick, exercise }: ExerciseCardProps) {
           id={exercise.id}
           type="checkbox"
           variant="outline-danger"
-         checked={checked} 
+          checked={checked} 
           value={exercise.name}
-          onChange={() => setChecked(!checked)}
+          onChange={() => handleFavorite()}
+        
       >
         Favorite
       </ToggleButton>

@@ -16,9 +16,16 @@ export interface SessionProps {
   exersiceProps: ExerciseProps[];
 }
 
+export interface FavoriteProps {
+  userId: string;
+  exersiceId: string;
+  exersiceProps: ExerciseProps;
+}
+
 export interface ExerciseCardGridProps {
   onClick: (e: ExerciseProps) => void;
   exercises: ExerciseProps[];
+  favorites: ExerciseProps[];
 }
 export interface ExerciseProps {
   name: string;

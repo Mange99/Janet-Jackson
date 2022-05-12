@@ -20,6 +20,19 @@ class FavoriteService {
     }
   }
 
+  async deleteFavorite(data: IFavorite) {
+    try {
+      
+      const favorite = Favorite.deleteOne({userId: data.userId, exersiceId: data.exersiceId});
+
+      
+      return favorite;
+    } catch (e) {
+      this.logger.error("Failed to create favorite due to: " + e);
+      throw new Error(e);
+    }
+  }
+
   async findFavoriteById(userId: string, exersiceId: string ) {
     return Favorite.findOne({
         userId: userId,
@@ -27,6 +40,11 @@ class FavoriteService {
     }).exec();
   }
 
+  async getUserFavorites(userId: string) {
+    return Favorite.find({
+        userId: userId
+    }).exec();
+  }
  
 }
 

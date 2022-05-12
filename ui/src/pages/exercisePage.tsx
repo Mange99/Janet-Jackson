@@ -10,14 +10,20 @@ import {
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { ExerciseCardGrid } from "../components/exerciseCardGrid/exerciseCardGrid";
-import { ExerciseProps, SessionProps } from "../components/types";
+import { ExerciseProps, SessionProps, FavoriteProps } from "../components/types";
 
 import { MdRemove } from "react-icons/md";
 import { SessionService } from "../services/sessionService";
+import { FavoriteService } from "../services/favoriteService";
 
 async function sendSession(data: SessionProps) {
   const sessionService = new SessionService();
   return await sessionService.createSession(data);
+}
+
+async function getUserFavorites(userId: String) {
+  const favoriteService = new FavoriteService();
+  return await favoriteService.getUserFavorites(userId);
 }
 
 export const ExercisePage = () => {
@@ -25,7 +31,12 @@ export const ExercisePage = () => {
   const [excercises, setExcercises] = useState(exercises);
   const [title, setTitle] = useState("All excercises");
   const [favoriteButtonText, setFavoriteButtonText] = useState("Show favorite");
-  const [isFavorite, setIsFavorite]  = useState(false);;
+  const [isFavorite, setIsFavorite]  = useState(false);
+  const [favorites, setFavorites] = useState<ExerciseProps[]>([]);
+
+  
+
+  
 
   const [session, setSession] = useState<SessionProps>({
     sessionTitle: "",
@@ -65,11 +76,13 @@ export const ExercisePage = () => {
   const allExcersices = () => {
     let bodyParts: string[] = [];
 
+    
     exercises.forEach((e) => {
       if (!bodyParts.includes(e.bodyPart)) {
         bodyParts.push(e.bodyPart);
       }
     });
+  
     return bodyParts;
   };
 
@@ -86,7 +99,12 @@ export const ExercisePage = () => {
 
   const showFavorite = () => {
     if (!isFavorite){
-      showSpecific(exercises.slice(0,10), "Favorites");
+      getUserFavorites('123').then((data) => {
+    
+        setFavorites(data.data.data.favorites);
+      });
+      
+      showSpecific(favorites, "Favorites");
       setFavoriteButtonText('Show all');
       setIsFavorite(true);
     }else{
@@ -131,7 +149,7 @@ export const ExercisePage = () => {
       method: "GET",
       headers: {
         "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
-        "X-RapidAPI-Key": "9ba136ae5dmsh149a878f4d9bc65p1cdcf8jsnbbef50b194fa",
+        "X-RapidAPI-Key": "4a95733b5emsh5815471c57c2dc8p1ecd93jsnfeccee099e01",
       },
     };
 
@@ -142,6 +160,10 @@ export const ExercisePage = () => {
         setExcercises(response);
       })
       .catch((err) => console.error(err));
+      getUserFavorites('123').then((data) => {
+        const fav = data.data.data.favorites;
+        setFavorites(fav.map((e:FavoriteProps) => {return e.exersiceProps}));
+      });
   }, []);
 
   return (
@@ -257,7 +279,7 @@ export const ExercisePage = () => {
             <Text as="h2" fontSize={"2xl"} fontWeight="bold" mb="8px">
               {title}
             </Text>
-            {<ExerciseCardGrid onClick={addExercises} exercises={excercises} />}
+            {<ExerciseCardGrid onClick={addExercises} exercises={excercises} favorites={favorites}  />}
           </Box>
         </Box>
       )}

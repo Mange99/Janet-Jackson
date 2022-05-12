@@ -15,11 +15,8 @@ class App {
   public authController: AuthController;
   public logger: APILogger;
   public sessionController: SessionController;
-<<<<<<< Updated upstream
 
-=======
   public favoriteController: FavoriteController;
->>>>>>> Stashed changes
   constructor() {
     this.express = express();
     this.authController = new AuthController();
@@ -94,11 +91,35 @@ class App {
         });
     });
 
+    this.express.post("/api/favorite/getUserFavorites", (req, res) => {
+      this.logger.info("favorite", req.body);
+
+      this.favoriteController.getUserFavorites(req, res).then((data) => {
+        return res.status(200).json(data);
+      })
+      .catch((error) => {
+        this.logger.error("Error:: " + error);
+      });
+    });
+
     this.express.post("/api/favorite/create", (req, res) => {
       this.logger.info("favorite", req.body);
 
       this.favoriteController
         .createFavorite(req, res)
+        .then((data) => {
+          return res.status(200).json(data);
+        })
+        .catch((error) => {
+          this.logger.error("Error:: " + error);
+        });
+    });
+
+    this.express.post("/api/favorite/delete", (req, res) => {
+      this.logger.info("favorite", req.body);
+
+      this.favoriteController
+        .deleteFavorite(req, res)
         .then((data) => {
           return res.status(200).json(data);
         })
