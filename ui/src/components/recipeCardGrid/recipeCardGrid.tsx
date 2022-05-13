@@ -2,10 +2,24 @@ import { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { recipeInterface } from "../recipeInterfaces";
 import { RecipeCard } from "../recipeCard/recipeCard";
+import { RecipeService } from "../../services/recipeService";
 
-export function RecipeCardGrid() {
-  const [recipes, setRecipes] = useState<recipeInterface[]>([]);
+interface recipeProps {
+  recipesArray: recipeInterface[]
+}
 
+export function RecipeCardGrid ({recipesArray}: recipeProps) {
+  console.log(recipesArray);
+  const [recipes, setRecipes] = useState(recipesArray);
+  console.log(recipes);
+  /*
+  useEffect(() => {
+    setRecipes(recipesArray);
+  }, []);
+
+  */
+
+  /*
   useEffect(() => {
     const options = {
       method: "GET",
@@ -26,10 +40,10 @@ export function RecipeCardGrid() {
       })
       .catch((err) => console.error(err));
   }, []);
-
+*/
   return (
     <Row xs={1} md={2} lg={4} className="g-4">
-      {recipes.map((e) => (
+      {recipesArray.map((e) => (
         <Col>
           <RecipeCard recipe={e.recipe} />
         </Col>

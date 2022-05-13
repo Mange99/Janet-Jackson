@@ -6,7 +6,7 @@ import LandingPage from "./pages/LandingPage";
 import RegisterPage from "./pages/registerPage";
 import { TipsPage } from "../src/components/tipsPage/tipsPage";
 import { HeaderComponent } from "./components/header/headerComponent";
-import { FoodPage } from "../src/components/foodPage/foodPage";
+import { FoodPage } from "./pages/foodPage";
 import { ProfilePage } from "../src/pages/profilePage";
 import { useToken } from "./components/useToken";
 import LoginPage from "./pages/loginPage";
