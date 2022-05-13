@@ -1,6 +1,8 @@
 import { BmiCalculator } from "../components/calculatorCards/bmiCalculator";
 import { BmrCalculator } from "../components/calculatorCards/bmrCalculator";
 import { MacroCalculator } from "../components/calculatorCards/macroCalculator";
+import { ProteinCalculator } from "../components/calculatorCards/proteinCalculator";
+import { CalorieToEnergyCalculator} from "../components/calculatorCards/CalorieToEnergyCalculator";
 import axios from "axios";
 import {exercise} from "../models/exercise"
 import {UserService} from "../services/userService"
@@ -11,6 +13,8 @@ export function CalculatorPage() {
       <BmiCalculator/>
       <BmrCalculator/>
       <MacroCalculator/>
+      <ProteinCalculator/>
+      <CalorieToEnergyCalculator/>
     </div>
 
   );
