@@ -8,8 +8,7 @@ export function ExerciseCardGrid({
   favorites
 }: ExerciseCardGridProps) {
   const checkIfFavorite = (exercise:ExerciseProps)  => {
-   
-    
+  
     return favorites.map((e) => {return e.id}).includes(exercise.id)
     }
   
@@ -17,7 +16,7 @@ export function ExerciseCardGrid({
     <Grid templateColumns="repeat(3, 1fr)" rowGap={8} columnGap={8}>
       {exercises.map((exercise) => (
         <GridItem w="100%">
-          <ExerciseCard onClick={onClick} exercise={exercise} checkIfFavorite={checkIfFavorite(exercise)} />
+          <ExerciseCard onClick={onClick} exercise={exercise} checkIfFavorite={checkIfFavorite} />
         </GridItem>
       ))}
     </Grid>

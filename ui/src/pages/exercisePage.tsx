@@ -69,6 +69,7 @@ export const ExercisePage = () => {
   };
 
   const showSpecific = (Specificexercises: ExerciseProps[], title: string) => {
+  
     setExcercises(Specificexercises);
     setTitle(title);
   };
@@ -99,11 +100,6 @@ export const ExercisePage = () => {
 
   const showFavorite = () => {
     if (!isFavorite){
-      getUserFavorites('123').then((data) => {
-    
-        setFavorites(data.data.data.favorites);
-      });
-      
       showSpecific(favorites, "Favorites");
       setFavoriteButtonText('Show all');
       setIsFavorite(true);
