@@ -47,7 +47,7 @@ function App() {
         <Route path="/calculators" element={<CalculatorPage />} />
         <Route path="/tips" element={<TipsPage />} />
         <Route path="food-and-health" element={<FoodPage />} />
-
+        
         {state.token == "" ? (
           <Route>
             <Route path="/login" element={<LoginPage/>} />

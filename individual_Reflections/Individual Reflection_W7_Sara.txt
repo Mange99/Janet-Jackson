@@ -1,0 +1,24 @@
+Individual Reflection W7 - Sara
+
+#### What do I want to learn or understand better?
+
+I picked a programming based userstory this week--which allowed me to work on my goal of understanding the programming aspect of the project more. And I believe I did learn more of react and such. 
+
+I did not focus much on learning the design part this week tho (as was a goal or atleast a partial goal).
+
+#### How can I help someone else, or the entire team, to learn something new?
+The only thing I did in this context was bring up some knowledge about one of the calculators which had a wrong output which I only caught because I knew about macros previously... but it's not *very* projecet related.
+
+#### What is my contribution towards the team’s use of Scrum?
+*this remains from last week as it is still relvant!*
+I try and follow scrum to the best of my abilities. I Would like to make scrum work even better. I Will try and reach this by making concious decisions that help my scrum understanding, and take an eager part in the next scrum planning! 
+     
+#### What is my contribution towards the team’s deliveries?
+I delivered my user story of making and fixing the calculators. And took an active role in the turn in. I want to continue doing what I am assigned in time. I will reach that by continuing in the same manner—but possible even better!
+
+------------
+
+*See team reflection w5 for better explanation for how these values are graded (not as simple as "time" might suggest).
+
+Time: (on a scale of 1-10)  — 6. (I was sick a bit--and while that should be taken into account, I still wished I was more efficent and was able to work better. so I give myself a 6.)
+Stress: (on a scale of 1-10)  — 4. (a bit stressed I was sick and coulnd't do as much as I wanted.)
