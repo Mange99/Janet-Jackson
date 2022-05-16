@@ -11,30 +11,31 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Token } from "../components/useToken";
 import { UserService } from "../services/userService";
 import bcrypt from "bcryptjs";
+import { useStateContext } from "../contexts/tokenContext";
 
+const salt = process.env.REACT_APP_SALT || "$2a$10$xxAWZFt0iyqvNR6KEpeILO";
 interface login {
   username: string;
   password: string;
 }
 
-type props = {
-  setToken: (userToken: Token) => void;
-};
-
 async function loginUser(credentials: login) {
   const userService = new UserService();
   const hash = await bcrypt.hash(
     credentials.password,
-    "$2a$10$xxAWZFt0iyqvNR6KEpeILO"
+    salt
   );
   credentials.password = hash;
   return await userService.signIn(credentials);
 }
 
-const LoginPage = ({ setToken }: props) => {
+const LoginPage = () => {
+
+  const {state, dispatch} = useStateContext();
+  const {token} = state;
+
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
@@ -51,10 +52,16 @@ const LoginPage = ({ setToken }: props) => {
     }).then((token) => {
       if (token != null) {
         setSuccess(true);
-        setToken(token);
+        dispatch?.({
+          type: "UPDATE_TOKEN",
+          payload: token
+        })
         setFailedLogin(false);
         navigate("/");
       } else {
+        dispatch?.({
+          type: "DELETE_TOKEN"
+        })
         setFailedLogin(true);
       }
     });
