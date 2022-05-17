@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
+import { RecipeCard } from "../components/recipeCard/recipeCard";
 import { RecipeCardGrid } from "../components/recipeCardGrid/recipeCardGrid";
 import { recipeInterface } from "../components/recipeInterfaces";
 import {RecipeService} from "../services/recipeService";
@@ -61,7 +62,15 @@ export function FoodPage() {
             Search
           </Button>
       </div>
-      <RecipeCardGrid recipesArray={recipesArray}/>
+
+      <Row xs={1} md={2} lg={4} className="g-4">
+      {recipesArray.map((e) => (
+        <Col>
+          <RecipeCard recipe={e.recipe} />
+        </Col>
+        ))
+      }
+    </Row>
     </>
   );
 }

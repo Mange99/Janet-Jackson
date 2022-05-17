@@ -8,17 +8,12 @@ import { TipsPage } from "../src/components/tipsPage/tipsPage";
 import { HeaderComponent } from "./components/header/headerComponent";
 import { FoodPage } from "./pages/foodPage";
 import { ProfilePage } from "../src/pages/profilePage";
-//import { Token, useToken } from "./contexts/useToken";
 import LoginPage from "./pages/loginPage";
 import { useEffect, useState } from "react";
 import { UserService } from "./services/userService";
 import { useStateContext } from "./contexts/tokenContext";
-//import * as dotenv from "dotenv";
-//dotenv.config({path: "./env"});
 
 function App() {
- // const { token, setToken } = useToken();
-  const [loggedIn, setLoggedIn] = useState(false);
   const {state, dispatch} = useStateContext();
   const {token} = state;
 
@@ -32,9 +27,7 @@ function App() {
             type: "DELETE_TOKEN"
           })
         }
-        setLoggedIn(data);
       })
-      setLoggedIn(false);
     }
   
   }, [])

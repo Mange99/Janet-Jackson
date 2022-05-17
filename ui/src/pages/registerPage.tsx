@@ -10,8 +10,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { Token } from "../contexts/useToken";
+import { Link, useNavigate } from "react-router-dom";
 import bcrypt from "bcryptjs";
 import { UserService } from "../services/userService";
 import { useStateContext } from "../contexts/tokenContext";
@@ -39,7 +38,6 @@ const RegisterPage = () => {
   const [show, setShow] = useState(false);
   const [error, setError] = useState(false);
   const {state, dispatch} = useStateContext();
-  const {token} = state;
 
   const navigate = useNavigate();
 

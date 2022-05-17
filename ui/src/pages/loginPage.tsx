@@ -34,12 +34,9 @@ async function loginUser(credentials: login) {
 const LoginPage = () => {
 
   const {state, dispatch} = useStateContext();
-  const {token} = state;
-
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
-  const [success, setSuccess] = useState(false);
   const [failedLogin, setFailedLogin] = useState(false);
   const navigate = useNavigate();
 
@@ -51,7 +48,6 @@ const LoginPage = () => {
       password,
     }).then((token) => {
       if (token != null) {
-        setSuccess(true);
         dispatch?.({
           type: "UPDATE_TOKEN",
           payload: token
