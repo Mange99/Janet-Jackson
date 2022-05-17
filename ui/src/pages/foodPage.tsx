@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { RecipeCard } from "../components/recipeCard/recipeCard";
-import { RecipeCardGrid } from "../components/recipeCardGrid/recipeCardGrid";
 import { recipeInterface } from "../components/recipeInterfaces";
 import {RecipeService} from "../services/recipeService";
 
