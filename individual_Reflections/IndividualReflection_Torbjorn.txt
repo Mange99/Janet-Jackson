@@ -41,10 +41,12 @@ What is my contribution towards the team’s deliveries?
 I was part of a meeting where we together created the business model canvas and the project description. Some of the others had created some mockups and we gave them 
 some input on what we thought of that. I also helped with finding apis and data we could use in our project,
 
+
+
+
 Week 3 8/4 - 2022
 What do I want to learn or understand better?
 I want to learn how to use SCRUM efficiently. I also want to become more proficient in our chosen framework and languages.
-
 
 How can I help someone else, or the entire team, to learn something new?
 We've talked about doing some pair programming to help members that feel unsure.
@@ -55,6 +57,8 @@ I wrote a majority of the user stories. Me and Magnus also wrote the DoD and cod
 What is my contribution towards the team’s deliveries?
 I did my part in the userstories. I also helped with the team reflection although there was some misconception as to
 when the meeting was supposed to be.
+
+
 
 Week 4 22/4 - 2022
 What do I want to learn or understand better?
@@ -72,6 +76,9 @@ Being a part of the meetings and asking questions about things to make it clear.
 What is my contribution towards the team’s deliveries?
 I did my allotted userstory and I helped writing the team reflection.
 
+
+
+
 Week 5 29/4 - 2022
 What do I want to learn or understand better?
 Understanding scrum beacuse next week i am going to be scrum master.
@@ -85,6 +92,9 @@ with thire user stories and if someone needed help.
 
 What is my contribution towards the team’s deliveries?
 I did my share of tasks and reviewed code from teammembers. I took part in the team reflection. 
+
+
+
 
 Week 6 6/5 - 2022
 What do I want to learn or understand better?
@@ -106,4 +116,27 @@ I set up the server and database to allow for login and registration, with a bit
 , which was my userstory this week, which I completed. I also took part in 
 writing the team reflection. 
 
+
+
+
+Week 7 13/5
+
+What do I want to learn or understand better?
+I want to know more about React and how it works under the hood. How DOM depends on the state, to get 
+a better understanding and solve problems quicker as a result. To reach that level, I should read articles and 
+documentation explaining it. Also just continue working and when such problems arises, solve them and understanding why
+what I did worked.
+
+How can I help someone else, or the entire team, to learn something new?
+Share my knowledge, review their code, keep up the pairprogramming. Keep reminding everyone 
+about our codestyle, DoD and how we use Scrum.
+
+What is my contribution towards the team’s use of Scrum?
+I've been a part of the meetings. To increase our teams ability in Scrum I could read and share articles about it.
+If I did that we could probably get better at scrum. 
+
+What is my contribution towards the team’s deliveries?
+I did my userstories and also reviewed some code from others. I also helped write the team reflection. To increase the 
+value of our deliverables we could add some automatic testing and build process to increase the quality of the deliverable.
+To do that we should add some Ci/Cd. 
 
