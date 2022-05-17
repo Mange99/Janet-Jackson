@@ -10,20 +10,16 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { Token } from "../components/useToken";
+import { Link, useNavigate } from "react-router-dom";
 import bcrypt from "bcryptjs";
 import { UserService } from "../services/userService";
+import { useStateContext } from "../contexts/tokenContext";
 
 // TODO add email to model in api
 interface Register {
   username: string;
   password: string;
 }
-
-type props = {
-  setToken: (userToken: Token) => void;
-};
 
 async function registerUser(credentials: Register) {
   const userService = new UserService();
@@ -35,12 +31,14 @@ async function registerUser(credentials: Register) {
   credentials.password = hash;
   return await userService.createUser(credentials);
 }
-const RegisterPage = ({ setToken }: props) => {
+const RegisterPage = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [show, setShow] = useState(false);
   const [error, setError] = useState(false);
+  const {state, dispatch} = useStateContext();
+
   const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -51,7 +49,10 @@ const RegisterPage = ({ setToken }: props) => {
     }).then((token) => {
       console.log(token);
       if (token != null) {
-        setToken(token);
+        dispatch?.({
+          type: "UPDATE_TOKEN",
+          payload: token,
+        })
         setError(false);
         navigate("/");
       } else {

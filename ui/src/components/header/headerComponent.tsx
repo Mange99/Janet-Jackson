@@ -2,9 +2,20 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import "./headerCss.css";
 import { Outlet, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useToken } from "../useToken";
+import { useStateContext } from "../../contexts/tokenContext";
 
 export function HeaderComponent() {
+
+  const {state, dispatch} = useStateContext();
+  const {token} = state;
+
+  const handleSignOut =  () => {
+    //should we delete token when signing out?
+    dispatch?.({
+      type: "DELETE_TOKEN"
+    })
+  }
+
   return (
     <div>
       <Navbar bg="primary" variant="dark" expand="md" sticky="top">
@@ -27,7 +38,7 @@ export function HeaderComponent() {
             </Nav.Link>
           </Nav>
 
-          {localStorage.getItem("token") == undefined ? (
+          {state.token == "" ? (
             <Nav>
               <Nav.Link as={Link} to="login">
                 Login
@@ -37,9 +48,14 @@ export function HeaderComponent() {
               </Nav.Link>
             </Nav>
           ) : (
-            <Nav.Link as={Link} to="Profile-Page">
-              My profile
-            </Nav.Link>
+            <Nav>
+              <Nav.Link as={Link} to="Profile-Page">
+                My profile
+              </Nav.Link>
+              <Nav.Link as={Link} to="/" onClick={() => handleSignOut()}>
+                Signout
+              </Nav.Link>
+            </Nav>
           )}
         </Container>
       </Navbar>

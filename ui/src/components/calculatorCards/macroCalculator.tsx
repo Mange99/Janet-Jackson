@@ -40,7 +40,8 @@ export const MacroCalculator = () => {
     const reducer = (state: State, action: Action): State => {
         switch(action.type) {
           case 'Calculate':
-            setShowMacros(true)
+
+            setShowMacros(true);
             return {
               ...state,
               carbsLow: Math.round(state.calorieIntake*carbPercentageLow), 

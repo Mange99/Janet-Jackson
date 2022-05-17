@@ -21,8 +21,9 @@ export class SessionService {
       const ret = await axios(config);
       console.log(ret.data);
       return ret.data;
-    } catch (error) {
+    } catch (error: any) {
       console.log("Error with login request: " + error);
+      throw new Error(error);
     }
   }
 

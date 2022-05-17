@@ -6,13 +6,31 @@ import LandingPage from "./pages/LandingPage";
 import RegisterPage from "./pages/registerPage";
 import { TipsPage } from "../src/components/tipsPage/tipsPage";
 import { HeaderComponent } from "./components/header/headerComponent";
-import { FoodPage } from "../src/components/foodPage/foodPage";
+import { FoodPage } from "./pages/foodPage";
 import { ProfilePage } from "../src/pages/profilePage";
-import { useToken } from "./components/useToken";
 import LoginPage from "./pages/loginPage";
+import { useEffect, useState } from "react";
+import { UserService } from "./services/userService";
+import { useStateContext } from "./contexts/tokenContext";
 
 function App() {
-  const { token, setToken } = useToken();
+  const {state, dispatch} = useStateContext();
+  const {token} = state;
+
+  useEffect(() => {
+    const service = new UserService();
+    if(state.token != "") {
+      service.authUser(token).then((data) => {
+        console.log(data);
+        if(!data) {
+          dispatch?.({
+            type: "DELETE_TOKEN"
+          })
+        }
+      })
+    }
+  
+  }, [])
 
   return (
     <BrowserRouter>
@@ -22,13 +40,13 @@ function App() {
         <Route path="/calculators" element={<CalculatorPage />} />
         <Route path="/tips" element={<TipsPage />} />
         <Route path="food-and-health" element={<FoodPage />} />
-
-        {localStorage.getItem("token") == undefined ? (
+        
+        {state.token == "" ? (
           <Route>
-            <Route path="/login" element={<LoginPage setToken={setToken} />} />
+            <Route path="/login" element={<LoginPage/>} />
             <Route
               path="/register"
-              element={<RegisterPage setToken={setToken} />}
+              element={<RegisterPage/>}
             />
           </Route>
         ) : (

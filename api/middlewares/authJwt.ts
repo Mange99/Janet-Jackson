@@ -14,20 +14,20 @@ class JWT {
 
     authenticateJWT(req: Request, res: Response) {
         const authHeader = req.headers.authorization
+        //magic numbers to get rid of line endings in token, eg \""
+    
 
         try {
             if (authHeader && authHeader !== "null") {
-            // const token = authHeader.split(" ")[1];
-            this.logger.info("auth Header" + JWT_KEY, "")
-
+            this.logger.info("authHeader::" , authHeader);
             verify(authHeader, JWT_KEY, (err: any, user: any) => {
                 if (err) {
                 this.logger.error("Error:: " + err)
+                //403 is status: forbidden
                 return res
                     .status(403)
                     .send({ success: false, message: "Token Expired" })
                 }
-                //req.body.user = user;
                 return res.status(200).json({
                     success: true,
                     message: "Authorized",

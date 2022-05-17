@@ -1,5 +1,6 @@
 import { useAnimationFrame } from "framer-motion";
 import axios from "axios";
+import { Token } from "../contexts/useToken";
 
 type userProp = {
     username: string;
@@ -10,6 +11,30 @@ export class UserService {
     public async getAllUsers(): Promise<any> {
         const response = await fetch('/api/users');
         return await response.json();
+    }
+
+    public async authUser(token: string) {
+      try {
+      
+        const bodyParameters = {
+          key: "value"
+       } 
+
+       const config = {
+         method: "post",
+         url: 'http://localhost:3080/api/auth-user',
+         headers: { Authorization: token},
+         data: bodyParameters
+       }
+
+       const res = await axios(config);
+       console.log(res.data);
+
+       return res.data.success;
+      } catch (error) {
+        console.log("Error with authenticating user due to:: " + error);
+        return false;
+      }
     }
 
     public async createUser(user: userProp): Promise<any> {
