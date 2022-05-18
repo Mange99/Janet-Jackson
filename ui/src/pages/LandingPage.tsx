@@ -3,8 +3,6 @@ import {
   Button,
   Container,
   Flex,
-  Grid,
-  GridItem,
   Heading,
   Icon,
   Image,

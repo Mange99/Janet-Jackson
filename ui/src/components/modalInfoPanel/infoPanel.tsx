@@ -29,7 +29,7 @@ const InfoPanel: React.FC<InfoPanelProps> = ({ show, onHide, exercise }) => {
         </Text>
         <Text>
           You need {exercise.equipment} to do this exercise. It is demonstrated
-          here below in a short video.
+          here below in a gif.
         </Text>
         <Image src={exercise.gifUrl}></Image>
       </Modal.Body>

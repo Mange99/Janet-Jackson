@@ -14,7 +14,6 @@ export function ExerciseCardGrid({
         xl: "repeat(3, 1fr)",
       }}
       rowGap={8}
-      columnGap={[8, 4, 2]}
     >
       {exercises.map((exercise) => (
         <GridItem justifySelf={"center"} w={"18rem"}>
