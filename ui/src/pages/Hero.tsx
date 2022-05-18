@@ -1,4 +1,4 @@
-import { Box, Button, Heading, Icon, Image } from "@chakra-ui/react";
+import { Box, Button, Heading, Icon } from "@chakra-ui/react";
 import bg from "../res/images/hero.jpg";
 import { MdArrowDownward } from "react-icons/md";
 
@@ -12,7 +12,7 @@ const Hero = ({ scrollToNext }: HeroProps) => {
       position="relative"
       backgroundImage={bg}
       w="full"
-      h="100vh"
+      h={{ sm: "100vh", base: "50vh" }}
       backgroundPosition="center"
       backgroundSize="cover"
     >
