@@ -67,30 +67,10 @@ export function FoodPage() {
 
   return (
     <>
-      <div className=" mt-2 d-flex justify-content-center flex-row">
-        <Row className=" text-center">
-          <Col lg={2} md={2} className={"d-flex"}>
-            <Form>
-              <Form.Group controlId="recipe" className="mb-3">
-                <Form.Control
-                  style={{ width: "12rem" }}
-                  onChange={(e) => {
-                    setRecipeQuery(e.target.value);
-                  }}
-                  type="text"
-                  placeholder="Recipe..."
-                />
-              </Form.Group>
-            </Form>
-
-            <Button
-              className="m-2"
-              onClick={() => handleSubmit(recipeQuery)}
-              variant="primary"
-            >
-              Search
-            </Button>
-
+      <div>
+        <Row>
+          <Col className="m-2">
+       
             <DropdownButton id="dropdown-basic-button" title="Nutration Filter">
               {filterHealth().map((item) => {
                 return (
@@ -105,6 +85,29 @@ export function FoodPage() {
                 );
               })}
             </DropdownButton>
+          </Col>
+
+          <Col lg={6} md={6}   className={"d-flex  m-2" }>
+            <Form>
+              <Form.Group controlId="recipe" >
+                <Form.Control
+                  style={{ width: "12rem" }}
+                  onChange={(e) => {
+                    setRecipeQuery(e.target.value);
+                  }}
+                  type="text"
+                  placeholder="Recipe..."
+                />
+              </Form.Group>
+            </Form>
+
+            <Button
+            className="ms-2"
+              onClick={() => handleSubmit(recipeQuery)}
+              variant="primary"
+            >
+              Search
+            </Button>
           </Col>
         </Row>
       </div>
