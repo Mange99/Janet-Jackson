@@ -1,8 +1,6 @@
 import {
   Box,
-  Button,
   Flex,
-  Grid,
   Heading,
   IconButton,
   Input,
@@ -21,13 +19,12 @@ import {
   ExerciseSession,
   SessionProps,
 } from "../components/types";
-import { button as SpecialButton } from "../components/button";
+import { Button as SpecialButton } from "../components/button";
 
 import { MdRemove } from "react-icons/md";
 import { SessionService } from "../services/sessionService";
 import FilterButton from "../components/filterButton";
 import { useStateContext } from "../contexts/tokenContext";
-import { bgcolor } from "@mui/system";
 
 async function sendSession(data: SessionProps) {
   const sessionService = new SessionService();
@@ -191,7 +188,7 @@ export const ExercisePage = () => {
       method: "GET",
       headers: {
         "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
-        "X-RapidAPI-Key": "8a18f3daebmsh3a2c8185774efc1p1392a6jsn2738db58b874",
+        "X-RapidAPI-Key": "9423e70f59msh77ee0b0ab5c7f76p10e9a2jsn759b6c9ad307",
       },
     };
 
@@ -207,7 +204,7 @@ export const ExercisePage = () => {
   return (
     <Box w="full">
       {exercises && (
-        <Flex direction={{ base: "column", sm: "row" }}>
+        <Flex direction={{ base: "column", md: "row" }}>
           <Box>
             <Flex direction={"column"} gap={2} p={4}>
               <Text
@@ -261,15 +258,20 @@ export const ExercisePage = () => {
             </Flex>
           </Box>
 
-          <Box p={4} w="60%" margin="auto">
-            <Text as="h2" fontSize={"2xl"} fontWeight="bold" mb={4}>
+          <Box p={4} w={{ base: "100%", md: "70%" }} mx="auto">
+            <Text
+              as="h2"
+              fontSize={{ base: "xl", md: "2xl" }}
+              fontWeight="bold"
+              mb={4}
+            >
               {title}
             </Text>
             <Input
               variant={"flushed"}
               placeholder="Search exercises"
               mb={8}
-              w="40%"
+              w={{ base: "60%", md: "40%" }}
               onChange={(e) => {
                 showSpecific(searchExercises(e.target.value), e.target.value);
               }}
@@ -285,7 +287,7 @@ export const ExercisePage = () => {
             </Flex>
           </Box>
 
-          <Box w="20%">
+          <Box w={{ base: "80%", md: "20%" }} mx="auto" mb={8}>
             {state.token != "" && (
               <Box
                 position={"relative"}

@@ -2,7 +2,7 @@ import { Button as ChakraButton, ButtonProps } from "@chakra-ui/react";
 
 interface Props extends ButtonProps {}
 
-export const button = ({ children, ...props }: Props) => {
+export const Button = ({ children, ...props }: Props) => {
   return (
     <ChakraButton
       color="white"
