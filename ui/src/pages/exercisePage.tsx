@@ -35,6 +35,11 @@ export const ExercisePage = () => {
   const [exercises, setAllExcercises] = useState<ExerciseProps[]>([]);
   const [excercises, setExcercises] = useState(exercises);
   const [title, setTitle] = useState("All excercises");
+  const [noOfExercises, setnoOfExercises] = useState (20);
+  
+  const showMoreExercises = () => {
+    setnoOfExercises(noOfExercises + noOfExercises);
+  };
 
   const [session, setSession] = useState<SessionProps>({
     token: "",
@@ -322,8 +327,20 @@ export const ExercisePage = () => {
                 showSpecific(searchExercises(e.target.value), e.target.value);
               }}
             />
+            {<ExerciseCardGrid exercises={excercises.slice(0, noOfExercises)} onClick={function (e: ExerciseProps): void {
+              throw new Error("Function not implemented.");
+            } } />}
+            
+            <Button w="50%"
+                        backgroundColor="white"
+                        _focus={{
+                          boxShadow: 0,
+                        }}
+                        onClick= {showMoreExercises}
+              > 
+                Load More
+            </Button>
 
-            {<ExerciseCardGrid onClick={addExercises} exercises={excercises} />}
           </Box>
         </Box>
       )}

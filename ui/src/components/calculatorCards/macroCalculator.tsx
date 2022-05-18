@@ -1,5 +1,6 @@
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import { useState, useReducer} from "react";
+import { BmrCalculator } from "./bmrCalculator";
 
 const carbPercentageLow: number = 0.45;
 const carbPercentageHigh: number = 0.65;
@@ -39,6 +40,8 @@ export const MacroCalculator = () => {
     const reducer = (state: State, action: Action): State => {
         switch(action.type) {
           case 'Calculate':
+
+            setShowMacros(true);
             return {
               ...state,
               carbsLow: Math.round(state.calorieIntake*carbPercentageLow), 

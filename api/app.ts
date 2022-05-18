@@ -40,7 +40,7 @@ class App {
       // this.authController.getUsers().then(data => res.json(data));
     });
 
-    this.express.get("/api/user", (req, res) => {
+    this.express.post("/api/auth-user", (req, res) => {
       authJwt.authenticateJWT(req, res);
     });
 

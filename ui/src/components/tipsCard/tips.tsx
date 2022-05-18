@@ -63,7 +63,7 @@ export function Tips () {
     <Row xs={1} sm={2} md={2} lg={3} xl={5} className="rowTest">
       {tipss.map(tipss => (
         <Col>
-          <Card>
+          <Card className = "shadow-sm p-3 mb-5 bg-white rounded">
             <Card.Body>
               <Card.Title>{tipss.title}</Card.Title>
               <Card.Text>{tipss.tipsDescription}</Card.Text>
