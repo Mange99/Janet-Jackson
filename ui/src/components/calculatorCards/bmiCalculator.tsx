@@ -49,7 +49,11 @@ export function BmiCalculator() {
             </Form.Group>
           </Form>
 
-          <Button className="mb-3" onClick={() => setBmi(bmiCalculate)} variant="primary">
+          <Button
+            className="mb-3"
+            onClick={() => setBmi(bmiCalculate)}
+            variant="primary"
+          >
             Calculate
           </Button>
           <Form.Control type="text" placeholder={bmi + ""} readOnly />

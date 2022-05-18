@@ -20,6 +20,7 @@ export function ExerciseCard({ onClick, exercise }: ExerciseCardProps) {
   return (
     <Box
       w={"full"}
+      maxW="18rem"
       border="2px"
       borderRadius={5}
       borderColor="black"

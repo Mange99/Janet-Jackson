@@ -21,11 +21,13 @@ import {
   ExerciseSession,
   SessionProps,
 } from "../components/types";
+import { button as SpecialButton } from "../components/button";
 
 import { MdRemove } from "react-icons/md";
 import { SessionService } from "../services/sessionService";
 import FilterButton from "../components/filterButton";
 import { useStateContext } from "../contexts/tokenContext";
+import { bgcolor } from "@mui/system";
 
 async function sendSession(data: SessionProps) {
   const sessionService = new SessionService();
@@ -160,7 +162,7 @@ export const ExercisePage = () => {
       reps: 10,
     };
 
-    const token = localStorage.getItem("token");
+    const token = state.token;
     if (token != null) {
       if (session.exersiceProps.includes(temp)) {
         setErrorType("Already added!");
@@ -203,165 +205,61 @@ export const ExercisePage = () => {
   }, []);
 
   return (
-    <div>
+    <Box w="full">
       {exercises && (
-        <Box position={"relative"}>
-          <Grid gridGap={2} p={4} position="absolute">
-            <Text fontSize="lg" fontWeight="bold" align="center">
-              Filter specific bodypart
-            </Text>
-            <FilterButton
-              buttonName="Show all"
-              onClick={() => {
-                showSpecific(exercises, "All exercises");
-              }}
-            />
-            {allExcersices()
-              .slice(0, noOfBody)
-              .map((e) => {
-                return (
-                  <FilterButton
-                    buttonName={e}
-                    onClick={() => {
-                      showSpecific(specific(e), e);
-                    }}
-                  />
-                );
-              })}
-            <Button
-              onClick={showMoreBody}
-              color="white"
-              bgColor={"#21D0B1"}
-              _active={{ bgColor: "#4fe3c8" }}
-              _hover={{ bgColor: "#1cb095" }}
-              _focus={{
-                boxShadow: 0,
-              }}
-            >
-              {noOfBody < allExcersices().length ? "Show all" : "Show less"}
-            </Button>
-            <Text fontSize="lg" fontWeight="bold" align="center">
-              Filter specific equipment
-            </Text>
-            {allEquipments()
-              .slice(0, noOfEquipment)
-              .map((eq) => {
-                return (
-                  <FilterButton
-                    buttonName={eq}
-                    onClick={() => {
-                      showSpecific(specificEquipment(eq), eq);
-                    }}
-                  />
-                );
-              })}
-            <Button
-              onClick={showMoreEquipment}
-              color="white"
-              _active={{ bgColor: "#4fe3c8" }}
-              bgColor={"#21D0B1"}
-              _hover={{ bgColor: "#1cb095" }}
-              _focus={{
-                boxShadow: 0,
-              }}
-            >
-              {noOfEquipment < allEquipments().length
-                ? "Show all"
-                : "Show less"}
-            </Button>
-          </Grid>
-          {state.token == "" && (
-            <Box
-              position={"absolute"}
-              right={0}
-              w="15vw"
-              mt={4}
-              ml={2}
-              pl={2}
-              borderLeft={"1px"}
-            >
-              <Heading textAlign={"center"}>Session</Heading>
-              <Flex direction={"column"}>
-                <Text>Name your session</Text>
-                <Input
-                  w="80%"
-                  mb={4}
-                  type="name"
-                  value={session.sessionTitle}
-                  placeholder="session name"
-                  onChange={(e) => {
-                    e.preventDefault();
-                    setSession({
-                      ...session,
-                      sessionTitle: e.target.value,
-                    });
-                  }}
-                />
-                {session.exersiceProps.map((e) => {
+        <Flex direction={{ base: "column", sm: "row" }}>
+          <Box>
+            <Flex direction={"column"} gap={2} p={4}>
+              <Text
+                fontSize={{ base: "lg", mg: "md" }}
+                fontWeight="bold"
+                align="center"
+              >
+                Filter specific bodypart
+              </Text>
+              <FilterButton
+                buttonName="Show all"
+                onClick={() => {
+                  showSpecific(exercises, "All exercises");
+                }}
+              />
+              {allExcersices()
+                .slice(0, noOfBody)
+                .map((e) => {
                   return (
-                    <Box w="80%" mt={4}>
-                      {e.name}
-                      <IconButton
-                        mr={4}
-                        position={"absolute"}
-                        right={0}
-                        aria-label={""}
-                        icon={<MdRemove />}
-                        boxSize={8}
-                        onClick={() => removeExercises(e)}
-                      ></IconButton>
-                      <Flex align="center" my="2" gap={1}>
-                        <Text>Sets: </Text>
-                        <NumberInput
-                          w="40%"
-                          defaultValue={3}
-                          min={0}
-                          max={99}
-                          size={"sm"}
-                          onChange={(value) => {
-                            e.sets = Number(value);
-                          }}
-                        >
-                          <NumberInputField />
-                          <NumberInputStepper>
-                            <NumberIncrementStepper />
-                            <NumberDecrementStepper />
-                          </NumberInputStepper>
-                        </NumberInput>
-                        <Text>Reps: </Text>
-                        <NumberInput
-                          w="40%"
-                          defaultValue={10}
-                          min={0}
-                          max={99}
-                          size={"sm"}
-                          onChange={(value) => {
-                            e.reps = Number(value);
-                          }}
-                        >
-                          <NumberInputField />
-                          <NumberInputStepper>
-                            <NumberIncrementStepper />
-                            <NumberDecrementStepper />
-                          </NumberInputStepper>
-                        </NumberInput>
-                      </Flex>
-                    </Box>
+                    <FilterButton
+                      buttonName={e}
+                      onClick={() => {
+                        showSpecific(specific(e), e);
+                      }}
+                    />
                   );
                 })}
-
-                <Button onClick={handleClick} w="80%" margin="auto" mt={8}>
-                  Save Session
-                </Button>
-
-                {error ? (
-                  <Text color="red" m="auto">
-                    {errorType}
-                  </Text>
-                ) : null}
-              </Flex>
-            </Box>
-          )}
+              <SpecialButton onClick={showMoreBody}>
+                {noOfBody < allExcersices().length ? "Show all" : "Show less"}
+              </SpecialButton>
+              <Text fontSize="lg" fontWeight="bold" align="center">
+                Filter specific equipment
+              </Text>
+              {allEquipments()
+                .slice(0, noOfEquipment)
+                .map((eq) => {
+                  return (
+                    <FilterButton
+                      buttonName={eq}
+                      onClick={() => {
+                        showSpecific(specificEquipment(eq), eq);
+                      }}
+                    />
+                  );
+                })}
+              <SpecialButton onClick={showMoreEquipment}>
+                {noOfEquipment < allEquipments().length
+                  ? "Show all"
+                  : "Show less"}
+              </SpecialButton>
+            </Flex>
+          </Box>
 
           <Box p={4} w="60%" margin="auto">
             <Text as="h2" fontSize={"2xl"} fontWeight="bold" mb={4}>
@@ -376,32 +274,120 @@ export const ExercisePage = () => {
                 showSpecific(searchExercises(e.target.value), e.target.value);
               }}
             />
-
             <ExerciseCardGrid
               exercises={excercises.slice(0, noOfExercises)}
               onClick={addExercises}
             />
-
             <Flex w="full">
-              <Button
-                p={4}
-                mx="auto"
-                my={8}
-                color="white"
-                bgColor={"#21D0B1"}
-                _hover={{ bgColor: "#1cb095" }}
-                _focus={{
-                  boxShadow: 0,
-                }}
-                w="15%"
-                onClick={showMoreExercises}
-              >
+              <SpecialButton p={4} mx="auto" my={8} onClick={showMoreExercises}>
                 Load More
-              </Button>
+              </SpecialButton>
             </Flex>
           </Box>
-        </Box>
+
+          <Box w="20%">
+            {state.token != "" && (
+              <Box
+                position={"relative"}
+                w={"full"}
+                mt={4}
+                ml={2}
+                pl={2}
+                borderLeft={"1px"}
+              >
+                <Heading textAlign={"center"}>Session</Heading>
+                <Flex direction={"column"}>
+                  <Text>Name your session</Text>
+                  <Input
+                    w="80%"
+                    mb={4}
+                    type="name"
+                    value={session.sessionTitle}
+                    placeholder="session name"
+                    onChange={(e) => {
+                      e.preventDefault();
+                      setSession({
+                        ...session,
+                        sessionTitle: e.target.value,
+                      });
+                    }}
+                  />
+                  {session.exersiceProps.map((e) => {
+                    return (
+                      <Box w="80%" mt={4}>
+                        {e.name}
+                        <IconButton
+                          mr={4}
+                          position={"absolute"}
+                          right={0}
+                          aria-label={""}
+                          icon={<MdRemove />}
+                          boxSize={8}
+                          onClick={() => removeExercises(e)}
+                        />
+                        <Flex
+                          direction={{ base: "column", xl: "row" }}
+                          align="center"
+                          my="2"
+                          gap={1}
+                        >
+                          <Text>Sets: </Text>
+                          <NumberInput
+                            defaultValue={3}
+                            min={0}
+                            max={99}
+                            size={"sm"}
+                            onChange={(value) => {
+                              e.sets = Number(value);
+                            }}
+                          >
+                            <NumberInputField />
+                            <NumberInputStepper>
+                              <NumberIncrementStepper />
+                              <NumberDecrementStepper />
+                            </NumberInputStepper>
+                          </NumberInput>
+                          <Text>Reps: </Text>
+                          <NumberInput
+                            defaultValue={10}
+                            min={0}
+                            max={99}
+                            size={"sm"}
+                            onChange={(value) => {
+                              e.reps = Number(value);
+                            }}
+                          >
+                            <NumberInputField />
+                            <NumberInputStepper>
+                              <NumberIncrementStepper />
+                              <NumberDecrementStepper />
+                            </NumberInputStepper>
+                          </NumberInput>
+                        </Flex>
+                      </Box>
+                    );
+                  })}
+
+                  <SpecialButton
+                    onClick={handleClick}
+                    w="80%"
+                    margin="auto"
+                    mt={8}
+                  >
+                    Save Session
+                  </SpecialButton>
+
+                  {error ? (
+                    <Text color="red" m="auto">
+                      {errorType}
+                    </Text>
+                  ) : null}
+                </Flex>
+              </Box>
+            )}
+          </Box>
+        </Flex>
       )}
-    </div>
+    </Box>
   );
 };

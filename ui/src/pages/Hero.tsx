@@ -27,14 +27,14 @@ const Hero = ({ scrollToNext }: HeroProps) => {
         <Heading
           textColor="white"
           fontFamily="Anton, sans-serif"
-          fontSize="7xl"
+          fontSize={{ base: "3xl", sm: "5xl", lg: "7xl" }}
         >
           STOP WATCHING.
         </Heading>
         <Heading
           textColor="#21D0B1"
           fontFamily="Anton, sans-serif"
-          fontSize="9xl"
+          fontSize={{ base: "5xl", sm: "7xl", lg: "9xl" }}
           lineHeight={0.8}
         >
           START DOING.
