@@ -1,75 +1,123 @@
 import { useEffect, useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Dropdown,
+  DropdownButton,
+  Form,
+  Row,
+} from "react-bootstrap";
 import { RecipeCard } from "../components/recipeCard/recipeCard";
 import { recipeInterface } from "../components/recipeInterfaces";
-import {RecipeService} from "../services/recipeService";
+import { RecipeService } from "../services/recipeService";
 
 const getRecipes = async (recipe: string): Promise<recipeInterface[]> => {
   const service = new RecipeService();
   const res = await service.getRecipe(recipe);
   console.log(res);
   return res;
-}
-
+};
 
 export function FoodPage() {
-
   const [recipeQuery, setRecipeQuery] = useState("meat");
-  const [recipesArray, setRecipes] = useState<recipeInterface[]>([]);
+  const [recipes, setRecipes] = useState<recipeInterface[]>([]);
+  const [filteredRecipes, setFilterRecipes] = useState<recipeInterface[]>([]);
+
+  const specificRecipeLabels = (recipeLabel: string) => {
+    if (recipeLabel == "None") {
+      setFilterRecipes(recipes);
+    } else {
+      setFilterRecipes(
+        recipes.filter((recipe) =>
+          recipe.recipe.healthLabels.includes(recipeLabel)
+        )
+      );
+    }
+  };
+
+  const filterHealth = () => {
+    let filterItems: string[] = [];
+
+    recipes.map((rec) => {
+      rec.recipe.healthLabels.map((label) => {
+        if (!filterItems.includes(label)) {
+          filterItems.push(label);
+        }
+      });
+    });
+    filterItems.push("None");
+    return filterItems;
+  };
 
   useEffect(() => {
     handleSubmit(recipeQuery);
   }, []);
 
- const handleSubmit = (recipe: string) => {
-     try {
+  const handleSubmit = (recipe: string) => {
+    try {
       getRecipes(recipe).then((data) => {
-       console.log(data);
-       setRecipes(data);
+        console.log(data);
+        setRecipes(data);
+        setFilterRecipes(data);
       });
-     } catch (error) {
-       console.log("error with setting recipes in foodPage, Error:: " + error);
-     }
-   
- }
+    } catch (error) {
+      console.log("error with setting recipes in foodPage, Error:: " + error);
+    }
+  };
 
   return (
     <>
-      <div className="mb-3 mt-3 mr-5 d-flex flex-col">
-          <Form>
-            <Form.Group className="mb-3" controlId="formRecipe">
-              <Form>
-                <Row>
-                  <Col>
-                    <Form.Group controlId="recipe">
-                      <Form.Control
-                        style={{width: "12rem"}}
-                        onChange={e => {setRecipeQuery(e.target.value)}}
-                        type="text"
-                        placeholder="Recipe..."
-                      />
-              
-                    </Form.Group>
-                  </Col>
-                    
-                </Row>
-              </Form>
-            </Form.Group>
+      <div className=" mt-2 d-flex justify-content-center flex-row">
+        <Row className=" text-center">
+          <Col lg={2} md={2} className={"d-flex"}>
+            <Form>
+              <Form.Group controlId="recipe" className="mb-3">
+                <Form.Control
+                  style={{ width: "12rem" }}
+                  onChange={(e) => {
+                    setRecipeQuery(e.target.value);
+                  }}
+                  type="text"
+                  placeholder="Recipe..."
+                />
+              </Form.Group>
+            </Form>
 
-          </Form>
-          <Button className="mb-3 mr-10" onClick={() => handleSubmit(recipeQuery)} variant="primary">
-            Search
-          </Button>
+            <Button
+              className="m-2"
+              onClick={() => handleSubmit(recipeQuery)}
+              variant="primary"
+            >
+              Search
+            </Button>
+
+            <DropdownButton id="dropdown-basic-button" title="Nutration Filter">
+              {filterHealth().map((item) => {
+                return (
+                  <Dropdown.Item
+                    href="#/action-1"
+                    onClick={(e) => {
+                      specificRecipeLabels(item);
+                    }}
+                  >
+                    {item}
+                  </Dropdown.Item>
+                );
+              })}
+            </DropdownButton>
+          </Col>
+        </Row>
       </div>
 
-      <Row xs={1} md={2} lg={4} className="g-4">
-      {recipesArray.map((e) => (
-        <Col>
-          <RecipeCard recipe={e.recipe} />
-        </Col>
-        ))
-      }
-    </Row>
+      <Row>
+        {filteredRecipes.map((e) => (
+          <Col>
+            <RecipeCard recipe={e.recipe} />
+          </Col>
+        ))}
+      </Row>
+
+      <Row xs={1} md={2} lg={4} className="g-4"></Row>
     </>
   );
 }
