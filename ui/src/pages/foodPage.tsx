@@ -6,6 +6,7 @@ import {
   DropdownButton,
   Form,
   Row,
+  Spinner,
 } from "react-bootstrap";
 import { RecipeCard } from "../components/recipeCard/recipeCard";
 import { recipeInterface } from "../components/recipeInterfaces";
@@ -22,6 +23,7 @@ export function FoodPage() {
   const [recipeQuery, setRecipeQuery] = useState("meat");
   const [recipes, setRecipes] = useState<recipeInterface[]>([]);
   const [filteredRecipes, setFilterRecipes] = useState<recipeInterface[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const specificRecipeLabels = (recipeLabel: string) => {
     if (recipeLabel == "None") {
@@ -55,18 +57,20 @@ export function FoodPage() {
 
   const handleSubmit = (recipe: string) => {
     try {
+      setLoading(true);
       getRecipes(recipe).then((data) => {
-        console.log(data);
         setRecipes(data);
         setFilterRecipes(data);
+        setLoading(false);
       });
     } catch (error) {
+      setLoading(true);
       console.log("error with setting recipes in foodPage, Error:: " + error);
     }
   };
 
   return (
-    <>
+    <div className="vh-100">
       <div>
         <Row>
           <Col className="m-2">
@@ -111,7 +115,8 @@ export function FoodPage() {
           </Col>
         </Row>
       </div>
-
+      
+      {!loading ?
       <Row>
         {filteredRecipes.map((e) => (
           <Col>
@@ -119,8 +124,13 @@ export function FoodPage() {
           </Col>
         ))}
       </Row>
-
-      <Row xs={1} md={2} lg={4} className="g-4"></Row>
-    </>
+      :
+      <div className="position-absolute top-50 start-50 translate-middle">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+      }
+    </div>
   );
 }
