@@ -7,9 +7,17 @@ export function ExerciseCardGrid({
   exercises,
 }: ExerciseCardGridProps) {
   return (
-    <Grid templateColumns="repeat(3, 1fr)" rowGap={8} columnGap={8}>
+    <Grid
+      templateColumns={{
+        sm: "repeat(1, 1fr)",
+        lg: "repeat(2, 1fr)",
+        xl: "repeat(3, 1fr)",
+      }}
+      rowGap={8}
+      columnGap={[8, 4, 2]}
+    >
       {exercises.map((exercise) => (
-        <GridItem w="100%">
+        <GridItem w={{ sm: "50%", lg: "80%" }}>
           <ExerciseCard onClick={onClick} exercise={exercise} />
         </GridItem>
       ))}

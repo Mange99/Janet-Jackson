@@ -1,6 +1,7 @@
 import { Modal, Button, CloseButton } from "react-bootstrap";
 import { InfoPanelProps } from "../types";
 import Image from "react-bootstrap/Image";
+import { Text } from "@chakra-ui/react";
 
 const InfoPanel: React.FC<InfoPanelProps> = ({ show, onHide, exercise }) => {
   return (
@@ -15,18 +16,21 @@ const InfoPanel: React.FC<InfoPanelProps> = ({ show, onHide, exercise }) => {
     >
       <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">
-          {exercise.name}
+          {exercise.name.charAt(0).toUpperCase()}
+          {exercise.name.slice(1)}
         </Modal.Title>
         <CloseButton onClick={onHide} />
       </Modal.Header>
       <Modal.Title></Modal.Title>
       <Modal.Body>
-        <h4>{exercise.name}</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
+        <Text fontSize={"xl"} fontWeight="medium">
+          This exercise trains the {exercise.bodyPart}, more specific{" "}
+          {exercise.target}.
+        </Text>
+        <Text>
+          You need {exercise.equipment} to do this exercise. It is demonstrated
+          here below in a short video.
+        </Text>
         <Image src={exercise.gifUrl}></Image>
       </Modal.Body>
       <Modal.Footer>

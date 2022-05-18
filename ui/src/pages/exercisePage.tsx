@@ -25,6 +25,7 @@ import {
 import { MdRemove } from "react-icons/md";
 import { SessionService } from "../services/sessionService";
 import FilterButton from "../components/filterButton";
+import { useStateContext } from "../contexts/tokenContext";
 
 async function sendSession(data: SessionProps) {
   const sessionService = new SessionService();
@@ -35,8 +36,27 @@ export const ExercisePage = () => {
   const [exercises, setAllExcercises] = useState<ExerciseProps[]>([]);
   const [excercises, setExcercises] = useState(exercises);
   const [title, setTitle] = useState("All excercises");
-  const [noOfExercises, setnoOfExercises] = useState (20);
-  
+  const [noOfExercises, setnoOfExercises] = useState(30);
+  const [noOfBody, setNoOfBody] = useState(3);
+  const [noOfEquipment, setNoOfEquipment] = useState(4);
+  const { state, dispatch } = useStateContext();
+
+  const showMoreBody = () => {
+    if (noOfBody < allExcersices().length) {
+      setNoOfBody(allExcersices().length);
+    } else {
+      setNoOfBody(3);
+    }
+  };
+
+  const showMoreEquipment = () => {
+    if (noOfEquipment < allEquipments().length) {
+      setNoOfEquipment(allEquipments().length);
+    } else {
+      setNoOfEquipment(3);
+    }
+  };
+
   const showMoreExercises = () => {
     setnoOfExercises(noOfExercises + noOfExercises);
   };
@@ -190,38 +210,67 @@ export const ExercisePage = () => {
             <Text fontSize="lg" fontWeight="bold" align="center">
               Filter specific bodypart
             </Text>
-
             <FilterButton
               buttonName="Show all"
               onClick={() => {
                 showSpecific(exercises, "All exercises");
               }}
             />
-            {allExcersices().map((e) => {
-              return (
-                <FilterButton
-                  buttonName={e}
-                  onClick={() => {
-                    showSpecific(specific(e), e);
-                  }}
-                />
-              );
-            })}
+            {allExcersices()
+              .slice(0, noOfBody)
+              .map((e) => {
+                return (
+                  <FilterButton
+                    buttonName={e}
+                    onClick={() => {
+                      showSpecific(specific(e), e);
+                    }}
+                  />
+                );
+              })}
+            <Button
+              onClick={showMoreBody}
+              color="white"
+              bgColor={"#21D0B1"}
+              _active={{ bgColor: "#4fe3c8" }}
+              _hover={{ bgColor: "#1cb095" }}
+              _focus={{
+                boxShadow: 0,
+              }}
+            >
+              {noOfBody < allExcersices().length ? "Show all" : "Show less"}
+            </Button>
             <Text fontSize="lg" fontWeight="bold" align="center">
               Filter specific equipment
             </Text>
-            {allEquipments().map((eq) => {
-              return (
-                <FilterButton
-                  buttonName={eq}
-                  onClick={() => {
-                    showSpecific(specificEquipment(eq), eq);
-                  }}
-                />
-              );
-            })}
+            {allEquipments()
+              .slice(0, noOfEquipment)
+              .map((eq) => {
+                return (
+                  <FilterButton
+                    buttonName={eq}
+                    onClick={() => {
+                      showSpecific(specificEquipment(eq), eq);
+                    }}
+                  />
+                );
+              })}
+            <Button
+              onClick={showMoreEquipment}
+              color="white"
+              _active={{ bgColor: "#4fe3c8" }}
+              bgColor={"#21D0B1"}
+              _hover={{ bgColor: "#1cb095" }}
+              _focus={{
+                boxShadow: 0,
+              }}
+            >
+              {noOfEquipment < allEquipments().length
+                ? "Show all"
+                : "Show less"}
+            </Button>
           </Grid>
-          {localStorage.getItem("token") != undefined && (
+          {state.token == "" && (
             <Box
               position={"absolute"}
               right={0}
@@ -327,20 +376,29 @@ export const ExercisePage = () => {
                 showSpecific(searchExercises(e.target.value), e.target.value);
               }}
             />
-            {<ExerciseCardGrid exercises={excercises.slice(0, noOfExercises)} onClick={function (e: ExerciseProps): void {
-              throw new Error("Function not implemented.");
-            } } />}
-            
-            <Button w="50%"
-                        backgroundColor="white"
-                        _focus={{
-                          boxShadow: 0,
-                        }}
-                        onClick= {showMoreExercises}
-              > 
-                Load More
-            </Button>
 
+            <ExerciseCardGrid
+              exercises={excercises.slice(0, noOfExercises)}
+              onClick={addExercises}
+            />
+
+            <Flex w="full">
+              <Button
+                p={4}
+                mx="auto"
+                my={8}
+                color="white"
+                bgColor={"#21D0B1"}
+                _hover={{ bgColor: "#1cb095" }}
+                _focus={{
+                  boxShadow: 0,
+                }}
+                w="15%"
+                onClick={showMoreExercises}
+              >
+                Load More
+              </Button>
+            </Flex>
           </Box>
         </Box>
       )}
