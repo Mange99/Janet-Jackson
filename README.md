@@ -1,4 +1,4 @@
-# README (In-progress)
+# README
 
 ### A health and fitness website project
 
@@ -10,37 +10,35 @@ Our project is a web application for health-conscious people seeking information
 
 #### What is the project's value?
 
-It provides inspiration and information in training and health, which is the third goal in the UN goals: "Ensure healthy lives and promote well-being for all at all ages"—and a concern for many persons.
+It provides inspiration and information in training and health, which is [the third goal in the UN goals](https://www.un.org/sustainabledevelopment/health/): "Ensure healthy lives and promote well-being for all at all ages"—and a concern for many persons.
 
 #### Where can users get help with the project?
 
-Please get in touch with us on this email: ADD EMAIL.
+Please get in touch with us on this email: ADD EMAIL. ⚠ !!!!!!!!!!!!!!
 
 ## How the website works
-
-IMAGE
-/images/mockup.png
+![Website homepage example picture](WebsitePromo.png)
 
 The website has four main features:
 
-- Workouts
+- Exercises
   - Categories of exercises with regards to specified bodyparts—for specific and targeted workouts
-- Health and food
+- Food and Health
   - Categories of healthy foods and their relevant information with regards to health
 - Tips
   - For ensuring a healthy lifestyle
 - Calculators
   - Such as BMI calculators for easy and accessible health checks
 
-## How to view the project and other relevant information ~
+There are also additional features such as login, sessions, favourites, filters, a search bar, and accounts.
 
-~~#### See finished website by clicking this link!~~
+## How to view the project and other relevant information ~
 
 #### How to find course turn-ins
 
 Please see the _team_Reflections_ folder for the team reflections. [Link to the first team reflection.](https://github.com/Mange99/Janet-Jackson/blob/main/team_Reflections/Team_reflection%20w3.pdf)
 
-Please see the _individual_Reflections_ for the individual reflections.
+Please see the _individual_Reflections_ folder for the individual reflections.
 
 For the **Business Model Canvas**, the **Mockup**, the **social contract**, see file Business Model Canvas.md, Mockup-3*Agile.pdf, SocialContract.txt, respectively.
 They are stored in the \_res* folder, found under _src/res_
