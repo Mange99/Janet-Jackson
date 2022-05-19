@@ -14,12 +14,10 @@ It provides inspiration and information in training and health, which is the thi
 
 #### Where can users get help with the project?
 
-Please get in touch with us on this email: ADD EMAIL.
+Please get in touch with us on this email: ADD EMAIL. ⚠ !!!!!!!!!!!!!!
 
 ## How the website works
-
-IMAGE
-/images/mockup.png
+![Website homepage example picture](WebsitePromo.png)
 
 The website has four main features:
 
