@@ -30,6 +30,8 @@ The website has four main features:
 - Calculators
   - Such as BMI calculators for easy and accessible health checks
 
+There are also additional features such as login, sessions, favourites, filters, a search bar, and accounts.
+
 ## How to view the project and other relevant information ~
 
 #### How to find course turn-ins
