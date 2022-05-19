@@ -23,9 +23,9 @@ IMAGE
 
 The website has four main features:
 
-- Workouts
+- Exercises
   - Categories of exercises with regards to specified bodyparts—for specific and targeted workouts
-- Health and food
+- Food and Health
   - Categories of healthy foods and their relevant information with regards to health
 - Tips
   - For ensuring a healthy lifestyle
@@ -34,13 +34,11 @@ The website has four main features:
 
 ## How to view the project and other relevant information ~
 
-~~#### See finished website by clicking this link!~~
-
 #### How to find course turn-ins
 
 Please see the _team_Reflections_ folder for the team reflections. [Link to the first team reflection.](https://github.com/Mange99/Janet-Jackson/blob/main/team_Reflections/Team_reflection%20w3.pdf)
 
-Please see the _individual_Reflections_ for the individual reflections.
+Please see the _individual_Reflections_ folder for the individual reflections.
 
 For the **Business Model Canvas**, the **Mockup**, the **social contract**, see file Business Model Canvas.md, Mockup-3*Agile.pdf, SocialContract.txt, respectively.
 They are stored in the \_res* folder, found under _src/res_
