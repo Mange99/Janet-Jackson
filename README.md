@@ -10,7 +10,7 @@ Our project is a web application for health-conscious people seeking information
 
 #### What is the project's value?
 
-It provides inspiration and information in training and health, which is the third goal in the UN goals: "Ensure healthy lives and promote well-being for all at all ages"—and a concern for many persons.
+It provides inspiration and information in training and health, which is [the third goal in the UN goals](https://www.un.org/sustainabledevelopment/health/): "Ensure healthy lives and promote well-being for all at all ages"—and a concern for many persons.
 
 #### Where can users get help with the project?
 
