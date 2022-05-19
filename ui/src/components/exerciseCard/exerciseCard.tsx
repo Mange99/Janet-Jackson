@@ -7,7 +7,7 @@ import { FavoriteService } from "../../services/favoriteService";
 interface ExerciseCardProps {
   onClick: (e: ExerciseProps) => void;
   exercise: ExerciseProps;
-  checkIfFavorite: (e: ExerciseProps) => boolean;
+  checkIfFavorite: boolean;
 }
 
 async function sendFavorite(data: FavoriteProps) {
@@ -22,7 +22,7 @@ async function deleteFavorite(data: FavoriteProps) {
 
 export function ExerciseCard({ onClick, exercise, checkIfFavorite }: ExerciseCardProps) {
   const [modalShow, setModalShow] = React.useState(false);
-  const [checked, setChecked] = React.useState(checkIfFavorite(exercise));
+  const [checked, setChecked] = React.useState(false);
   const [favorite, setFavorite] = React.useState<FavoriteProps>({
     userId: '123',
     exersiceId: exercise.id,
@@ -58,13 +58,18 @@ export function ExerciseCard({ onClick, exercise, checkIfFavorite }: ExerciseCar
       }
     });
   }
-
     setChecked(!checked);
   }
+
+  React.useEffect(() => {
+    setChecked(checkIfFavorite);
+  }, [exercise])
+
 
 
   return (
     <>
+    
       <Card style={{ width: "18rem" }}>
         <Card.Body>
           <Card.Title>{exercise.name}</Card.Title>
