@@ -1,4 +1,4 @@
-# README (In-progress)
+# README
 
 ### A health and fitness website project
 
