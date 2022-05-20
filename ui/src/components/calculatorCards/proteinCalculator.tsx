@@ -18,7 +18,7 @@ let weight: number = 0;
  // taken from https://www.verywellfit.com/how-many-calories-do-i-need-each-day-2506873
  // Not exactly comparable to protein as the macros aren't perfectly balanced--but for now this is the best we can do until we can find a better source
 
-// age is not used yet! and neither is height--still looking for good sources for these!
+// age is not used yet! and neither is height--still looking for good sources for these! They are currently commented out.
 
 enum activityLevel {
     None = 1,
@@ -38,9 +38,6 @@ enum typeOfGoal {
 function proteinCalculate(gender: boolean, activity: activityLevel, type: typeOfGoal) {
   return gender ? Math.round(weight * (0.8)*1*(activity*0.8)*type) : Math.round(weight * (0.8)*0.82*(activity*0.8)*type) ;
 }
-
-//  return gender ? Math.round((10 * weight + 6.25 * height - 5 * age + 5) * activity) : Math.round((10 * weight + 6.25 * height - 5 * age - 168) * activity);
-
 
 export function ProteinCalculator() {
 
@@ -94,7 +91,7 @@ export function ProteinCalculator() {
             <Form.Group className="mb-3">
               <Form>
                 <Row>
-                <Col>
+                {/* <Col> 
                     <Form.Group controlId="age" className="mb-3">
                       <Form.Control
                         onChange={(e) => (age = Number(e.target.value))}
@@ -133,7 +130,7 @@ export function ProteinCalculator() {
                         placeholder="Height"
                       />
                     </Form.Group>
-                  </Col>
+                  </Col>*/}
                   <Col>
                     <Form.Group controlId="weight">
                       <Form.Control
@@ -154,6 +151,7 @@ export function ProteinCalculator() {
             <DropdownButton 
                 id="dropdown-activity-level" 
                 title={activityTitle}
+                variant="success"
                 >
                 <Dropdown.Item onClick={() => (handleSelectActivity(activityLevel.None, "None"))}>None (little or no exercise)</Dropdown.Item>
                 <Dropdown.Item onClick={() => (handleSelectActivity(activityLevel.Lightly, "Sedentary"))}>Sedentary (little or no exercise)</Dropdown.Item>
@@ -165,7 +163,7 @@ export function ProteinCalculator() {
         )}
 
         </Card.Body>
-        <Button style={{width: "5.7rem"}} className="ms-3" onClick={() => setProtein(proteinCalculate(gender, activity, typeOfGoals))} variant="primary">
+        <Button style={{width: "5.7rem"}} className="ms-3" onClick={() => setProtein(proteinCalculate(gender, activity, typeOfGoals))} variant="success">
             Calculate
           </Button>
         <Card.Body className="mt-2 mb-3">

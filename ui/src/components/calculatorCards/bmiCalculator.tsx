@@ -52,7 +52,7 @@ export function BmiCalculator() {
           <Button
             className="mb-3"
             onClick={() => setBmi(bmiCalculate)}
-            variant="primary"
+            variant="success"
           >
             Calculate
           </Button>
