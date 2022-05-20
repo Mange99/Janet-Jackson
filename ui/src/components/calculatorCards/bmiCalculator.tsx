@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Button, Card, Col, Form, Row } from "react-bootstrap";
-
+import { Card, Col, Form, Row } from "react-bootstrap";
+import { Button } from "../button";
 let height: number = 0;
 let weight: number = 0;
 
@@ -14,7 +14,7 @@ export function BmiCalculator() {
 
   return (
     <>
-      <Card style={{ width: "18rem", height: "15rem" }}>
+      <Card style={{ width: "18rem", height: "15rem", marginTop: "2rem" }}>
         <Card.Body>
           <Card.Title>BMI Calculator</Card.Title>
 
@@ -49,11 +49,7 @@ export function BmiCalculator() {
             </Form.Group>
           </Form>
 
-          <Button
-            className="mb-3"
-            onClick={() => setBmi(bmiCalculate)}
-            variant="success"
-          >
+          <Button mb={3} onClick={() => setBmi(bmiCalculate)}>
             Calculate
           </Button>
           <Form.Control type="text" placeholder={bmi + ""} readOnly />

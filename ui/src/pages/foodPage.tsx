@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import {
-  Button,
   Col,
   Dropdown,
   DropdownButton,
@@ -11,7 +10,7 @@ import {
 import { RecipeCard } from "../components/recipeCard/recipeCard";
 import { recipeInterface } from "../components/recipeInterfaces";
 import { RecipeService } from "../services/recipeService";
-
+import { Button } from "../components/button";
 const getRecipes = async (recipe: string): Promise<recipeInterface[]> => {
   const service = new RecipeService();
   const res = await service.getRecipe(recipe);
@@ -74,7 +73,6 @@ export function FoodPage() {
       <div>
         <Row>
           <Col className="m-2">
-       
             <DropdownButton id="dropdown-basic-button" title="Nutration Filter">
               {filterHealth().map((item) => {
                 return (
@@ -91,9 +89,9 @@ export function FoodPage() {
             </DropdownButton>
           </Col>
 
-          <Col lg={6} md={6}   className={"d-flex  m-2" }>
+          <Col lg={6} md={6} className={"d-flex  m-2"}>
             <Form>
-              <Form.Group controlId="recipe" >
+              <Form.Group controlId="recipe">
                 <Form.Control
                   style={{ width: "12rem" }}
                   onChange={(e) => {
@@ -105,32 +103,28 @@ export function FoodPage() {
               </Form.Group>
             </Form>
 
-            <Button
-            className="ms-2"
-              onClick={() => handleSubmit(recipeQuery)}
-              variant="primary"
-            >
+            <Button ml={2} onClick={() => handleSubmit(recipeQuery)}>
               Search
             </Button>
           </Col>
         </Row>
       </div>
-      
-      {!loading ?
-      <Row>
-        {filteredRecipes.map((e) => (
-          <Col>
-            <RecipeCard recipe={e.recipe} />
-          </Col>
-        ))}
-      </Row>
-      :
-      <div className="position-absolute top-50 start-50 translate-middle">
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-      </div>
-      }
+
+      {!loading ? (
+        <Row>
+          {filteredRecipes.map((e) => (
+            <Col>
+              <RecipeCard recipe={e.recipe} />
+            </Col>
+          ))}
+        </Row>
+      ) : (
+        <div className="position-absolute top-50 start-50 translate-middle">
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
+      )}
     </div>
   );
 }

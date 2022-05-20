@@ -1,7 +1,8 @@
-import { Modal, Button, CloseButton } from "react-bootstrap";
+import { Modal, CloseButton } from "react-bootstrap";
 import { InfoPanelProps } from "../types";
 import Image from "react-bootstrap/Image";
 import { Text } from "@chakra-ui/react";
+import { Button } from "../button";
 
 const InfoPanel: React.FC<InfoPanelProps> = ({ show, onHide, exercise }) => {
   return (

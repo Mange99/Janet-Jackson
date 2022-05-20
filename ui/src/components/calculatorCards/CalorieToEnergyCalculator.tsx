@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Button, Card, Col, Form, Row } from "react-bootstrap";
-
+import { Card, Col, Form, Row } from "react-bootstrap";
+import { Button } from "../button";
 let calorie: number = 0;
 
 function calorieToEnergyCalculate() {
-  return calorie*4.2;
+  return calorie * 4.2;
   //https://www.betterhealth.vic.gov.au/health/healthyliving/kilojoules-and-calories source for math conversion of calories and kJ
 }
 
@@ -13,7 +13,7 @@ export function CalorieToEnergyCalculator() {
 
   return (
     <>
-      <Card style={{ width: "18rem", height: "15rem" }}>
+      <Card style={{ width: "18rem", height: "15rem", marginBottom: "2rem" }}>
         <Card.Body>
           <Card.Title>Calorie to energy Calculator</Card.Title>
 
@@ -32,14 +32,13 @@ export function CalorieToEnergyCalculator() {
                       />
                     </Form.Group>
                   </Col>
-                  <Col>
-                  </Col>
+                  <Col></Col>
                 </Row>
               </Form>
             </Form.Group>
           </Form>
 
-          <Button className="mb-3" onClick={() => setEnergy(calorieToEnergyCalculate)} variant="success">
+          <Button mb={3} onClick={() => setEnergy(calorieToEnergyCalculate)}>
             Calculate
           </Button>
           <Form.Control type="text" placeholder={energy + " kJ"} readOnly />

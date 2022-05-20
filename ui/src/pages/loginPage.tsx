@@ -1,14 +1,15 @@
 import {
   Box,
-  Button,
   FormControl,
   FormLabel,
   Heading,
   Input,
   InputGroup,
+  Button,
   InputRightElement,
   Text,
 } from "@chakra-ui/react";
+import { Button as SpecialButton } from "../components/button";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserService } from "../services/userService";
@@ -23,17 +24,13 @@ interface login {
 
 async function loginUser(credentials: login) {
   const userService = new UserService();
-  const hash = await bcrypt.hash(
-    credentials.password,
-    salt
-  );
+  const hash = await bcrypt.hash(credentials.password, salt);
   credentials.password = hash;
   return await userService.signIn(credentials);
 }
 
 const LoginPage = () => {
-
-  const {state, dispatch} = useStateContext();
+  const { state, dispatch } = useStateContext();
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
@@ -50,14 +47,14 @@ const LoginPage = () => {
       if (token != null) {
         dispatch?.({
           type: "UPDATE_TOKEN",
-          payload: token
-        })
+          payload: token,
+        });
         setFailedLogin(false);
         navigate("/");
       } else {
         dispatch?.({
-          type: "DELETE_TOKEN"
-        })
+          type: "DELETE_TOKEN",
+        });
         setFailedLogin(true);
       }
     });
@@ -107,15 +104,14 @@ const LoginPage = () => {
             </InputRightElement>
           </InputGroup>
 
-          <Button
+          <SpecialButton
             w="100%"
-            colorScheme="teal"
             _focus={{ boxShadow: 0 }}
             mt={4}
             type="submit"
           >
             Login
-          </Button>
+          </SpecialButton>
           <Link to="/register">
             <Text my={4} align="center" textColor={"gray.500"}>
               Dont have an account?{" "}

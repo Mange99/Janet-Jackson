@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Container,
   Flex,
   Heading,
@@ -18,7 +17,7 @@ import calculator from "../res/images/bmiCalc.png";
 import { MdArrowRightAlt } from "react-icons/md";
 import { Link } from "react-router-dom";
 import SummarizeCard from "../components/summarizeCard";
-import { BmiCalculator } from "../components/calculatorCards/bmiCalculator";
+import { Button } from "../components/button";
 
 const LandingPage = () => {
   const scrollToNext = () => {
@@ -75,12 +74,7 @@ const LandingPage = () => {
 
         <Box margin="auto" textAlign="center">
           <Link to={"/exercise"}>
-            <Button
-              backgroundColor="#21D0B1"
-              textColor="white"
-              textDecoration="underline"
-              mt={8}
-            >
+            <Button textDecoration="underline" mt={8}>
               Learn more
               <Icon as={MdArrowRightAlt} boxSize={4} mt={1} />
             </Button>
@@ -115,12 +109,7 @@ const LandingPage = () => {
 
         <Box margin="auto" textAlign="center">
           <Link to="/food-and-health">
-            <Button
-              backgroundColor="#21D0B1"
-              textColor="white"
-              textDecoration="underline"
-              mt={8}
-            >
+            <Button textDecoration="underline" mt={8}>
               Learn more
               <Icon as={MdArrowRightAlt} boxSize={4} mt={1} />
             </Button>
@@ -144,13 +133,7 @@ const LandingPage = () => {
             <Image src={calculator} w="full" alt="calc" />
           </Box>
           <Link to="/calculators">
-            <Button
-              backgroundColor="#21D0B1"
-              textColor="white"
-              textDecoration="underline"
-              m={8}
-              left={0}
-            >
+            <Button textDecoration="underline" m={8} left={0}>
               Learn more
               <Icon as={MdArrowRightAlt} boxSize={4} mt={1} />
             </Button>
