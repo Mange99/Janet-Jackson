@@ -140,3 +140,27 @@ I did my userstories and also reviewed some code from others. I also helped writ
 value of our deliverables we could add some automatic testing and build process to increase the quality of the deliverable.
 To do that we should add some Ci/Cd. 
 
+
+
+Week 8 20/5
+
+What do I want to learn or understand better?
+I want to learn more about scrum and how it can be used to work. I've begun listening to some podcasts such as 
+Avkodat and Agilpodden where they talk about software development, scrum and agility in organisations. I also want to learn more about React,
+Typescript and different architectures such as microservices. I also want to learn more about Ci/Cd because it seems very useful and everyone, maybe, 
+uses it, so it would probably be good to know it a little bit atleast. 
+
+How can I help someone else, or the entire team, to learn something new?
+I can share my knowledge, this week, me and Deea worked together a bit, it went well, although we had some technical problems.
+I've also reviewed code and pointed out things that I think could be done differently or is wrong.
+I've also written some "guides" in our technical documentation document so that people don't have to ask me about implentations or architectures, and I'm occupied with something
+, but can instead read it anytime they want and can hopefully find what they're looking for. 
+
+What is my contribution towards the team’s use of Scrum?
+I've been part of all meetings this week. The planning, standups, review and retrospective. I could read more literature about scrum to learn it better 
+but I feel like it doesn't really help unless the whole team isn't on the same page regarding scrum.
+
+What is my contribution towards the team’s deliveries?
+I've done my userstories and also reviewed code from others. I've also tried to help others that needed it. To contribute more I could take on more userstories but
+I at my current velocity I don't think that would work or be healthy.
+
