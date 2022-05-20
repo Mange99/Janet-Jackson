@@ -9,12 +9,26 @@ import {UserService} from "../services/userService"
  
 export function CalculatorPage() {
   return (
-    <div className="d-flex justify-content-evenly flex-wrap mt-5" >
+    <div className="d-flex justify-content-center" >
+      <div className="d-flex flex-column gap-3">
+      <div className="d-flex justify-content-center" >
       <BmiCalculator/>
+      </div>
+      <div className="d-flex justify-content-center" >
       <BmrCalculator/>
+     </div>
+      <div className="d-flex justify-content-center" >
       <MacroCalculator/>
+      </div>
+      <div className="d-flex justify-content-center" >
       <ProteinCalculator/>
+      </div>
+      <div className="d-flex justify-content-center" >
       <CalorieToEnergyCalculator/>
+      </div>
+
+      
+      </div>
     </div>
 
   );

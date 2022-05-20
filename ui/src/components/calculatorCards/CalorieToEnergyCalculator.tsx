@@ -39,7 +39,7 @@ export function CalorieToEnergyCalculator() {
             </Form.Group>
           </Form>
 
-          <Button className="mb-3" onClick={() => setEnergy(calorieToEnergyCalculate)} variant="primary">
+          <Button className="mb-3" onClick={() => setEnergy(calorieToEnergyCalculate)} variant="success">
             Calculate
           </Button>
           <Form.Control type="text" placeholder={energy + " kJ"} readOnly />

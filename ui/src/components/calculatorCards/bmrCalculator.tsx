@@ -145,7 +145,7 @@ export function BmrCalculator() {
         )}
 
         </Card.Body>
-        <Button style={{width: "5.7rem"}} className="ms-3" onClick={() => setBmr(bmrCalculate(gender, activity))} variant="primary">
+        <Button style={{width: "5.7rem"}} className="ms-3" onClick={() => setBmr(bmrCalculate(gender, activity))} variant="success">
             Calculate
           </Button>
         <Card.Body className="mt-2 mb-3">

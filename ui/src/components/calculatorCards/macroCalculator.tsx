@@ -88,7 +88,7 @@ export const MacroCalculator = () => {
                 </Form.Group>
               </Form>
     
-              <Button onClick={() => dispatch({type: "Calculate"})} variant="primary">
+              <Button onClick={() => dispatch({type: "Calculate"})} variant="success">
                 Calculate
               </Button>
             </Card.Body>

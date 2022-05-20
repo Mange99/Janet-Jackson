@@ -151,6 +151,7 @@ export function ProteinCalculator() {
             <DropdownButton 
                 id="dropdown-activity-level" 
                 title={activityTitle}
+                variant="success"
                 >
                 <Dropdown.Item onClick={() => (handleSelectActivity(activityLevel.None, "None"))}>None (little or no exercise)</Dropdown.Item>
                 <Dropdown.Item onClick={() => (handleSelectActivity(activityLevel.Lightly, "Sedentary"))}>Sedentary (little or no exercise)</Dropdown.Item>
@@ -162,7 +163,7 @@ export function ProteinCalculator() {
         )}
 
         </Card.Body>
-        <Button style={{width: "5.7rem"}} className="ms-3" onClick={() => setProtein(proteinCalculate(gender, activity, typeOfGoals))} variant="primary">
+        <Button style={{width: "5.7rem"}} className="ms-3" onClick={() => setProtein(proteinCalculate(gender, activity, typeOfGoals))} variant="success">
             Calculate
           </Button>
         <Card.Body className="mt-2 mb-3">
