@@ -1,12 +1,13 @@
 import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Form, Row, Col } from "react-bootstrap";
+import { Form, Row, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { SessionProps } from "../components/types";
 import { SessionService } from "../services/sessionService";
 import { Box, Flex, Grid, Heading, Text, VStack } from "@chakra-ui/react";
 import { ExerciseCard } from "../components/exerciseCard/exerciseCard";
 import { useStateContext } from "../contexts/tokenContext";
+import { Button } from "../components/button";
 
 async function getSession(token: string) {
   const sessionService = new SessionService();

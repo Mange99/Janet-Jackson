@@ -1,8 +1,9 @@
-import { Box, Flex, Heading, Icon, Text, Button } from "@chakra-ui/react";
+import { Box, Flex, Heading, Icon, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import InfoPanel from "../modalInfoPanel/infoPanel";
 import { ExerciseProps } from "../types";
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
+import { Button } from "../button";
 
 interface ExerciseCardProps {
   onClick?: (e: ExerciseProps) => void;
@@ -53,27 +54,10 @@ export function ExerciseCard({ onClick, exercise }: ExerciseCardProps) {
         exercise={exercise}
       />
       <Flex gap={2} mt={4}>
-        <Button
-          onClick={() => setModalShow(true)}
-          color="white"
-          bgColor="#21D0B1"
-          _focus={{ boxShadow: 0 }}
-          _hover={{ bgColor: "#1cb095" }}
-          variant="primary"
-        >
-          More info
-        </Button>
+        <Button onClick={() => setModalShow(true)}>More info</Button>
 
         {onClick != undefined && (
-          <Button
-            style={{ marginLeft: "4px" }}
-            bgColor="#21D0B1"
-            color="white"
-            _hover={{ bgColor: "#1cb095" }}
-            _focus={{ boxShadow: 0 }}
-            onClick={handleClick}
-            _active={{ bgColor: "#4fe3c8" }}
-          >
+          <Button style={{ marginLeft: "4px" }} onClick={handleClick}>
             Add to session
           </Button>
         )}
