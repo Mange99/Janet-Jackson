@@ -12,25 +12,25 @@ import LoginPage from "./pages/loginPage";
 import { useEffect, useState } from "react";
 import { UserService } from "./services/userService";
 import { useStateContext } from "./contexts/tokenContext";
+import { Box } from "@chakra-ui/react";
 
 function App() {
-  const {state, dispatch} = useStateContext();
-  const {token} = state;
+  const { state, dispatch } = useStateContext();
+  const { token } = state;
 
   useEffect(() => {
     const service = new UserService();
-    if(state.token != "") {
+    if (state.token != "") {
       service.authUser(token).then((data) => {
         console.log(data);
-        if(!data) {
+        if (!data) {
           dispatch?.({
-            type: "DELETE_TOKEN"
-          })
+            type: "DELETE_TOKEN",
+          });
         }
-      })
+      });
     }
-  
-  }, [])
+  }, []);
 
   return (
     <BrowserRouter>
@@ -40,14 +40,11 @@ function App() {
         <Route path="/calculators" element={<CalculatorPage />} />
         <Route path="/tips" element={<TipsPage />} />
         <Route path="food-and-health" element={<FoodPage />} />
-        
+
         {state.token == "" ? (
           <Route>
-            <Route path="/login" element={<LoginPage/>} />
-            <Route
-              path="/register"
-              element={<RegisterPage/>}
-            />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
           </Route>
         ) : (
           <Route path="Profile-Page" element={<ProfilePage />} />

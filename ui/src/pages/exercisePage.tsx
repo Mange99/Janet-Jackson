@@ -148,8 +148,7 @@ export const ExercisePage = () => {
           <Box>
             <Filters showSpecific={showSpecific} exercises={exercises} />
           </Box>
-
-          <Box p={4} w={{ base: "100%", md: "70%" }} mx="auto">
+          <Box p={4} w={{ base: "100%", md: "65%" }} mx="auto">
             <Text
               as="h2"
               fontSize={{ base: "xl", md: "2xl" }}
