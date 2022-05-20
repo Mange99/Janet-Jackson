@@ -1,0 +1,32 @@
+Individual Reflection W8 - Sara
+
+#### What do I want to learn or understand better?
+
+I picked programming based tasks this week and some management + wrap up related things (basically: fix an error in calculator page, change the design on the tips page to match the rest of the site more, and finalise the read-me. This did allow me to work on my goal of understanding the programming aspect of the project more and to finaly learn some of the design aspect of react and related tech. And I believe I did learn more of react and such. (But as the weeks assigment was small--see group reflection as to why--my increased understanding was perhaps not so great).
+
+For future projects I will take with me: my new technological understanding, but mostly, my agile practices and renewed conviction on the importance of effective and often communication. 
+**Also, one of my favourite takeaways was this little nugget of wisdom the teacher gave during a lecture (im pharaphrasing but): "Don't make decisions unless you have to." -- which I am already a huge fan of, because, honestly, that's something that has been a huge problem in previous personal projects I have had and i just never realised I could just... not... make decisions yet. Which already has helped my in my private projects to be more efficient :)  
+
+#### How can I help someone else, or the entire team, to learn something new?
+My main contribution this week was related to the task I handled, which was pair programming on a webpage I had more previous experience with than the other programmer. I wanted to be helpful in this task, for the other person, through our communication. I believe we managed this, thorugh our discord voice chat and screen share. And we used our combined skills and finished the task which felt nice and a good learning oppurtunity for both.
+
+For future projects I would like to flip this question on it's head a little—there was much I did not know during this project. So I would like to be better at *asking* for help and other's knowledge in the future. I will reach this by better communication, less fear/pride/confussion about communicating ones weaknesses and gaps in knowledge. If one is afraid of being the fool, one will never learn--or something to that effect.
+
+#### What is my contribution towards the team’s use of Scrum?
+I try and follow scrum to the best of my abilities, as I see the value in the process. I Would like to make scrum work even better and to increase my understanding and assurance in it. I Will try and reach this by making concious decisions that help my scrum understanding, and take an eager part in the next scrum planning at whatever project that may be! 
+     
+#### What is my contribution towards the team’s deliveries?
+I delivered my tasks (mentioned above). And took an active role in the turn in. I want to continue doing what I am assigned in time for future projectsm and to continue having decently and realistically sized tasks that are compleatable in a week. I will reach that by continuing in the same manner in my next project as I have now—but possible even better!
+
+
+
+My main project related things have been some admin/management things, such as report and reflection related (planning, preparation, litterature reading, supervisor communication etc), some programming (mainly on the tips and callculator page). In the end I am happy with my effor and contributions during this course! 
+
+
+
+------------
+
+*See team reflection w5 for better explanation for how these values are graded (not as simple as "time" might suggest).
+
+Time: (on a scale of 1-10)  — 4.5. (There really wasn't a lot of tasks to do this last week--see team reflection for better explanation)
+Stress: (on a scale of 1-10)  — 1.
