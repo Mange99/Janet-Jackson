@@ -16,7 +16,7 @@ export function ExerciseCardGrid({
       rowGap={8}
     >
       {exercises.map((exercise) => (
-        <GridItem justifySelf={"center"} w={"18rem"}>
+        <GridItem justifySelf={"center"} maxW={"18rem"}>
           <ExerciseCard onClick={onClick} exercise={exercise} />
         </GridItem>
       ))}
