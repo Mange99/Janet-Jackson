@@ -15,5 +15,12 @@ export interface recipeInterface {
     cuisineType: Array<string>;
     digest: Array<digest>;
     healthLabels: Array<string>;
+    totalNutrients: Array<string>;
+    ingredients: [
+      {
+        food: string;
+        quantity: string;
+      }
+    ];
   };
 }

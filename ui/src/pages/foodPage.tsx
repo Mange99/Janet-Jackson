@@ -58,6 +58,7 @@ export function FoodPage() {
     try {
       setLoading(true);
       getRecipes(recipe).then((data) => {
+        console.log(data);
         setRecipes(data);
         setFilterRecipes(data);
         setLoading(false);
@@ -73,7 +74,11 @@ export function FoodPage() {
       <div>
         <Row>
           <Col className="m-2">
-            <DropdownButton id="dropdown-basic-button" title="Nutration Filter">
+            <DropdownButton
+              id="dropdown-basic-button"
+              title="Nutration Filter"
+              variant="success"
+            >
               {filterHealth().map((item) => {
                 return (
                   <Dropdown.Item
@@ -112,7 +117,7 @@ export function FoodPage() {
 
       {!loading ? (
         <Row>
-          {filteredRecipes.map((e) => (
+          {filteredRecipes.map((e: recipeInterface) => (
             <Col>
               <RecipeCard recipe={e.recipe} />
             </Col>

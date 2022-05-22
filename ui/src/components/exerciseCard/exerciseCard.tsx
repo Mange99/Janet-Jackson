@@ -4,6 +4,7 @@ import InfoPanel from "../modalInfoPanel/infoPanel";
 import { ExerciseProps } from "../types";
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import { Button } from "../button";
+import { useStateContext } from "../../contexts/tokenContext";
 
 interface ExerciseCardProps {
   onClick?: (e: ExerciseProps) => void;
@@ -13,6 +14,7 @@ interface ExerciseCardProps {
 export function ExerciseCard({ onClick, exercise }: ExerciseCardProps) {
   const [modalShow, setModalShow] = React.useState(false);
   const [like, setLike] = useState(false);
+  const { state, dispatch } = useStateContext();
 
   const handleClick = () => {
     if (onClick != undefined) onClick(exercise);
@@ -56,7 +58,7 @@ export function ExerciseCard({ onClick, exercise }: ExerciseCardProps) {
       <Flex gap={2} mt={4}>
         <Button onClick={() => setModalShow(true)}>More info</Button>
 
-        {onClick != undefined && (
+        {onClick != undefined && state.token != "" && (
           <Button style={{ marginLeft: "4px" }} onClick={handleClick}>
             Add to session
           </Button>

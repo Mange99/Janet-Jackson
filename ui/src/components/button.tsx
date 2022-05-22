@@ -6,7 +6,7 @@ export const Button = ({ children, ...props }: Props) => {
   return (
     <ChakraButton
       color="white"
-      bgColor={"red"}
+      bgColor={"#198754"}
       _active={{ bgColor: "#4fe3c8" }}
       _hover={{ bgColor: "#21D0B1" }}
       _focus={{

@@ -28,6 +28,10 @@ export const ProfilePage = () => {
     }
   }, []);
 
+  const removeSession = (session: SessionProps) => {
+    console.log(session);
+  };
+
   return (
     <Flex direction={{ base: "column", md: "row" }}>
       <Col className="m-3">
@@ -100,6 +104,9 @@ export const ProfilePage = () => {
                       </Box>
                     );
                   })}
+                  <Button onClick={() => removeSession(session)}>
+                    Remove session
+                  </Button>
                 </Box>
               );
             })}
