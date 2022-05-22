@@ -90,3 +90,21 @@ Some user stories overlapped we realized so we had to adapt us a little but we r
 
 What is my contribution towards the team’s deliveries?
 I did my user story and helped torbjörn a bit with the login. Also did my part of the team reflection.
+
+
+Week 7 13/5 - 2022
+What do I want to learn or understand better?
+This week most of the work is going to be, making the application responsive.
+Chakra UI a component library we use have a smart way of going about this you can write w={[20px, 30px, 40px]}
+So the width varies with the device width. I want to learn more about this part of react.
+
+How can I help someone else, or the entire team, to learn something new?
+Being available for questions when people need help. 
+
+What is my contribution towards the team’s use of Scrum?
+Attended the meetings answered questions the team had on react and typescript so we can faster get done and deliver the product to the PO. 
+
+What is my contribution towards the team’s deliveries?
+We wanted to create a better UI so the design on the different pages
+looked the same. So to make the css easier for everyone i created a button component all can use so the design is the same on all pages.
+I did my user story. Also did my part of the team reflection.
