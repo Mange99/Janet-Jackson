@@ -92,7 +92,21 @@ What is my contribution towards the team’s deliveries?
 I did my user story and helped torbjörn a bit with the login. Also did my part of the team reflection.
 
 
-Week 7 13/5 - 2022
+Week 7 136/5 - 2022
+What do I want to learn or understand better?
+I want to learn more about mongodb and express. 
+
+How can I help someone else, or the entire team, to learn something new?
+Being available for questions when people need help. We continue with pairprogramming and code review 
+so we can help each other if we think they have wrote some wierd code.
+
+What is my contribution towards the team’s use of Scrum?
+I attended the supervision on monday and the mid week standup meeting to make sure everyone was in phase.
+
+What is my contribution towards the team’s deliveries?
+I did my user story and fixed little overall design. Also did my part of the team reflection.
+
+Week 8 20/5 - 2022
 What do I want to learn or understand better?
 This week most of the work is going to be, making the application responsive.
 Chakra UI a component library we use have a smart way of going about this you can write w={[20px, 30px, 40px]}
