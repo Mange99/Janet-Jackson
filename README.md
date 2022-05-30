@@ -14,9 +14,10 @@ It provides inspiration and information in training and health, which is [the th
 
 #### Where can users get help with the project?
 
-Please get in touch with us on this email: ADD EMAIL. ⚠ !!!!!!!!!!!!!!
+Please get in touch with us on this email: health@info.com
 
 ## How the website works
+
 ![Website homepage example picture](WebsitePromo.png)
 
 The website has four main features:
