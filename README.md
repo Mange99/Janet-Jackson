@@ -41,7 +41,7 @@ Please see the _team_Reflections_ folder for the team reflections and final repo
 
 Please see the _individual_Reflections_ folder for the individual reflections.
 
-For the **Business Model Canvas**, the **Mockup**, the **social contract**, see file Business Model Canvas.md, Mockup-3*Agile.pdf, SocialContract.txt, respectively.
+For the **Business Model Canvas**, the **Mockup**, the **social contract**, see file Business Model Canvas.md, Mockup-3*Agile.pdf, SocialContract.txt, respectively. Additionally, in the same folder there is the DOD and the code style document.
 They are stored in the \_res* folder, found under _src/res_, under UI.
 
 For the Trello board:[Link to trello.](https://trello.com/invite/b/lLWEe4ep/855984ea0bd207889bc973e7acbc3218/agile)
