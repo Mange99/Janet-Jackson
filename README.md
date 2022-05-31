@@ -14,7 +14,7 @@ It provides inspiration and information in training and health, which is [the th
 
 #### Where can users get help with the project?
 
-Please get in touch with us on this email: health@info.com
+Please get in touch with us on this email: torbjorn.liven@gmail.com
 
 ## How the website works
 
